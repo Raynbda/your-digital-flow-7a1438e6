@@ -63,25 +63,27 @@ export function ApplyButton({
   size = "lg",
   className = "",
   variant = "primary",
+  label = "Take the workflow diagnostic",
 }: {
   size?: "lg" | "sm";
   className?: string;
   variant?: "primary" | "invert";
+  label?: string;
 }) {
   const base =
     variant === "invert"
       ? "bg-background text-primary hover:bg-background/90"
       : "bg-primary text-primary-foreground hover:bg-primary-deep";
   return (
-    <a
-      href="#apply"
+    <Link
+      to="/diagnostic"
       className={`inline-flex items-center justify-center gap-2 rounded-xl font-semibold shadow-[var(--shadow-soft)] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ${base} ${
         size === "lg" ? "px-6 py-3.5 text-base" : "px-4 py-2.5 text-sm"
       } ${className}`}
     >
-      Apply for 1:1 Workflow Optimization
+      {label}
       <span aria-hidden="true">-&gt;</span>
-    </a>
+    </Link>
   );
 }
 
