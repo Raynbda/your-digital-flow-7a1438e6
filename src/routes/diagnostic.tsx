@@ -23,7 +23,7 @@ export const Route = createFileRoute("/diagnostic")({
 function DiagnosticPage() {
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
-  const section = SECTIONS[step];
+  const section = SECTIONS[step] ?? SECTIONS[0]!;
   const questions = visibleQuestions(section, answers);
   const canContinue = questions.every((q) => q.optional || isAnswered(q, answers));
 
