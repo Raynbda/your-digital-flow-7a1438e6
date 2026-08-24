@@ -3,10 +3,10 @@ import { Section, SectionHead } from "./primitives";
 import { Reveal } from "./Reveal";
 
 const stats = [
-  { icon: Youtube, value: "8+ years", label: "making videos about digital work" },
-  { icon: Gauge, value: "110 WPM", label: "sustained typing speed, tracked over years" },
-  { icon: FileText, value: "6,400+", label: "notes in my knowledge system" },
-  { icon: BookMarked, value: "12,000+", label: "bookmarks and saved resources, all findable" },
+  { icon: Youtube, value: "3+ years", label: "making videos about digital work" },
+  { icon: Gauge, value: "80 WPM", label: "sustained typing speed, tracked over years" },
+  { icon: FileText, value: "3000+", label: "notes in my knowledge system" },
+  { icon: BookMarked, value: "3000+", label: "bookmarks and saved resources, all findable" },
   { icon: Clock3, value: "1,000s of hours", label: "inside creative and productivity apps" },
 ];
 
