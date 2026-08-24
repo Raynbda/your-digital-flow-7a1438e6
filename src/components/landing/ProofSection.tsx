@@ -3,7 +3,7 @@ import { Section, SectionHead } from "./primitives";
 import { Reveal } from "./Reveal";
 
 const stats = [
-  { icon: Youtube, value: "3+ years", label: "making videos about digital work" },
+  { icon: Youtube, value: "3+ years", label: "making videos about windows" },
   { icon: Gauge, value: "80 WPM", label: "sustained typing speed, tracked over years" },
   { icon: FileText, value: "3000+", label: "notes in my knowledge system" },
   { icon: BookMarked, value: "3000+", label: "bookmarks and saved resources, all findable" },
@@ -35,7 +35,7 @@ export function ProofSection() {
       <SectionHead
         eyebrow="Proof"
         title="This comes from years of doing the work, not reading about it."
-        lead="I have spent years building, breaking, and rebuilding my own digital systems in public, and teaching them to thousands of creators and knowledge workers."
+        lead="I have spent years building, breaking, and rebuilding my own digital systems."
       />
 
       <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
