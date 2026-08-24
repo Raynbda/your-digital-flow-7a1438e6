@@ -242,7 +242,14 @@ function DiagnosticPage() {
     }
   };
 
-  if (done) return <Results primary={ranking.primary} secondary={ranking.secondary} />;
+  if (done)
+    return (
+      <Results
+        primary={ranking.primary}
+        secondary={ranking.secondary}
+        answers={answers}
+      />
+    );
 
   return (
     <main className="min-h-screen bg-background">
