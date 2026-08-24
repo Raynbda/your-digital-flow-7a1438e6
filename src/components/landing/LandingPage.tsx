@@ -329,9 +329,6 @@ export function LandingPage() {
         </p>
       </Section>
 
-      <RoiCalculator />
-
-
       {/* Analyzed from the inside */}
       <Section>
         <SectionHead
