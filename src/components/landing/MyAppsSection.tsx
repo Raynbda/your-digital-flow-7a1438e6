@@ -72,28 +72,40 @@ function iconSrc(app: App): string {
   return app.ref;
 }
 
+// Uploaded PNG/SVG tiles have their own built-in padding, so they read smaller
+// than the transparent glyph icons unless we let them fill the whole box.
+const PADDED_TILES = new Set(["Google Calendar", "DaVinci Resolve", "OBS Studio"]);
+
 function AppIcon({ app }: { app: App }) {
+  const isTile = app.kind === "asset";
+  const sizeClass = PADDED_TILES.has(app.name)
+    ? "h-10 w-10 scale-110"
+    : isTile
+      ? "h-10 w-10"
+      : "h-8 w-8";
+
   return (
-    <div className="group flex flex-col items-center gap-1.5">
-      <div className="flex h-10 w-10 items-center justify-center transition-transform duration-200 group-hover:-translate-y-0.5">
+    <div className="group flex w-[4.5rem] flex-col items-center gap-1.5">
+      <div className="grid h-10 w-10 shrink-0 place-items-center overflow-hidden transition-transform duration-200 group-hover:-translate-y-0.5">
         <img
           src={iconSrc(app)}
           alt={`${app.name} icon`}
           title={app.name}
           loading="lazy"
-          className="h-9 w-9 object-contain drop-shadow-[0_4px_7px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover:drop-shadow-[0_6px_10px_rgba(15,23,42,0.2)]"
+          className={`${sizeClass} object-contain drop-shadow-[0_4px_7px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover:drop-shadow-[0_6px_10px_rgba(15,23,42,0.2)]`}
           onError={(e) => {
             const img = e.currentTarget;
             img.style.visibility = "hidden";
           }}
         />
       </div>
-      <span className="max-w-[4.5rem] text-center text-[0.66rem] leading-tight text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
+      <span className="text-center text-[0.66rem] leading-tight text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
         {app.name}
       </span>
     </div>
   );
 }
+
 
 export function MyAppsSection() {
   return (
