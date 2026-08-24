@@ -38,10 +38,10 @@ const apps: App[] = [
   { name: "MS To Do", kind: "asset", ref: mstodoAsset.url, group: "Tasks & planning" },
   { name: "Apple Reminders", kind: "asset", ref: remindersAsset.url, group: "Tasks & planning" },
   { name: "Google Calendar", kind: "simple", ref: "googlecalendar", group: "Tasks & planning" },
-  // Automation & utilities
-  { name: "Raycast", kind: "simple", ref: "raycast", group: "Automation & utilities" },
-  { name: "AutoHotkey", kind: "simple", ref: "autohotkey", group: "Automation & utilities" },
-  { name: "PowerToys", kind: "asset", ref: powertoysAsset.url, group: "Automation & utilities" },
+  // Utilities
+  { name: "Raycast", kind: "simple", ref: "raycast", group: "UTILITIES" },
+  { name: "AutoHotkey", kind: "simple", ref: "autohotkey", group: "UTILITIES" },
+  { name: "PowerToys", kind: "asset", ref: powertoysAsset.url, group: "UTILITIES" },
   // AI
   { name: "ChatGPT", kind: "asset", ref: chatgptAsset.url, group: "AI" },
   { name: "Claude", kind: "simple", ref: "anthropic", group: "AI" },
