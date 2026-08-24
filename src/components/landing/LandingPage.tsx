@@ -260,11 +260,11 @@ export function LandingPage() {
             Complete OS for creators, knowledge workers and freelancers
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Get More Done Without <span className="text-primary">Working More Hours</span>
+            14-Day Digital Work Transformation
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
             Record a normal week of work. I'll analyze how you actually work and rebuild the systems
-            around your apps, files, information, and projects into a personalized Digital Work OS.
+            around your apps, files, information, and projects into a personalized operating system that gives you more speed, focus, and time.
           </p>
           <div className="mt-9 flex flex-col items-center gap-3">
             <ApplyButton />
