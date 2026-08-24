@@ -255,8 +255,8 @@ export function LandingPage() {
           className="bg-grid pointer-events-none absolute inset-0 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black,transparent_72%)]"
         />
         <div className="relative mx-auto w-full max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
-            <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
+            <Zap className="h-4 w-4" aria-hidden="true" />
             Complete OS for creators, knowledge workers and freelancers
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl">
@@ -272,7 +272,24 @@ export function LandingPage() {
               For macOS and Windows &middot; only 1 client per 2 weeks
             </span>
           </div>
+
+          <div className="mt-14 border-t border-border pt-10">
+            <ul className="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
+              {heroWidgets.map((w) => (
+                <li key={w.title} className="flex items-center gap-3">
+                  <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <w.icon className="h-5 w-5" aria-hidden="true" />
+                  </span>
+                  <span className="leading-tight">
+                    <span className="block text-sm text-muted-foreground">{w.title}</span>
+                    <span className="block text-[0.975rem] font-semibold text-foreground">{w.body}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
       </section>
 
       <ProofSection />
