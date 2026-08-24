@@ -22,6 +22,12 @@ const description =
   "Answer a short questionnaire and find out what is holding your digital work back: speed, organization, reuse, information, or workflow.";
 
 export const Route = createFileRoute("/diagnostic")({
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { preview?: string | undefined } => {
+    const preview = search["preview"] as string | undefined;
+    return preview ? { preview } : {};
+  },
   head: () => ({
     meta: [
       { title },
@@ -34,6 +40,45 @@ export const Route = createFileRoute("/diagnostic")({
   }),
   component: DiagnosticPage,
 });
+
+// Sample answers used only by the ?preview=results shortcut so the final
+// results page can be viewed without walking through the full form.
+const SAMPLE_ANSWERS: Answers = {
+  work_types: ["Creating content", "Writing", "Research"],
+  apps: "Chrome, Notion, Obsidian, Claude, DaVinci Resolve",
+  digital_share: "Almost everything",
+  problems: [
+    "I repeatedly do things manually that feel like they should be faster",
+    "I know I've saved something but can't find it",
+    "I keep rebuilding things I've already made",
+    "Every project starts from scratch",
+  ],
+  main_problem: "Doing things manually / too slowly",
+  cond_manual:
+    "Exporting videos with the same settings every time, renaming files by hand, copying tags between uploads.",
+  wish: "Feel like everything I make has a permanent home and a faster path to get there.",
+  find_ease: "I regularly spend several minutes looking",
+  files_org: "I have a structure, but it has become messy",
+  notes_system: "I use several different systems",
+  save_behavior: "I save it somewhere, but often forget about it",
+  reuse_level: "I reuse some things, but inconsistently",
+  project_start: "I have a rough process but still figure things out each time",
+  project_end: "Some things get reused, while others disappear into folders",
+  app_discovery: "Pretty often",
+  apps_to_learn: "Notion, DaVinci Resolve, Obsidian",
+  repetitive_handling: "I know I should create systems, but haven't",
+  task_tools: ["Task manager", "Notes app", "Notion", "Calendar"],
+  next_action_freq: "A few times a day",
+  lose_place_freq: "Every day",
+  one_thing: "Stop losing time recreating things I've already made.",
+  better_outcomes: [
+    "Spend less time on repetitive tasks",
+    "Reuse more of my previous work",
+    "Find things instantly",
+  ],
+  seriousness: "I'm actively looking for a better system",
+  interest: "Yes, that's exactly what I'm looking for",
+};
 
 function isAnswered(q: Question, answers: Answers) {
   if (q.optional) return true;
@@ -60,6 +105,20 @@ function DiagnosticPage() {
   const current = list[Math.min(step, list.length - 1)];
   const onContactStep = step >= list.length;
   const ranking = useMemo(() => diagnose(answers), [answers]);
+
+  // Preview shortcut: /diagnostic?preview=results renders the final results
+  // page with a sample answer set, so the end state can be reviewed without
+  // filling the whole form each time.
+  const previewResults = Route.useSearch().preview === "results";
+  const previewRanking = useMemo(() => diagnose(SAMPLE_ANSWERS), []);
+  if (previewResults) {
+    return (
+      <Results
+        primary={previewRanking.primary}
+        secondary={previewRanking.secondary}
+      />
+    );
+  }
 
   const setValue = (id: string, value: string | string[]) =>
     setAnswers((prev) => ({ ...prev, [id]: value }));
