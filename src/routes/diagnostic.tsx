@@ -23,7 +23,7 @@ const description =
 
 export const Route = createFileRoute("/diagnostic")({
   validateSearch: (search: Record<string, unknown>) => ({
-    preview: (search.preview as string | undefined) ?? undefined,
+    preview: (search["preview"] as string | undefined) ?? undefined,
   }),
   head: () => ({
     meta: [
