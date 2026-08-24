@@ -64,7 +64,7 @@ export function ApplyButton({
   size = "lg",
   className = "",
   variant = "primary",
-  label = "Take the workflow diagnostic",
+  label = "Get my Digital ->\n",
 }: {
   size?: "lg" | "sm";
   className?: string;
@@ -83,7 +83,7 @@ export function ApplyButton({
       } ${className}`}
     >
       {label}
-      <span aria-hidden="true">-&gt;</span>
+      <span aria-hidden="true">Get My Digital Workspace Audit-&gt;</span>
     </Link>
   );
 }
