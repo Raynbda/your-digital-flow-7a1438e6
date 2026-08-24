@@ -121,7 +121,7 @@ const improvements = [
   },
   {
     icon: Repeat,
-    title: "Your project and content workflows",
+    title: "Your project workflows",
     body: "Stop starting from a blank page.",
     items: [
       "Project templates",
@@ -139,9 +139,9 @@ const improvements = [
 ];
 
 const deliverables = [
-  { title: "A shortcut cheat sheet", body: "So you know the fastest way to perform your most common actions." },
+  { title: "A custom shortcut cheat sheet", body: "So you know the fastest way to perform your most common actions." },
   { title: "A project template", body: "So your next project starts with the structure already built." },
-  { title: "A file organization system", body: "So you know where everything belongs and can find it later." },
+  { title: "A file organization system", body: "So you know where everything belongs and can easily find it later." },
   { title: "A prompt library", body: "So you stop rewriting the same AI instructions." },
   { title: "A note template", body: "So recurring types of information are captured consistently." },
   { title: "An SOP or checklist", body: "So you don't have to remember every step of a recurring process." },
@@ -157,6 +157,7 @@ const steps = [
       "Record yourself doing your normal work.",
       "Use your normal apps. Open your normal files. Do things the way you normally do them.",
       "Don't optimize your workflow before I see it. I want to see where the problems actually happen.",
+      "You control what you share. Recordings are securely stored, never shared, and deleted after your audit.",
     ],
     list: [],
   },
@@ -223,7 +224,7 @@ const audiences = [
   "Knowledge workers",
   "Consultants",
   "Researchers",
-  "Students",
+  "",
   "Solopreneurs",
 ];
 
@@ -545,7 +546,7 @@ export function LandingPage() {
             href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20Question`}
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
           >
-            {CONTACT_EMAIL}
+            Email me
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
