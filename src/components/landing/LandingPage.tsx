@@ -7,6 +7,7 @@ import {
   Keyboard,
   Layers,
   ListChecks,
+  Mail,
   Quote,
   Recycle,
   Repeat,
