@@ -32,15 +32,15 @@ const apps: App[] = [
   { name: "Notion", kind: "simple", ref: "notion", group: "Notes & knowledge" },
   { name: "Apple Notes", kind: "asset", ref: notesAsset.url, group: "Notes & knowledge" },
   { name: "NotebookLM", kind: "simple", ref: "notebooklm", group: "Notes & knowledge" },
-  // Writing & email
-  { name: "Gmail", kind: "simple", ref: "gmail", group: "Writing & email" },
-  { name: "Google Docs", kind: "simple", ref: "googledocs", group: "Writing & email" },
   // Tasks & planning
   { name: "Todoist", kind: "simple", ref: "todoist", group: "Tasks & planning" },
   { name: "TickTick", kind: "simple", ref: "ticktick", group: "Tasks & planning" },
   { name: "MS To Do", kind: "asset", ref: mstodoAsset.url, group: "Tasks & planning" },
   { name: "Apple Reminders", kind: "asset", ref: remindersAsset.url, group: "Tasks & planning" },
   { name: "Google Calendar", kind: "simple", ref: "googlecalendar", group: "Tasks & planning" },
+  // Writing & email
+  { name: "Gmail", kind: "simple", ref: "gmail", group: "Writing & email" },
+  { name: "Google Docs", kind: "simple", ref: "googledocs", group: "Writing & email" },
   // Utilities
   { name: "Raycast", kind: "simple", ref: "raycast", group: "UTILITIES" },
   { name: "PowerToys", kind: "asset", ref: powertoysAsset.url, group: "UTILITIES" },
