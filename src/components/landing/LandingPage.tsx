@@ -477,6 +477,7 @@ export function LandingPage() {
         </p>
       </Section>
 
+      <MyAppsSection />
 
       {/* Final CTA */}
       <Section id="apply">
@@ -493,25 +494,41 @@ export function LandingPage() {
             one that fits your work, your tools, your projects, and the way you think. Show me how
             you work. I'll help you build a better system for it.
           </p>
+          <div className="mt-9 flex justify-center">
+            <ApplyButton variant="invert" />
+          </div>
+          <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
+            Every engagement is personalized, so I only take on 1 client per 2 weeks.
+          </p>
+        </div>
+      </Section>
+
+      {/* Ask something */}
+      <Section band id="contact">
+        <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 text-center sm:p-10">
+          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
+            <Mail className="h-5 w-5" aria-hidden="true" />
+          </span>
+          <h2 className="mt-5 text-2xl font-extrabold tracking-tight text-card-foreground sm:text-3xl">
+            Still not sure, or just want to ask something?
+          </h2>
+          <p className="mt-4 leading-relaxed text-muted-foreground">
+            Send me an email. Happy to help clear up any questions.
+          </p>
           <a
-            href="mailto:hello@example.com?subject=Apply%20for%201:1%20Workflow%20Optimization"
-            className="mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-background px-6 py-3.5 text-base font-semibold text-primary shadow-[var(--shadow-lift)] transition-transform duration-200 hover:-translate-y-0.5"
+            href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20Question`}
+            className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
           >
-            Apply for 1:1 Workflow Optimization
+            {CONTACT_EMAIL}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </a>
-          <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
-            Every engagement is personalized, so I only take on a limited number of clients at a
-            time.
-          </p>
-
         </div>
       </Section>
 
       <footer className="border-t border-border px-5 py-10 sm:px-8">
         <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>1:1 Workflow Optimization</p>
-          <p>Better systems for your digital work.</p>
+          <p>Digital Work OS</p>
+          <p>Better systems for your digital work. macOS and Windows.</p>
         </div>
       </footer>
 
