@@ -22,9 +22,12 @@ const description =
   "Answer a short questionnaire and find out what is holding your digital work back: speed, organization, reuse, information, or workflow.";
 
 export const Route = createFileRoute("/diagnostic")({
-  validateSearch: (search: Record<string, unknown>): { preview?: string } => ({
-    preview: (search["preview"] as string | undefined) ?? undefined,
-  }),
+  validateSearch: (
+    search: Record<string, unknown>,
+  ): { preview?: string | undefined } => {
+    const preview = search["preview"] as string | undefined;
+    return preview ? { preview } : {};
+  },
   head: () => ({
     meta: [
       { title },
