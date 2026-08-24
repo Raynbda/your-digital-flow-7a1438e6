@@ -67,21 +67,21 @@ function iconSrc(app: App): string {
 
 function AppIcon({ app }: { app: App }) {
   return (
-    <div className="group flex flex-col items-center gap-2.5">
-      <div className="flex h-14 w-14 items-center justify-center transition-transform duration-200 group-hover:-translate-y-1 sm:h-16 sm:w-16">
+    <div className="group flex flex-col items-center gap-1.5">
+      <div className="flex h-10 w-10 items-center justify-center transition-transform duration-200 group-hover:-translate-y-0.5">
         <img
           src={iconSrc(app)}
           alt={`${app.name} icon`}
           title={app.name}
           loading="lazy"
-          className="h-11 w-11 object-contain drop-shadow-[0_5px_9px_rgba(15,23,42,0.16)] transition-all duration-200 group-hover:drop-shadow-[0_8px_14px_rgba(15,23,42,0.22)] sm:h-12 sm:w-12"
+          className="h-9 w-9 object-contain drop-shadow-[0_4px_7px_rgba(15,23,42,0.14)] transition-all duration-200 group-hover:drop-shadow-[0_6px_10px_rgba(15,23,42,0.2)]"
           onError={(e) => {
             const img = e.currentTarget;
             img.style.visibility = "hidden";
           }}
         />
       </div>
-      <span className="max-w-[5.5rem] text-center text-[0.72rem] leading-tight text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
+      <span className="max-w-[4.5rem] text-center text-[0.66rem] leading-tight text-muted-foreground transition-colors duration-200 group-hover:text-foreground">
         {app.name}
       </span>
     </div>
@@ -97,31 +97,29 @@ export function MyAppsSection() {
         lead="Creative tools, note apps, task managers, AI assistants, and file systems. On both macOS and Windows. If it is part of your day, it is part of the diagnosis."
       />
 
-      <div className="mt-14 space-y-12">
+      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {groups.map((group, groupIndex) => {
           const groupApps = apps.filter((a) => a.group === group);
           return (
-            <div key={group}>
-              <Reveal delay={groupIndex * 60}>
-                <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.18em] text-primary">
+            <Reveal key={group} delay={groupIndex * 50}>
+              <div className="rounded-2xl border border-border bg-card/60 p-4 backdrop-blur-sm">
+                <p className="mb-3 text-xs font-bold uppercase tracking-[0.16em] text-primary">
                   {group}
                 </p>
-              </Reveal>
-              <div className="flex flex-wrap justify-center gap-x-5 gap-y-7 sm:gap-x-8">
-                {groupApps.map((app, i) => (
-                  <Reveal key={app.name} delay={groupIndex * 60 + i * 45}>
-                    <AppIcon app={app} />
-                  </Reveal>
-                ))}
+                <div className="flex flex-wrap gap-x-3 gap-y-3.5">
+                  {groupApps.map((app) => (
+                    <AppIcon key={app.name} app={app} />
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           );
         })}
 
         {/* and more */}
-        <Reveal delay={groups.length * 60}>
-          <div className="flex justify-center">
-            <div className="flex items-center gap-2 rounded-full border border-dashed border-border px-5 py-2.5 text-sm font-medium text-muted-foreground">
+        <Reveal delay={groups.length * 50}>
+          <div className="flex h-full min-h-[5rem] items-center justify-center rounded-2xl border border-dashed border-border p-4">
+            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
               <Plus className="h-4 w-4 text-primary" />
               and more
             </div>
@@ -129,7 +127,7 @@ export function MyAppsSection() {
         </Reveal>
       </div>
 
-      <p className="mx-auto mt-14 max-w-2xl text-center text-[0.975rem] text-muted-foreground">
+      <p className="mx-auto mt-8 max-w-2xl text-center text-[0.9rem] text-muted-foreground">
         Do not see your app here? That is fine. The systems matter more than the software, and I
         learn new tools quickly.
       </p>
