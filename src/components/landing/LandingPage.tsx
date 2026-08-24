@@ -274,6 +274,8 @@ export function LandingPage() {
         </div>
       </section>
 
+      <ProofSection />
+
       {/* Friction */}
       <Section band>
         <SectionHead
