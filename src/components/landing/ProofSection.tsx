@@ -98,7 +98,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body }, i) => (
+            {proofCards.map(({ icon: Icon, title, body, image, alt }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -106,6 +106,14 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <div className="mt-4 overflow-hidden rounded-xl border border-border bg-muted">
+                    <img
+                      src={image}
+                      alt={alt}
+                      loading="lazy"
+                      className="h-28 w-full object-cover object-center"
+                    />
+                  </div>
                 </div>
               </Reveal>
             ))}
