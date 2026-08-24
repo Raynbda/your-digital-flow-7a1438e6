@@ -227,6 +227,14 @@ const audiences = [
   "Solopreneurs",
 ];
 
+const heroWidgets = [
+  { icon: Zap, title: "Faster", body: "Fewer clicks, fewer steps" },
+  { icon: Search, title: "Findable", body: "Stop losing your work" },
+  { icon: Repeat, title: "Reusable", body: "Never start from zero" },
+  { icon: FolderTree, title: "Clear", body: "Everything has a place" },
+];
+
+
 export function LandingPage() {
   return (
     <main className="pb-24 md:pb-0">
