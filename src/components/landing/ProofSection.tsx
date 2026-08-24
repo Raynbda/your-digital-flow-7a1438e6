@@ -11,7 +11,7 @@ import bookmarksAsset from "@/assets/proof/bookmarks-crop.png.asset.json";
 const cardStats = [
   { value: "3+ Yrs", label: "Producing YouTube videos" },
   { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
-  { value: "Scratch", label: "A workflow built from scratch — not copied from a listicle" },
+  { value: "Scratch", label: "A workflow built from scratch,  not copied from a listicle" },
   { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
 ];
 
@@ -19,7 +19,7 @@ const proofCards = [
   {
     icon: SlidersHorizontal,
     title: "3+ years in public",
-    body: "Making technical Windows content since 2023 — over 1.25M views of workflow teardowns.",
+    body: "Making Windows content since 2023. Over 1.25M views.",
     images: [
       { src: joinedAsset.url, alt: "YouTube channel joined July 12, 2023" },
       { src: viewsAsset.url, alt: "YouTube channel with 1,252,847 views" },
@@ -34,7 +34,7 @@ const proofCards = [
   {
     icon: Cpu,
     title: "A real knowledge system",
-    body: "3,000+ notes I still use and can find in seconds — not an abandoned second brain.",
+    body: "3,000+ notes I still use and can find in seconds, not an abandoned second brain.",
     images: [{ src: notesAsset.url, alt: "Note system search showing 3,214 results" }],
   },
   {
@@ -132,7 +132,7 @@ export function ProofSection() {
           <Reveal>
             <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <Sparkles aria-hidden="true" className="h-4 w-4 text-primary" />
-              Real screenshots from my own machine — not stock proof.
+              Real screenshots from my own machine, not stock proof.
             </div>
           </Reveal>
         </div>
