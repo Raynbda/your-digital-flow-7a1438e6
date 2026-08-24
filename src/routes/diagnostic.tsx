@@ -557,6 +557,25 @@ function Results({
         <Block title="What you can do today" items={d.doToday} />
         <Block title="Your first action" items={d.firstAction} />
 
+        {apps.length > 0 ? (
+          <div className="mt-10">
+            <h2 className="text-xl font-bold text-foreground">Your current tools</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              These are the apps you told me you use right now.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2.5">
+              {apps.map((app) => (
+                <li
+                  key={app}
+                  className="rounded-lg border border-border bg-secondary px-3 py-1.5 text-sm text-secondary-foreground"
+                >
+                  {app}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
         {s ? (
           <div className="mt-10 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
