@@ -452,6 +452,8 @@ function Results({
                 <p className="mt-2 text-sm font-semibold text-primary">{offer.priceNote}</p>
                 <a
                   href={PAYMENT_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
                 >
                   {offer.ctaLabel}

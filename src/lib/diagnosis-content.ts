@@ -1,7 +1,8 @@
 import type { DiagnosisKey } from "./diagnostic-scoring";
 
 export const CONTACT_EMAIL = "rayentechyt@gmail.com";
-export const PAYMENT_LINK = "#payment-link";
+export const PAYMENT_LINK =
+  "https://link.payoneer.com/Token?t=2DC993AF112A411EB9EF0E95051EBA3F&src=dpl";
 
 export type Diagnosis = {
   key: DiagnosisKey;
