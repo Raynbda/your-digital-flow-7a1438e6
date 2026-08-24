@@ -32,6 +32,9 @@ const apps: App[] = [
   { name: "Notion", kind: "simple", ref: "notion", group: "Notes & knowledge" },
   { name: "Apple Notes", kind: "asset", ref: notesAsset.url, group: "Notes & knowledge" },
   { name: "NotebookLM", kind: "simple", ref: "notebooklm", group: "Notes & knowledge" },
+  // Writing & email
+  { name: "Gmail", kind: "simple", ref: "gmail", group: "Writing & email" },
+  { name: "Google Docs", kind: "simple", ref: "googledocs", group: "Writing & email" },
   // Tasks & planning
   { name: "Todoist", kind: "simple", ref: "todoist", group: "Tasks & planning" },
   { name: "TickTick", kind: "simple", ref: "ticktick", group: "Tasks & planning" },
@@ -40,7 +43,6 @@ const apps: App[] = [
   { name: "Google Calendar", kind: "simple", ref: "googlecalendar", group: "Tasks & planning" },
   // Utilities
   { name: "Raycast", kind: "simple", ref: "raycast", group: "UTILITIES" },
-  { name: "AutoHotkey", kind: "simple", ref: "autohotkey", group: "UTILITIES" },
   { name: "PowerToys", kind: "asset", ref: powertoysAsset.url, group: "UTILITIES" },
   // AI
   { name: "ChatGPT", kind: "asset", ref: chatgptAsset.url, group: "AI" },
@@ -52,9 +54,6 @@ const apps: App[] = [
   { name: "OneDrive", kind: "asset", ref: onedriveAsset.url, group: "Files & storage" },
   { name: "Finder", kind: "asset", ref: finderAsset.url, group: "Files & storage" },
   { name: "File Explorer", kind: "asset", ref: fileexplorerAsset.url, group: "Files & storage" },
-  // Writing & email
-  { name: "Gmail", kind: "simple", ref: "gmail", group: "Writing & email" },
-  { name: "Google Docs", kind: "simple", ref: "googledocs", group: "Writing & email" },
 ];
 
 const groups = [...new Set(apps.map((a) => a.group))];
