@@ -194,28 +194,28 @@ export const diagnoses: Record<DiagnosisKey, Diagnosis> = {
 
 export const serviceCoverage = [
   {
-    title: "Your tools",
+    title: "Tools",
     body: "App features, configurations, utilities, software recommendations.",
   },
   {
-    title: "Your speed",
+    title: "Speed",
     body: "Shortcuts, custom shortcuts, faster navigation, repetitive actions.",
   },
   {
-    title: "Your digital organization",
+    title: "Digital organization",
     body: "Files, folders, smart folders, assets, resources, bookmarks.",
   },
-  { title: "Your information", body: "Notes, PKM, ideas, research, content consumption, AI systems." },
+  { title: "Information", body: "Notes, PKM, ideas, research, content consumption, AI systems." },
   {
-    title: "Your reuse",
+    title: "Reuse",
     body: "Templates, presets, SOPs, checklists, project structures, reusable assets.",
   },
   {
-    title: "Your workflow",
+    title: "Workflow",
     body: "Project setup, project completion, handoffs, archiving, continuity.",
   },
   {
-    title: "Your focus",
+    title: "Focus",
     body: "Digital decluttering, distraction reduction, focus workflows, simpler execution.",
   },
 ];
@@ -232,7 +232,7 @@ export const offer = {
     "Full week-of-footage review",
     "Written personalized Digital Work OS plan",
     "Video walkthrough of every recommendation",
-    "App stack shortcuts, macros & utility presets",
+    "Shortcuts, templates & presets",
     "Folder, notes and project structure templates",
     "Daily implementation emails for 2 weeks",
     "Async support anytime for 2 weeks",
