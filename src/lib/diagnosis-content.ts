@@ -218,3 +218,25 @@ export const serviceCoverage = [
     body: "Digital decluttering, distraction reduction, focus workflows, simpler execution.",
   },
 ];
+
+export const offer = {
+  eyebrow: "Direct investment",
+  title: "Done-With-You",
+  badge: "Async guidance",
+  subtitle: "You record a normal week. I analyze it and you build the system with daily step-by-step guidance.",
+  price: "$500",
+  priceNote: "One-time payment - 2 weeks of support",
+  ctaLabel: "Reserve your slot",
+  includes: [
+    "Full week-of-footage review",
+    "Written personalized Digital Work OS plan",
+    "Video walkthrough of every recommendation",
+    "App stack shortcuts, macros & utility presets",
+    "Folder, notes and project structure templates",
+    "Daily implementation emails for 2 weeks",
+    "Async support anytime for 2 weeks",
+    "Works on both macOS and Windows",
+  ],
+  guarantee:
+    "Only 1 client per 2 weeks, so every setup gets full attention. Questions before buying? Just email me.",
+};
