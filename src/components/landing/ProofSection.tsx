@@ -106,12 +106,12 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                  <div className="mt-4 overflow-hidden rounded-xl border border-border bg-muted">
+                  <div className="mt-4 overflow-hidden rounded-xl border border-border bg-[#262626] p-2">
                     <img
                       src={image}
                       alt={alt}
                       loading="lazy"
-                      className="h-28 w-full object-cover object-center"
+                      className="mx-auto h-24 w-full object-contain"
                     />
                   </div>
                 </div>
