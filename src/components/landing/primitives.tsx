@@ -64,7 +64,7 @@ export function ApplyButton({
   size = "lg",
   className = "",
   variant = "primary",
-  label = "Take the workflow diagnostic",
+  label = "Get my Digital ->\n",
 }: {
   size?: "lg" | "sm";
   className?: string;
