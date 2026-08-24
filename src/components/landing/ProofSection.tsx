@@ -9,10 +9,10 @@ import notesAsset from "@/assets/proof/notes-crop.png.asset.json";
 import bookmarksAsset from "@/assets/proof/bookmarks-crop.png.asset.json";
 
 const cardStats = [
-  { value: "100+", label: "Tools tested" },
-  { value: "20 → 80", label: "WPM touch typing speed" },
-  { value: "3,000+", label: "Curated work bookmarks" },
-  { value: "3+ Yrs", label: "Windows workflow optimization" },
+  { value: "3+ Yrs", label: "Producing YouTube videos" },
+  { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
+  { value: "Scratch", label: "A workflow built from scratch — not copied from a listicle" },
+  { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
 ];
 
 const proofCards = [
@@ -67,14 +67,16 @@ export function ProofSection() {
                 Systems thinker &amp; workflow engineer
               </h2>
               <p className="mt-6 text-base leading-relaxed opacity-90">
-                I have spent 3+ years creating technical content on Windows, testing over 100
-                utilities, scripts, and productivity tools.
+                I&rsquo;ve spent three years obsessing over building better workflows for creating
+                content. I make YouTube videos independently, which means I handle everything
+                myself: research, writing, recording, editing, file management, publishing, and
+                everything in between.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
-                I don&apos;t sell &quot;tips&quot;. I test systems over months under real
-                constraints to find what actually scales versus what breaks.
+                Over the years, I&rsquo;ve tested and replaced dozens of apps, built systems from
+                scratch, and spent thousands of hours working on a computer. What you are buying is
+                judgment and integration, not more options.
               </p>
-
               <div className="mt-8 border-t border-primary-foreground/25 pt-8">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-7">
                   {cardStats.map(({ value, label }) => (
