@@ -507,6 +507,8 @@ export function LandingPage() {
 
       <MyAppsSection />
 
+      <FAQSection />
+
       {/* Final CTA */}
       <Section id="apply">
         <div className="relative overflow-hidden rounded-2xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-20">
