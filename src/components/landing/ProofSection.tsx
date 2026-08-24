@@ -1,6 +1,10 @@
 import { Eyebrow, Section } from "./primitives";
 import { Reveal } from "./Reveal";
 import { Cpu, Gauge, Minus, SlidersHorizontal } from "lucide-react";
+import youtubeShot from "@/assets/proof/youtube-metrics.png.asset.json";
+import wpmShot from "@/assets/proof/wpm-chart.png.asset.json";
+import notesShot from "@/assets/proof/notes-count.png.asset.json";
+import bookmarksShot from "@/assets/proof/bookmarks-count.png.asset.json";
 
 const cardStats = [
   { value: "3+ Yrs", label: "Producing YouTube videos" },
@@ -14,21 +18,33 @@ const proofCards = [
     icon: SlidersHorizontal,
     title: "3+ years in public",
     body: "Making Windows content since 2023. Over 1.25M views.",
+    image: youtubeShot.url,
+    alt: "YouTube channel stats: joined Jul 12, 2023 with 1,252,847 views",
+    fit: "cover",
   },
   {
     icon: Gauge,
     title: "Speed I actually built",
     body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
+    image: wpmShot.url,
+    alt: "Typing progress chart showing words per minute rising from 20 to over 80",
+    fit: "cover",
   },
   {
     icon: Cpu,
     title: "A real knowledge system",
     body: "3,000+ notes I still use and can find in seconds, not an abandoned second brain.",
+    image: notesShot.url,
+    alt: "Note search showing 3,154 results",
+    fit: "cover",
   },
   {
     icon: Minus,
     title: "Curation over collecting",
     body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
+    image: bookmarksShot.url,
+    alt: "Bookmark manager showing the All bookmarks collection",
+    fit: "contain",
   },
 ];
 
@@ -86,7 +102,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body }, i) => (
+            {proofCards.map(({ icon: Icon, title, body, image, alt, fit }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -94,6 +110,14 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                  <div className="mt-4 overflow-hidden rounded-xl border border-border bg-[#262626] p-2">
+                    <img
+                      src={image}
+                      alt={alt}
+                      loading="lazy"
+                      className={`mx-auto h-24 w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
+                    />
+                  </div>
                 </div>
               </Reveal>
             ))}
