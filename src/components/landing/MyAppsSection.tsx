@@ -8,8 +8,16 @@ import notesAsset from "@/assets/appicons/notes.png.asset.json";
 import finderAsset from "@/assets/appicons/finder.png.asset.json";
 import powertoysAsset from "@/assets/appicons/powertoys.png.asset.json";
 import mstodoAsset from "@/assets/appicons/mstodo.png.asset.json";
-import fileexplorerAsset from "@/assets/appicons/fileexplorer.png.asset.json";
+import fileexplorerAsset from "@/assets/appicons/fileexplorer2.png.asset.json";
 import onedriveAsset from "@/assets/appicons/onedrive.png.asset.json";
+import premiereAsset from "@/assets/appicons/premierepro.png.asset.json";
+import aeAsset from "@/assets/appicons/aftereffects.svg.asset.json";
+import davinciAsset from "@/assets/appicons/davinci.png.asset.json";
+import audacityAsset from "@/assets/appicons/audacity.svg.asset.json";
+import obsAsset from "@/assets/appicons/obs.png.asset.json";
+import canvaAsset from "@/assets/appicons/canva.svg.asset.json";
+import gcalAsset from "@/assets/appicons/googlecalendar.png.asset.json";
+import claudeAsset from "@/assets/appicons/claude.png.asset.json";
 
 type IconKind = "simple" | "devicon" | "asset";
 type App = { name: string; kind: IconKind; ref: string; group: string };
