@@ -1,10 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
-import { SECTIONS, visibleQuestions, isAnswered, type Answers } from "@/lib/diagnostic-questions";
+import { useMemo, useState } from "react";
+import { useServerFn } from "@tanstack/react-start";
+import { ArrowLeft, ArrowRight, CheckCircle2, Loader2, Sparkles } from "lucide-react";
+import {
+  visibleQuestions,
+  type Answers,
+  type Question,
+} from "@/lib/diagnostic-questions";
+import { diagnose } from "@/lib/diagnostic-scoring";
+import { CONTACT_EMAIL, diagnoses, serviceCoverage } from "@/lib/diagnosis-content";
+import { saveDiagnostic } from "@/lib/diagnostic.functions";
 
-const title = "Workflow Diagnostic — Digital Work OS";
+const title = "Workflow Diagnostic - Digital Work OS";
 const description =
-  "Answer a few questions about how you actually work and get a personal read on what is slowing your digital workflow down.";
+  "Answer a short questionnaire and find out what is holding your digital work back: speed, organization, reuse, information, or workflow.";
 
 export const Route = createFileRoute("/diagnostic")({
   head: () => ({
@@ -20,114 +29,411 @@ export const Route = createFileRoute("/diagnostic")({
   component: DiagnosticPage,
 });
 
+function isAnswered(q: Question, answers: Answers) {
+  if (q.optional) return true;
+  const value = answers[q.id];
+  if (Array.isArray(value)) return value.length > 0;
+  return typeof value === "string" && value.trim().length > 0;
+}
+
 function DiagnosticPage() {
+  const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
-  const section = SECTIONS[step] ?? SECTIONS[0]!;
-  const questions = visibleQuestions(section, answers);
-  const canContinue = questions.every((q) => q.optional || isAnswered(q, answers));
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [done, setDone] = useState(false);
 
-  const set = (id: string, value: string | string[]) =>
+  const save = useServerFn(saveDiagnostic);
+  const list = useMemo(() => visibleQuestions(answers), [answers]);
+  const total = list.length + 1;
+  const current = list[Math.min(step, list.length - 1)];
+  const onContactStep = step >= list.length;
+  const ranking = useMemo(() => diagnose(answers), [answers]);
+
+  const setValue = (id: string, value: string | string[]) =>
     setAnswers((prev) => ({ ...prev, [id]: value }));
 
-  const toggle = (id: string, option: string, maxSelect?: number) => {
-    const current = Array.isArray(answers[id]) ? (answers[id] as string[]) : [];
-    if (current.includes(option)) {
-      set(
-        id,
-        current.filter((v) => v !== option),
-      );
-      return;
-    }
-    if (maxSelect && current.length >= maxSelect) return;
-    set(id, [...current, option]);
+  const toggleMulti = (q: Question, option: string) => {
+    const currentValue = (answers[q.id] as string[] | undefined) ?? [];
+    const has = currentValue.includes(option);
+    if (!has && q.maxSelect && currentValue.length >= q.maxSelect) return;
+    setValue(q.id, has ? currentValue.filter((o) => o !== option) : [...currentValue, option]);
   };
 
+  const submit = async () => {
+    const trimmed = email.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed) || trimmed.length > 255) {
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+    setEmailError(null);
+    setSaving(true);
+    setSaveError(null);
+    try {
+      await save({
+        data: {
+          first_name: name.trim().slice(0, 100),
+          email: trimmed,
+          answers,
+          scores: ranking.scores,
+          primary: ranking.primary,
+          secondary: ranking.secondary,
+          seriousness: (answers["seriousness"] as string) ?? null,
+          interest: (answers["interest"] as string) ?? null,
+        },
+      });
+      setDone(true);
+    } catch {
+      setSaveError("Something went wrong saving your answers. Please try again.");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (done) return <Results primary={ranking.primary} secondary={ranking.secondary} />;
+
   return (
-    <main className="w-full px-5 py-16 sm:px-8">
-      <div className="mx-auto w-full max-w-[760px]">
-        <Link to="/" className="text-sm font-semibold text-primary">
-          &lt;- Back
-        </Link>
-        <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-          Step {step + 1} of {SECTIONS.length}
-        </p>
-        <h1 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground sm:text-4xl">
-          {section.title}
-        </h1>
+    <main className="min-h-screen bg-background">
+      <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-[760px] items-center justify-between px-5 py-3">
+          <Link to="/" className="text-sm font-bold tracking-tight text-foreground">
+            Digital Work OS
+          </Link>
+          {started ? (
+            <span className="text-xs font-medium text-muted-foreground">
+              Step {Math.min(step + 1, total)} of {total}
+            </span>
+          ) : null}
+        </div>
+        {started ? (
+          <div className="h-1 w-full bg-secondary">
+            <div
+              className="h-1 bg-primary transition-all duration-300"
+              style={{ width: `${((step + (onContactStep ? 1 : 0)) / total) * 100}%` }}
+            />
+          </div>
+        ) : null}
+      </header>
 
-        <div className="mt-10 space-y-10">
-          {questions.map((q) => (
-            <div key={q.id}>
-              <label className="block text-base font-semibold text-foreground">{q.label}</label>
-              {q.help ? (
-                <p className="mt-1 text-sm text-muted-foreground">{q.help}</p>
-              ) : null}
-
-              {q.type === "text" || q.type === "textarea" ? (
-                <textarea
-                  rows={q.type === "textarea" ? 4 : 2}
-                  placeholder={q.placeholder}
-                  value={(answers[q.id] as string) ?? ""}
-                  onChange={(e) => set(q.id, e.target.value)}
-                  className="mt-3 w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      <div className="mx-auto w-full max-w-[760px] px-5 py-14">
+        {!started ? (
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
+              <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
+              Free diagnostic
+            </span>
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
+              Digital Work OS <span className="text-primary">Workflow Diagnostic</span>
+            </h1>
+            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Find out what is holding your digital work back. A few short questions about your
+              tools, files, information, and habits. You get a personalized diagnosis at the end.
+            </p>
+            <button
+              type="button"
+              onClick={() => setStarted(true)}
+              className="mt-9 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
+            >
+              Start the diagnostic
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </button>
+            <p className="mt-4 text-sm text-muted-foreground">Takes about 4 minutes.</p>
+          </div>
+        ) : onContactStep ? (
+          <div>
+            <h2 className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl">
+              Where should I send your diagnosis?
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              You will see your result right away. I use your email to send the full written
+              breakdown.
+            </p>
+            <div className="mt-8 space-y-4">
+              <label className="block">
+                <span className="text-sm font-semibold text-foreground">Name (optional)</span>
+                <input
+                  value={name}
+                  maxLength={100}
+                  onChange={(e) => setName(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
+                  placeholder="Your name"
                 />
-              ) : (
-                <ul className="mt-3 space-y-2">
-                  {(q.options ?? []).map((option) => {
-                    const selected =
-                      q.type === "multi"
-                        ? Array.isArray(answers[q.id]) &&
-                          (answers[q.id] as string[]).includes(option)
-                        : answers[q.id] === option;
-                    return (
-                      <li key={option}>
-                        <button
-                          type="button"
-                          onClick={() =>
-                            q.type === "multi"
-                              ? toggle(q.id, option, q.maxSelect)
-                              : set(q.id, option)
-                          }
-                          className={`w-full rounded-xl border px-4 py-3 text-left text-sm transition-colors ${
-                            selected
-                              ? "border-primary bg-primary text-primary-foreground"
-                              : "border-border bg-secondary text-secondary-foreground"
-                          }`}
-                        >
-                          {option}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              )}
+              </label>
+              <label className="block">
+                <span className="text-sm font-semibold text-foreground">Email</span>
+                <input
+                  value={email}
+                  type="email"
+                  maxLength={255}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="mt-2 w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
+                  placeholder="you@example.com"
+                />
+              </label>
+              {emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
+              {saveError ? <p className="text-sm text-destructive">{saveError}</p> : null}
             </div>
-          ))}
-        </div>
+            <NavRow
+              onBack={() => setStep((s) => s - 1)}
+              nextLabel={saving ? "Sending" : "See my diagnosis"}
+              nextDisabled={saving}
+              nextIcon={saving ? <Loader2 className="h-4 w-4 animate-spin" /> : undefined}
+              onNext={submit}
+            />
+          </div>
+        ) : current ? (
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              {current.section}
+            </p>
+            <h2 className="mt-3 text-2xl font-extrabold leading-tight tracking-tight text-foreground sm:text-3xl">
+              {current.title}
+            </h2>
+            {current.help ? (
+              <p className="mt-3 text-sm text-muted-foreground">{current.help}</p>
+            ) : null}
 
-        <div className="mt-12 flex items-center gap-3">
-          {step > 0 ? (
-            <button
-              type="button"
-              onClick={() => setStep((s) => s - 1)}
-              className="rounded-xl border border-border px-5 py-3 text-sm font-semibold text-foreground"
-            >
-              Back
-            </button>
-          ) : null}
-          {step < SECTIONS.length - 1 ? (
-            <button
-              type="button"
-              disabled={!canContinue}
-              onClick={() => setStep((s) => s + 1)}
-              className="rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground disabled:opacity-50"
-            >
-              Continue
-            </button>
-          ) : null}
-        </div>
+            <div className="mt-8">
+              <QuestionField
+                question={current}
+                answers={answers}
+                setValue={setValue}
+                toggleMulti={toggleMulti}
+              />
+            </div>
+
+            <NavRow
+              onBack={step === 0 ? undefined : () => setStep((s) => s - 1)}
+              nextLabel="Continue"
+              nextDisabled={!isAnswered(current, answers)}
+              onNext={() => setStep((s) => s + 1)}
+            />
+          </div>
+        ) : null}
       </div>
     </main>
+  );
+}
+
+function QuestionField({
+  question,
+  answers,
+  setValue,
+  toggleMulti,
+}: {
+  question: Question;
+  answers: Answers;
+  setValue: (id: string, value: string | string[]) => void;
+  toggleMulti: (q: Question, option: string) => void;
+}) {
+  if (question.type === "text" || question.type === "longtext") {
+    const value = (answers[question.id] as string | undefined) ?? "";
+    return question.type === "longtext" ? (
+      <textarea
+        value={value}
+        rows={5}
+        maxLength={2000}
+        placeholder={question.placeholder}
+        onChange={(e) => setValue(question.id, e.target.value)}
+        className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
+      />
+    ) : (
+      <input
+        value={value}
+        maxLength={500}
+        placeholder={question.placeholder}
+        onChange={(e) => setValue(question.id, e.target.value)}
+        className="w-full rounded-xl border border-border bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
+      />
+    );
+  }
+
+  const options = question.options ?? [];
+  if (question.type === "single") {
+    const value = answers[question.id] as string | undefined;
+    return (
+      <div className="grid gap-2.5">
+        {options.map((option) => {
+          const active = value === option;
+          return (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setValue(question.id, option)}
+              className={`flex items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.975rem] transition-colors ${
+                active
+                  ? "border-primary bg-accent text-foreground"
+                  : "border-border bg-card text-card-foreground hover:border-primary/50"
+              }`}
+            >
+              {option}
+              {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
+            </button>
+          );
+        })}
+      </div>
+    );
+  }
+
+  const selected = (answers[question.id] as string[] | undefined) ?? [];
+  return (
+    <div className="grid gap-2.5 sm:grid-cols-2">
+      {options.map((option) => {
+        const active = selected.includes(option);
+        const blocked =
+          !active && question.maxSelect ? selected.length >= question.maxSelect : false;
+        return (
+          <button
+            key={option}
+            type="button"
+            disabled={blocked}
+            onClick={() => toggleMulti(question, option)}
+            className={`flex items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.95rem] transition-colors ${
+              active
+                ? "border-primary bg-accent text-foreground"
+                : "border-border bg-card text-card-foreground hover:border-primary/50"
+            } ${blocked ? "opacity-40" : ""}`}
+          >
+            {option}
+            {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+function NavRow({
+  onBack,
+  onNext,
+  nextLabel,
+  nextDisabled,
+  nextIcon,
+}: {
+  onBack?: (() => void) | undefined;
+  onNext: () => void;
+  nextLabel: string;
+  nextDisabled?: boolean | undefined;
+  nextIcon?: React.ReactNode | undefined;
+}) {
+  return (
+    <div className="mt-10 flex items-center justify-between gap-3">
+      {onBack ? (
+        <button
+          type="button"
+          onClick={onBack}
+          className="inline-flex items-center gap-2 rounded-xl border border-border px-4 py-2.5 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+          Back
+        </button>
+      ) : (
+        <span />
+      )}
+      <button
+        type="button"
+        onClick={onNext}
+        disabled={nextDisabled}
+        className="inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-deep disabled:opacity-40"
+      >
+        {nextLabel}
+        {nextIcon ?? <ArrowRight className="h-4 w-4" aria-hidden="true" />}
+      </button>
+    </div>
+  );
+}
+
+function Results({
+  primary,
+  secondary,
+}: {
+  primary: keyof typeof diagnoses;
+  secondary: keyof typeof diagnoses | null;
+}) {
+  const d = diagnoses[primary];
+  const s = secondary ? diagnoses[secondary] : null;
+
+  return (
+    <main className="min-h-screen bg-background">
+      <div className="mx-auto w-full max-w-[820px] px-5 py-16">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">Your diagnosis</p>
+        <h1 className="mt-3 text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
+          {d.headline}
+        </h1>
+        <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{d.summary}</p>
+
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+          {d.points.map((p) => (
+            <li
+              key={p}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+            >
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              {p}
+            </li>
+          ))}
+        </ul>
+
+        <Block title={d.lookAtFirstTitle} items={d.lookAtFirst} />
+        <Block title="What you can do today" items={d.doToday} />
+        <Block title="Your first action" items={d.firstAction} />
+
+        {s ? (
+          <div className="mt-10 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+              Secondary opportunity: {s.label}
+            </p>
+            <p className="mt-3 leading-relaxed opacity-85">{d.secondary}</p>
+          </div>
+        ) : null}
+
+        <div className="mt-10 rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <h2 className="text-xl font-bold text-card-foreground">If we worked together</h2>
+          <p className="mt-3 leading-relaxed text-muted-foreground">{d.ifWeWorked}</p>
+          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+            {serviceCoverage.map((item) => (
+              <li key={item.title} className="rounded-xl border border-border p-4">
+                <p className="text-sm font-bold text-card-foreground">{item.title}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
+              </li>
+            ))}
+          </ul>
+          <a
+            href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%201:1%20Workflow%20Optimization`}
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
+          >
+            Apply for 1:1 Workflow Optimization
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </a>
+        </div>
+
+        <Link to="/" className="mt-10 inline-block text-sm text-muted-foreground underline">
+          Back to the main page
+        </Link>
+      </div>
+    </main>
+  );
+}
+
+function Block({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="mt-10">
+      <h2 className="text-xl font-bold text-foreground">{title}</h2>
+      <ul className="mt-4 space-y-2.5">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+          >
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

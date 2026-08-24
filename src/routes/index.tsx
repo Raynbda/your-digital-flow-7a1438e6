@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing/LandingPage";
 
-const title = "1:1 Workflow Optimization: Build a Better Digital Work System";
+const title = "Digital Work OS: Build a Better System for Your Digital Work";
 const description =
   "Personal 1:1 workflow optimization. I analyze how you actually work and build systems, templates, shortcuts, and file structures that make your digital work faster and easier.";
 

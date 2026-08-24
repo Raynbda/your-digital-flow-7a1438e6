@@ -1,124 +1,220 @@
-import type { Category } from "./diagnostic-scoring";
+import type { DiagnosisKey } from "./diagnostic-scoring";
+
+export const CONTACT_EMAIL = "rayentechyt@gmail.com";
+export const PAYMENT_LINK = "#payment-link";
 
 export type Diagnosis = {
+  key: DiagnosisKey;
   label: string;
   headline: string;
   summary: string;
-  signs: string[];
-  meaning: string;
-  firstActions: string[];
-  secondaryBlurb: string;
+  points: string[];
+  lookAtFirstTitle: string;
+  lookAtFirst: string[];
+  doToday: string[];
+  ifWeWorked: string;
+  secondary: string;
+  firstAction: string[];
 };
 
-export const DIAGNOSES: Record<Category, Diagnosis> = {
+export const diagnoses: Record<DiagnosisKey, Diagnosis> = {
   speed: {
-    label: "Speed & Repetition",
-    headline: "Your biggest bottleneck is manual, repeated work.",
+    key: "speed",
+    label: "Speed",
+    headline: "Your biggest opportunity: Speed",
     summary:
-      "You're doing a lot of work by hand that your tools could do for you, or could do in far fewer steps. Nothing here is broken — it's just slower than it needs to be, and the cost is spread across every single day.",
-    signs: [
-      "The same sequences of clicks, every day",
-      "Software you use constantly but haven't configured around your work",
-      "Shortcuts, presets and utilities that would pay for themselves in a week",
+      "Your answers suggest that you're losing time through small repeated actions and inefficient ways of doing things. The problem probably isn't one huge inefficiency. It's the accumulation of dozens of small ones.",
+    points: [
+      "Repeating the same actions",
+      "Navigating through menus",
+      "Switching between apps",
+      "Doing manually what could be a shortcut",
+      "Using only the basic features of software you use every day",
     ],
-    meaning:
-      "This is usually the fastest category to improve, because the fixes are concrete: shortcuts, presets, templates, better configurations, and small utilities that remove steps from the work you already do.",
-    firstActions: [
-      "Write down the 5 actions you perform most often in a day",
-      "Learn the real shortcut for each one instead of using the menus",
-      "Turn your most-repeated setup into a preset or template",
+    lookAtFirstTitle:
+      "I'd start by identifying the 10 to 20 actions you perform most frequently and looking for faster ways to perform them.",
+    lookAtFirst: [
+      "Keyboard shortcuts",
+      "Custom shortcuts",
+      "Better navigation",
+      "Hidden software features",
+      "Better app configurations",
+      "Small utilities",
+      "Templates",
+      "Presets",
     ],
-    secondaryBlurb:
-      "Manual, repeated work is also costing you time — the same actions performed the slow way, many times a day.",
+    doToday: [
+      "Pick the one action you repeat most often.",
+      "Search the app's keyboard shortcuts or command palette for a faster way to perform it.",
+      "Then use that method exclusively for the next week.",
+    ],
+    ifWeWorked:
+      "I'd analyze your actual workflow and identify the highest-frequency actions where a shortcut, feature, tool, or workflow change could save you time.",
+    secondary:
+      "You also have several opportunities to reduce repetitive work through shortcuts, better software features, templates, and small workflow changes.",
+    firstAction: [
+      "Find one shortcut for the most repetitive action you perform.",
+      "Use it exclusively for seven days.",
+    ],
   },
   organization: {
-    label: "Organization & Retrieval",
-    headline: "Your biggest bottleneck is finding your own work.",
+    key: "organization",
+    label: "Organization",
+    headline: "Your biggest opportunity: Organization",
     summary:
-      "You're producing and saving plenty — the problem is getting it back. When retrieval is unreliable, you either lose minutes searching or you quietly recreate things you already own.",
-    signs: [
-      "Multiple half-systems for files that never fully merged",
-      "No clear rule for where a new thing belongs",
-      "Search doing the job that structure should be doing",
+      "Your answers suggest that you're spending too much mental energy managing where things are instead of using them. The underlying problem isn't that you have too much stuff. It's that your digital environment doesn't have clear enough rules for where things belong.",
+    points: [
+      "Files without a permanent home",
+      "Several overlapping storage locations",
+      "Digital clutter accumulating quietly",
+      "Time lost re-finding things you already have",
     ],
-    meaning:
-      "Organization problems compound. Every week without a clear structure adds more things in the wrong place. The fix isn't tidying once — it's a naming and folder system with rules simple enough that you'll actually follow them.",
-    firstActions: [
-      "Pick one top-level structure and commit to it for everything new",
-      "Define a naming pattern for the file types you create most",
-      "Create a single inbox folder so nothing lands in a random place",
+    lookAtFirstTitle: "I'd map the major types of information you deal with.",
+    lookAtFirst: [
+      "Files",
+      "Notes",
+      "Tasks",
+      "Ideas",
+      "Resources",
+      "Assets",
+      "Projects",
+      "Archives",
     ],
-    secondaryBlurb:
-      "Finding things is also slowing you down — your structure isn't yet doing the work of remembering for you.",
+    doToday: [
+      "Create one temporary folder called _SORT.",
+      "Put the loose files from your desktop, Downloads folder, and other messy locations inside it.",
+      "Then create 5 to 7 categories based on what you actually use, not a complicated hierarchy.",
+    ],
+    ifWeWorked:
+      "I'd look at your actual files, notes, resources, and information sources and help you create a system where everything has a place, you know where that place is, and you can find it again.",
+    secondary:
+      "Your workflow would also benefit from clearer rules for where files, notes, resources, and other information belong.",
+    firstAction: [
+      "Choose one category of information and give it one permanent home.",
+      "Don't reorganize everything. Establish one rule and start following it.",
+    ],
   },
   reuse: {
-    label: "Reuse & Starting Points",
-    headline: "Your biggest bottleneck is starting from scratch.",
+    key: "reuse",
+    label: "Reuse",
+    headline: "Your biggest opportunity: Reuse",
     summary:
-      "You've already built most of what you need — it just isn't in a reusable form. Every project begins closer to zero than it should, which makes starting feel heavy.",
-    signs: [
-      "Copying an old project and stripping it down",
-      "Rebuilding structures, documents and setups you've made before",
-      "Finished work that disappears into folders instead of becoming an asset",
+      "Your answers suggest you're creating useful work but not extracting enough value from what you've already created. Every time you start from a blank project, you're paying the setup cost again.",
+    points: [
+      "Projects that start from nothing",
+      "Work recreated instead of reused",
+      "Finished projects that disappear into folders",
+      "No templates for things you repeat",
     ],
-    meaning:
-      "Reuse is the highest-leverage category, because the work is already done. Turning past output into templates, presets, asset libraries and project starters means each project starts with momentum instead of a blank page.",
-    firstActions: [
-      "Take your last finished project and strip it into a starting template",
-      "Collect your reusable assets into one library instead of per-project folders",
-      "Write a 5-line checklist for how a new project gets set up",
+    lookAtFirstTitle: "I'd identify the things that appear repeatedly across your projects.",
+    lookAtFirst: [
+      "Folder structures",
+      "Templates",
+      "Assets",
+      "Prompts",
+      "Research",
+      "Documents",
+      "Designs",
+      "Processes",
+      "Checklists",
+      "Project setup",
     ],
-    secondaryBlurb:
-      "You're also recreating work you already own — the raw material exists, it just isn't packaged for reuse.",
+    doToday: [
+      "Open your last three similar projects.",
+      "Find everything that appears in at least two of them.",
+      "Those repeated elements should become your first reusable template.",
+    ],
+    ifWeWorked:
+      "I'd identify the repeated patterns in your existing work and turn them into reusable building blocks so your next project starts with work already done, rather than a blank folder.",
+    secondary:
+      "You're also leaving value on the table by not consistently turning previous work into templates, assets, presets, and reusable building blocks.",
+    firstAction: [
+      "Compare your last three similar projects and extract everything you repeated.",
+      "Turn those repeated elements into your first reusable template.",
+    ],
   },
   information: {
-    label: "Information & Knowledge",
-    headline: "Your biggest bottleneck is information you save but never use.",
+    key: "information",
+    label: "Information",
+    headline: "Your biggest opportunity: Information",
     summary:
-      "You're capturing plenty — notes, links, screenshots, research, ideas — but it's spread across places with no shared purpose, so it doesn't come back to you when it would be useful.",
-    signs: [
-      "Notes, bookmarks and saved links in several disconnected places",
-      "Capture without a clear reason for capturing",
-      "Research you'd struggle to find again next month",
+      "Your answers suggest that you're good at collecting information, but your system isn't consistently helping you turn that information into something useful. The problem isn't capture. It's what happens after capture.",
+    points: [
+      "Notes and research spread across apps",
+      "Saved items that never get used again",
+      "No clear rule for what becomes a task or a project",
+      "Ideas that lose their context",
     ],
-    meaning:
-      "This isn't about a better notes app. It's about deciding what each place is for, what gets captured, and how it comes back. Once capture has a destination and a purpose, saved information starts paying you back.",
-    firstActions: [
-      "Choose one destination for notes and one for links — no exceptions",
-      "Add a single line of context to anything you save",
-      "Schedule a 10-minute weekly pass over what you captured",
+    lookAtFirstTitle: "I'd map the lifecycle of your information.",
+    lookAtFirst: ["Capture", "Clarify", "Organize", "Find", "Use", "Reuse"],
+    doToday: [
+      "Look at the last 10 things you saved.",
+      "For each one ask: what will I actually do with this?",
+      "If the answer is nothing, delete it. If it has future value, give it a specific home and purpose.",
     ],
-    secondaryBlurb:
-      "Your captured information is also underused — a lot goes in, and not much comes back out.",
+    ifWeWorked:
+      "I'd help you create simple rules for capturing, organizing, finding, using, and reusing information across your actual tools.",
+    secondary:
+      "Your information system could be improved by creating clearer rules for capturing, organizing, finding, and reusing what you collect.",
+    firstAction: [
+      "Review your last ten saved items and give each one a purpose.",
+      "Delete what has no future value.",
+    ],
   },
   workflow: {
-    label: "Workflow & Continuity",
-    headline: "Your biggest bottleneck is the space between tasks.",
+    key: "workflow",
+    label: "Workflow",
+    headline: "Your biggest opportunity: Workflow",
     summary:
-      "The individual work is fine. What costs you is the switching, restarting and re-deciding — figuring out what's next, remembering where you left off, and rebuilding context every time you return to something.",
-    signs: [
-      "Stopping to work out what to do next",
-      "Losing your place when moving between projects",
-      "Recurring work handled from memory instead of a process",
+      "Your individual tools may not be the problem. The bigger issue is how they connect. You may have good apps for notes, tasks, files, research, and projects, but no clear system for how information moves between them.",
+    points: [
+      "Too many disconnected tools",
+      "Context switching between apps",
+      "Losing your place between sessions",
+      "No clear answer to what happens next",
     ],
-    meaning:
-      "This is fixed with continuity, not discipline: clear next actions, a place where work-in-progress state lives, and repeatable processes for the things you do again and again. Fewer decisions, less restart cost.",
-    firstActions: [
-      "End each work session by writing the literal next action",
-      "Keep one list that answers \u201cwhat should I do next?\u201d",
-      "Turn your most common recurring task into a written checklist",
+    lookAtFirstTitle: "I'd map your workflow end to end.",
+    lookAtFirst: ["Capture", "Plan", "Start", "Work", "Finish", "Archive", "Reuse"],
+    doToday: [
+      "Pick one recurring type of work.",
+      "Write down the actual steps from \"I need to do this\" to \"it's finished\".",
+      "Circle every point where you stop to decide, search, switch tools, recreate something, or lose your place.",
     ],
-    secondaryBlurb:
-      "Switching and restarting is also costing you — too much context has to be rebuilt each time.",
+    ifWeWorked:
+      "I'd map your actual workflow and redesign the connections between your tools, information, projects, and recurring processes.",
+    secondary:
+      "Your tools would likely work better together with clearer responsibilities and processes connecting them.",
+    firstAction: [
+      "Write down the actual steps of one recurring process from start to finish.",
+      "Mark every place where you stop, search, switch, decide, or recreate something.",
+    ],
   },
 };
 
-export const PAYMENT_LINK = "PAYMENT_LINK_PLACEHOLDER";
-export const CONTACT_EMAIL = "rayentechyt@gmail.com";
-
-export const SERVICE_COVERAGE = [
-  "A recorded review of how you actually work",
-  "A prioritized list of the improvements worth making",
-  "Systems, templates and configurations built with you",
-  "A personal operating manual for your digital work",
+export const serviceCoverage = [
+  {
+    title: "Your tools",
+    body: "App features, configurations, utilities, software recommendations.",
+  },
+  {
+    title: "Your speed",
+    body: "Shortcuts, custom shortcuts, faster navigation, repetitive actions.",
+  },
+  {
+    title: "Your digital organization",
+    body: "Files, folders, smart folders, assets, resources, bookmarks.",
+  },
+  { title: "Your information", body: "Notes, PKM, ideas, research, content consumption, AI systems." },
+  {
+    title: "Your reuse",
+    body: "Templates, presets, SOPs, checklists, project structures, reusable assets.",
+  },
+  {
+    title: "Your workflow",
+    body: "Project setup, project completion, handoffs, archiving, continuity.",
+  },
+  {
+    title: "Your focus",
+    body: "Digital decluttering, distraction reduction, focus workflows, simpler execution.",
+  },
 ];
