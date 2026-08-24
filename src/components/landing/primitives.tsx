@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 
 export function Section({
@@ -64,7 +65,7 @@ export function ApplyButton({
   size = "lg",
   className = "",
   variant = "primary",
-  label = "Get my Digital ->\n",
+  label = "Get My Digital Workspace Audit",
 }: {
   size?: "lg" | "sm";
   className?: string;
@@ -82,8 +83,8 @@ export function ApplyButton({
         size === "lg" ? "px-6 py-3.5 text-base" : "px-4 py-2.5 text-sm"
       } ${className}`}
     >
-      {label}
-      <span aria-hidden="true">Get My Digital Workspace Audit-&gt;</span>
+      <span>{label}</span>
+      <ArrowRight aria-hidden="true" size={size === "lg" ? 18 : 16} strokeWidth={2.5} />
     </Link>
   );
 }
