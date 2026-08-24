@@ -20,6 +20,7 @@ const proofCards = [
     body: "Making Windows content since 2023. Over 1.25M views.",
     image: youtubeShot.url,
     alt: "YouTube channel stats: joined Jul 12, 2023 with 1,252,847 views",
+    fit: "cover",
   },
   {
     icon: Gauge,
@@ -27,6 +28,7 @@ const proofCards = [
     body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
     image: wpmShot.url,
     alt: "Typing progress chart showing words per minute rising from 20 to over 80",
+    fit: "cover",
   },
   {
     icon: Cpu,
@@ -34,6 +36,7 @@ const proofCards = [
     body: "3,000+ notes I still use and can find in seconds, not an abandoned second brain.",
     image: notesShot.url,
     alt: "Note search showing 3,154 results",
+    fit: "cover",
   },
   {
     icon: Minus,
