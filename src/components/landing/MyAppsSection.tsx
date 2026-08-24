@@ -8,8 +8,16 @@ import notesAsset from "@/assets/appicons/notes.png.asset.json";
 import finderAsset from "@/assets/appicons/finder.png.asset.json";
 import powertoysAsset from "@/assets/appicons/powertoys.png.asset.json";
 import mstodoAsset from "@/assets/appicons/mstodo.png.asset.json";
-import fileexplorerAsset from "@/assets/appicons/fileexplorer.png.asset.json";
+import fileexplorerAsset from "@/assets/appicons/fileexplorer2.png.asset.json";
 import onedriveAsset from "@/assets/appicons/onedrive.png.asset.json";
+import premiereAsset from "@/assets/appicons/premierepro.png.asset.json";
+import aeAsset from "@/assets/appicons/aftereffects.svg.asset.json";
+import davinciAsset from "@/assets/appicons/davinci.png.asset.json";
+import audacityAsset from "@/assets/appicons/audacity.svg.asset.json";
+import obsAsset from "@/assets/appicons/obs.png.asset.json";
+import canvaAsset from "@/assets/appicons/canva.svg.asset.json";
+import gcalAsset from "@/assets/appicons/googlecalendar.png.asset.json";
+import claudeAsset from "@/assets/appicons/claude.png.asset.json";
 
 type IconKind = "simple" | "devicon" | "asset";
 type App = { name: string; kind: IconKind; ref: string; group: string };
@@ -18,15 +26,15 @@ const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
 
 const apps: App[] = [
   // Creative
-  { name: "Premiere Pro", kind: "devicon", ref: "premierepro", group: "Creative" },
-  { name: "After Effects", kind: "devicon", ref: "aftereffects", group: "Creative" },
+  { name: "Premiere Pro", kind: "asset", ref: premiereAsset.url, group: "Creative" },
+  { name: "After Effects", kind: "asset", ref: aeAsset.url, group: "Creative" },
   { name: "Photoshop", kind: "devicon", ref: "photoshop", group: "Creative" },
-  { name: "DaVinci Resolve", kind: "simple", ref: "davinciresolve", group: "Creative" },
+  { name: "DaVinci Resolve", kind: "asset", ref: davinciAsset.url, group: "Creative" },
   { name: "Blender", kind: "devicon", ref: "blender", group: "Creative" },
   { name: "Figma", kind: "devicon", ref: "figma", group: "Creative" },
-  { name: "Canva", kind: "devicon", ref: "canva", group: "Creative" },
-  { name: "Audacity", kind: "simple", ref: "audacity", group: "Creative" },
-  { name: "OBS Studio", kind: "simple", ref: "obsstudio", group: "Creative" },
+  { name: "Canva", kind: "asset", ref: canvaAsset.url, group: "Creative" },
+  { name: "Audacity", kind: "asset", ref: audacityAsset.url, group: "Creative" },
+  { name: "OBS Studio", kind: "asset", ref: obsAsset.url, group: "Creative" },
   // Notes & knowledge
   { name: "Obsidian", kind: "simple", ref: "obsidian", group: "Notes & knowledge" },
   { name: "Notion", kind: "simple", ref: "notion", group: "Notes & knowledge" },
@@ -37,7 +45,7 @@ const apps: App[] = [
   { name: "TickTick", kind: "simple", ref: "ticktick", group: "Tasks & planning" },
   { name: "MS To Do", kind: "asset", ref: mstodoAsset.url, group: "Tasks & planning" },
   { name: "Apple Reminders", kind: "asset", ref: remindersAsset.url, group: "Tasks & planning" },
-  { name: "Google Calendar", kind: "simple", ref: "googlecalendar", group: "Tasks & planning" },
+  { name: "Google Calendar", kind: "asset", ref: gcalAsset.url, group: "Tasks & planning" },
   // Utilities
   { name: "Raycast", kind: "simple", ref: "raycast", group: "UTILITIES" },
   { name: "PowerToys", kind: "asset", ref: powertoysAsset.url, group: "UTILITIES" },
@@ -46,7 +54,7 @@ const apps: App[] = [
   { name: "Google Docs", kind: "simple", ref: "googledocs", group: "Writing & email" },
   // AI
   { name: "ChatGPT", kind: "asset", ref: chatgptAsset.url, group: "AI" },
-  { name: "Claude", kind: "simple", ref: "anthropic", group: "AI" },
+  { name: "Claude", kind: "asset", ref: claudeAsset.url, group: "AI" },
   { name: "Perplexity", kind: "simple", ref: "perplexity", group: "AI" },
   { name: "Gemini", kind: "simple", ref: "googlegemini", group: "AI" },
   // Files & storage
