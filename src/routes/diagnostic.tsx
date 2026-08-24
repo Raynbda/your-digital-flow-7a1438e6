@@ -517,12 +517,20 @@ function NavRow({
 function Results({
   primary,
   secondary,
+  answers,
 }: {
   primary: keyof typeof diagnoses;
   secondary: keyof typeof diagnoses | null;
+  answers: Answers;
 }) {
   const d = diagnoses[primary];
   const s = secondary ? diagnoses[secondary] : null;
+
+  const appsRaw = (answers["apps"] as string | undefined) ?? "";
+  const apps = appsRaw
+    .split(/[,\n]/)
+    .map((a) => a.trim())
+    .filter((a) => a.length > 0);
 
   return (
     <main className="min-h-screen bg-background">
