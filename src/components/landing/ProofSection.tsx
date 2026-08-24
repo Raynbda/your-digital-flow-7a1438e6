@@ -9,10 +9,10 @@ import notesAsset from "@/assets/proof/notes-crop.png.asset.json";
 import bookmarksAsset from "@/assets/proof/bookmarks-crop.png.asset.json";
 
 const cardStats = [
-  { value: "100+", label: "Tools tested" },
-  { value: "20 → 80", label: "WPM touch typing speed" },
-  { value: "3,000+", label: "Curated work bookmarks" },
-  { value: "3+ Yrs", label: "Windows workflow optimization" },
+  { value: "3+ Yrs", label: "Producing YouTube videos" },
+  { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
+  { value: "Scratch", label: "A workflow built from scratch — not copied from a listicle" },
+  { value: "Windows", label: "Deep in the apps space: I know what's possible and a dead end" },
 ];
 
 const proofCards = [
