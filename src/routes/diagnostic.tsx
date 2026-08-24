@@ -87,6 +87,12 @@ function isAnswered(q: Question, answers: Answers) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
+// Preview shortcut: /diagnostic?preview=results renders the final results page
+// with a sample answer set, so the end state can be reviewed without filling
+// the whole form each time.
+const previewResults = Route.useSearch().preview === "results";
+const previewRanking = useMemo(() => diagnose(SAMPLE_ANSWERS), []);
+
 function DiagnosticPage() {
   const [started, setStarted] = useState(false);
   const [step, setStep] = useState(0);
@@ -105,6 +111,15 @@ function DiagnosticPage() {
   const current = list[Math.min(step, list.length - 1)];
   const onContactStep = step >= list.length;
   const ranking = useMemo(() => diagnose(answers), [answers]);
+
+  if (previewResults) {
+    return (
+      <Results
+        primary={previewRanking.primary}
+        secondary={previewRanking.secondary}
+      />
+    );
+  }
 
   const setValue = (id: string, value: string | string[]) =>
     setAnswers((prev) => ({ ...prev, [id]: value }));
