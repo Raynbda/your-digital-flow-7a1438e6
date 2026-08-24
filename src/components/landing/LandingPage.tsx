@@ -256,20 +256,19 @@ export function LandingPage() {
         <div className="relative mx-auto w-full max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-3 py-1 text-xs font-semibold text-secondary-foreground">
             <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden="true" />
-            1:1 Workflow Optimization
+            Complete OS for creators, knowledge workers and freelancers
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            Build a better system for your <span className="text-primary">digital work</span>.
+            Get More Done Without <span className="text-primary">Working More Hours</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            I'll analyze how you work and help you improve your tools, files, information,
-            shortcuts, systems, templates, and workflows, so your everyday digital work becomes
-            faster, easier, and more organized.
+            Record a normal week of work. I'll analyze how you actually work and rebuild the systems
+            around your apps, files, information, and projects into a personalized Digital Work OS.
           </p>
           <div className="mt-9 flex flex-col items-center gap-3">
             <ApplyButton />
             <span className="text-sm text-muted-foreground">
-              Personalized engagements, limited spots
+              For macOS and Windows &middot; only 1 client per 2 weeks
             </span>
           </div>
         </div>
