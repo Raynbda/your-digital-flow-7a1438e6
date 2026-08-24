@@ -16,6 +16,9 @@ import {
   Zap,
 } from "lucide-react";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
+import { ProofSection } from "./ProofSection";
+import { MyAppsSection } from "./MyAppsSection";
+import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const frictions = [
   "You keep doing the same things manually.",
@@ -226,20 +229,23 @@ const audiences = [
 export function LandingPage() {
   return (
     <main className="pb-24 md:pb-0">
-      <div className="bg-panel px-4 py-2 text-center text-xs font-medium text-panel-foreground">
-        Limited number of clients at a time
-      </div>
-      <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-3 sm:px-8">
-          <span className="flex items-center gap-2 font-extrabold tracking-tight text-foreground">
-            <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-              <Layers className="h-4 w-4" aria-hidden="true" />
-            </span>
-            Workflow Optimization
-          </span>
-          <ApplyButton size="sm" className="hidden sm:inline-flex" />
+      <div className="sticky top-0 z-50">
+        <div className="flex items-center justify-center gap-2 bg-panel px-4 py-2 text-center text-xs font-semibold text-panel-foreground">
+          <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary-glow" aria-hidden="true" />
+          Only 1 client per 2 weeks
         </div>
-      </header>
+        <header className="border-b border-border bg-background/90 backdrop-blur">
+          <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-3 sm:px-8">
+            <span className="flex items-center gap-2 font-extrabold tracking-tight text-foreground">
+              <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Layers className="h-4 w-4" aria-hidden="true" />
+              </span>
+              Digital Work OS
+            </span>
+            <ApplyButton size="sm" className="hidden sm:inline-flex" />
+          </div>
+        </header>
+      </div>
 
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border px-5 pb-20 pt-16 sm:px-8 md:pb-24 md:pt-24">
