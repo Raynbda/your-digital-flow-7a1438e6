@@ -506,6 +506,8 @@ export function LandingPage() {
         </p>
       </Section>
 
+      <RoiCalculator />
+
       <MyAppsSection />
 
       <FAQSection />
