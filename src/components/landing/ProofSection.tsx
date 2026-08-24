@@ -64,7 +64,7 @@ export function ProofSection() {
                 Defensible authority
               </p>
               <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl">
-                I’ve spent three years obsessing over building better workflows for creating Content.
+                I’ve spent three years obsessing over building better workflows for creating content.
               </h2>
               <p className="mt-6 text-base leading-relaxed opacity-90">
                  I make YouTube videos independently, which means I handle everything myself: research, writing, recording, editing, file management, publishing, and everything in between.
