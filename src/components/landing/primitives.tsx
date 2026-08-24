@@ -83,7 +83,7 @@ export function ApplyButton({
       } ${className}`}
     >
       {label}
-      <span aria-hidden="true">-&gt;</span>
+      <span aria-hidden="true">Get My Digital Workspace Audit-&gt;</span>
     </Link>
   );
 }
