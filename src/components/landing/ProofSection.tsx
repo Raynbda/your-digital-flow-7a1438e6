@@ -107,19 +107,19 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                  <div className="mt-4 flex flex-1 flex-col justify-end gap-2">
+                  <div className="mt-4 flex flex-1 flex-col gap-2">
                     {images.map((img) => (
                       <div
                         key={img.src}
-                        className={`flex items-center justify-start overflow-hidden rounded-lg bg-[#232323] px-3 ${
-                          "tall" in img && img.tall ? "h-24 justify-center" : "h-11"
+                        className={`flex flex-1 min-h-0 items-center justify-start overflow-hidden rounded-lg bg-[#232323] px-3 ${
+                          "tall" in img && img.tall ? "justify-center" : "justify-start"
                         }`}
                       >
                         <img
                           src={img.src}
                           alt={img.alt}
                           loading="lazy"
-                          className="max-h-20 w-auto max-w-full object-contain object-left"
+                          className="h-full w-full object-contain object-left"
                         />
                       </div>
                     ))}
