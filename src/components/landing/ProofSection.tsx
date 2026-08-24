@@ -11,8 +11,8 @@ import bookmarksAsset from "@/assets/proof/bookmarks-crop.png.asset.json";
 const cardStats = [
   { value: "3+ Yrs", label: "Producing YouTube videos" },
   { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
-  { value: "Scratch", label: "A workflow built from scratch \u2014 not copied from a listicle" },
-  { value: "Windows", label: "Deep in the apps space: I know what&rsquo;s possible and a dead end" },
+  { value: "Scratch", label: "A workflow built from scratch — not copied from a listicle" },
+  { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
 ];
 
 const proofCards = [
