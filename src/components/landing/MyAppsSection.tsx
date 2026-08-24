@@ -26,15 +26,15 @@ const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons";
 
 const apps: App[] = [
   // Creative
-  { name: "Premiere Pro", kind: "devicon", ref: "premierepro", group: "Creative" },
-  { name: "After Effects", kind: "devicon", ref: "aftereffects", group: "Creative" },
+  { name: "Premiere Pro", kind: "asset", ref: premiereAsset.url, group: "Creative" },
+  { name: "After Effects", kind: "asset", ref: aeAsset.url, group: "Creative" },
   { name: "Photoshop", kind: "devicon", ref: "photoshop", group: "Creative" },
-  { name: "DaVinci Resolve", kind: "simple", ref: "davinciresolve", group: "Creative" },
+  { name: "DaVinci Resolve", kind: "asset", ref: davinciAsset.url, group: "Creative" },
   { name: "Blender", kind: "devicon", ref: "blender", group: "Creative" },
   { name: "Figma", kind: "devicon", ref: "figma", group: "Creative" },
-  { name: "Canva", kind: "devicon", ref: "canva", group: "Creative" },
-  { name: "Audacity", kind: "simple", ref: "audacity", group: "Creative" },
-  { name: "OBS Studio", kind: "simple", ref: "obsstudio", group: "Creative" },
+  { name: "Canva", kind: "asset", ref: canvaAsset.url, group: "Creative" },
+  { name: "Audacity", kind: "asset", ref: audacityAsset.url, group: "Creative" },
+  { name: "OBS Studio", kind: "asset", ref: obsAsset.url, group: "Creative" },
   // Notes & knowledge
   { name: "Obsidian", kind: "simple", ref: "obsidian", group: "Notes & knowledge" },
   { name: "Notion", kind: "simple", ref: "notion", group: "Notes & knowledge" },
