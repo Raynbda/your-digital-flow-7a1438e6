@@ -132,7 +132,7 @@ export function ProofSection() {
           <Reveal>
             <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
               <Sparkles aria-hidden="true" className="h-4 w-4 text-primary" />
-              Real screenshots from my own machine — not stock proof.
+              Real screenshots from my own machine, not stock proof.
             </div>
           </Reveal>
         </div>
