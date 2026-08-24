@@ -8,7 +8,13 @@ import {
   type Question,
 } from "@/lib/diagnostic-questions";
 import { diagnose } from "@/lib/diagnostic-scoring";
-import { CONTACT_EMAIL, diagnoses, serviceCoverage } from "@/lib/diagnosis-content";
+import {
+  CONTACT_EMAIL,
+  PAYMENT_LINK,
+  diagnoses,
+  offer,
+  serviceCoverage,
+} from "@/lib/diagnosis-content";
 import { saveDiagnostic } from "@/lib/diagnostic.functions";
 
 const title = "Workflow Diagnostic - Digital Work OS";
