@@ -7,8 +7,8 @@ export const submissionSchema = z.object({
   scores: z.record(z.string(), z.number()),
   primary: z.string().max(40),
   secondary: z.string().max(40).nullable(),
-  seriousness: z.string().max(40).optional().nullable(),
-  interest: z.string().max(40).optional().nullable(),
+  seriousness: z.string().max(300).optional().nullable(),
+  interest: z.string().max(300).optional().nullable(),
   newsletter_opt_in: z.boolean().default(true),
 });
 
