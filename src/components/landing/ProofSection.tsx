@@ -29,7 +29,7 @@ const proofCards = [
     icon: Gauge,
     title: "Speed I actually built",
     body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
-    images: [{ src: wpmAsset.url, alt: "Typing test result showing 84 words per minute" }],
+    images: [{ src: wpmAsset.url, alt: "Typing test result showing 84 words per minute", tall: true }],
   },
   {
     icon: Cpu,
@@ -109,16 +109,18 @@ export function ProofSection() {
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
                   <div className="mt-4 flex flex-1 flex-col justify-end gap-2">
-                    {images.map(({ src, alt }) => (
+                    {images.map((img) => (
                       <div
-                        key={src}
-                        className="flex h-11 items-center justify-start overflow-hidden rounded-lg bg-[#232323] px-3"
+                        key={img.src}
+                        className={`flex items-center justify-start overflow-hidden rounded-lg bg-[#232323] px-3 ${
+                          "tall" in img && img.tall ? "h-24 justify-center" : "h-11"
+                        }`}
                       >
                         <img
-                          src={src}
-                          alt={alt}
+                          src={img.src}
+                          alt={img.alt}
                           loading="lazy"
-                          className="max-h-8 w-auto max-w-full object-contain object-left"
+                          className="max-h-20 w-auto max-w-full object-contain object-left"
                         />
                       </div>
                     ))}
