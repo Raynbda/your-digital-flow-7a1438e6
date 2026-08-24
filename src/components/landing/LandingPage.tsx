@@ -20,6 +20,7 @@ import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { MyAppsSection } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
+import { RoiCalculator } from "./RoiCalculator";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const frictions = [
@@ -327,6 +328,9 @@ export function LandingPage() {
           unnecessary work. That's what I help you fix.
         </p>
       </Section>
+
+      <RoiCalculator />
+
 
       {/* Analyzed from the inside */}
       <Section>
