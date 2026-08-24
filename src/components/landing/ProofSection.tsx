@@ -45,8 +45,8 @@ export function ProofSection() {
               What you are buying is judgment and integration — not more options.
             </p>
 
-            <div className="mt-8 rounded-2xl bg-panel p-7 text-panel-foreground shadow-[var(--shadow-lift)]">
-              <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-70">
+            <div className="mt-8 rounded-2xl bg-[image:var(--gradient-primary)] p-7 text-primary-foreground shadow-[var(--shadow-lift)]">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-80">
                 By the numbers
               </p>
               <div className="mt-6 grid grid-cols-2 gap-x-6 gap-y-7">
