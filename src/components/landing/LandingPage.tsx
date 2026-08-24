@@ -19,6 +19,7 @@ import {
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { MyAppsSection } from "./MyAppsSection";
+import { FAQSection } from "./FAQSection";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const frictions = [
