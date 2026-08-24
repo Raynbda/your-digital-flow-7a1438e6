@@ -196,6 +196,7 @@ function DiagnosticPage() {
       <Results
         primary={previewRanking.primary}
         secondary={previewRanking.secondary}
+        answers={SAMPLE_ANSWERS}
       />
     );
   }
