@@ -41,6 +41,7 @@ const proofCards = [
     body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
     image: bookmarksShot.url,
     alt: "Bookmark manager showing the All bookmarks collection",
+    fit: "contain",
   },
 ];
 
@@ -98,7 +99,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body, image, alt }, i) => (
+            {proofCards.map(({ icon: Icon, title, body, image, alt, fit }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -111,7 +112,7 @@ export function ProofSection() {
                       src={image}
                       alt={alt}
                       loading="lazy"
-                      className="mx-auto h-24 w-full object-contain"
+                      className={`mx-auto h-24 w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
                     />
                   </div>
                 </div>
