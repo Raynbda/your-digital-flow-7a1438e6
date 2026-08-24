@@ -1,17 +1,11 @@
 import { Eyebrow, Section } from "./primitives";
 import { Reveal } from "./Reveal";
-import { Cpu, Gauge, Minus, SlidersHorizontal, Sparkles } from "lucide-react";
-
-import joinedAsset from "@/assets/proof/joined-crop.png.asset.json";
-import viewsAsset from "@/assets/proof/views-crop.png.asset.json";
-import wpmAsset from "@/assets/proof/wpm-crop.png.asset.json";
-import notesAsset from "@/assets/proof/notes-crop.png.asset.json";
-import bookmarksAsset from "@/assets/proof/bookmarks-crop.png.asset.json";
+import { Cpu, Gauge, Minus, SlidersHorizontal } from "lucide-react";
 
 const cardStats = [
   { value: "3+ Yrs", label: "Producing YouTube videos" },
   { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
-  { value: "Scratch", label: "A workflow built from scratch,  not copied from a listicle" },
+  { value: "Scratch", label: "A workflow built from scratch,  not copied from a listicle" },
   { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
 ];
 
@@ -20,28 +14,21 @@ const proofCards = [
     icon: SlidersHorizontal,
     title: "3+ years in public",
     body: "Making Windows content since 2023. Over 1.25M views.",
-    images: [
-      { src: joinedAsset.url, alt: "YouTube channel joined July 12, 2023" },
-      { src: viewsAsset.url, alt: "YouTube channel with 1,252,847 views" },
-    ],
   },
   {
     icon: Gauge,
     title: "Speed I actually built",
     body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
-    images: [{ src: wpmAsset.url, alt: "Typing test result showing 84 words per minute", tall: true }],
   },
   {
     icon: Cpu,
     title: "A real knowledge system",
     body: "3,000+ notes I still use and can find in seconds, not an abandoned second brain.",
-    images: [{ src: notesAsset.url, alt: "Note system search showing 3,214 results" }],
   },
   {
     icon: Minus,
     title: "Curation over collecting",
     body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
-    images: [{ src: bookmarksAsset.url, alt: "Bookmark manager showing 3K bookmarks" }],
   },
 ];
 
@@ -67,7 +54,7 @@ export function ProofSection() {
                 I’ve spent three years obsessing over building better workflows for creating content.
               </h2>
               <p className="mt-6 text-base leading-relaxed opacity-90">
-                 I make YouTube videos independently, which means I handle everything myself: research, writing, recording, editing, file management, publishing, and everything in between.
+                 I make YouTube videos independently, which means I handle everything myself: research, writing, recording, editing, file management, publishing, and everything in between.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
                 Over the years, I&rsquo;ve tested and replaced dozens of apps, built systems from
@@ -99,7 +86,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body, images }, i) => (
+            {proofCards.map(({ icon: Icon, title, body }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -107,34 +94,10 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                  <div className="mt-4 flex flex-1 flex-col gap-2">
-                    {images.map((img) => (
-                      <div
-                        key={img.src}
-                        className={`flex flex-1 min-h-0 items-center justify-start overflow-hidden rounded-lg bg-[#232323] px-3 ${
-                          "tall" in img && img.tall ? "justify-center" : "justify-start"
-                        }`}
-                      >
-                        <img
-                          src={img.src}
-                          alt={img.alt}
-                          loading="lazy"
-                          className="h-full w-full object-contain object-left"
-                        />
-                      </div>
-                    ))}
-                  </div>
                 </div>
               </Reveal>
             ))}
           </div>
-
-          <Reveal>
-            <div className="mt-5 flex items-center gap-2 text-sm text-muted-foreground">
-              <Sparkles aria-hidden="true" className="h-4 w-4 text-primary" />
-              Real screenshots from my own machine, not stock proof.
-            </div>
-          </Reveal>
         </div>
       </div>
     </Section>
