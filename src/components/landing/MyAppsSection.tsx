@@ -12,13 +12,13 @@ export function MyAppsSection() {
         lead="Creative tools, note apps, task managers, AI assistants, and file systems. On both macOS and Windows. If it is part of your day, it is part of the diagnosis."
       />
 
-      <Reveal delay={80} className="mt-14">
-        <div className="overflow-hidden rounded-2xl border border-border bg-black shadow-[var(--shadow-soft)]">
+      <Reveal delay={80} className="mt-14 flex justify-center">
+        <div className="overflow-hidden rounded-2xl border border-border bg-white p-6 shadow-[var(--shadow-soft)] sm:p-10">
           <img
             src={myAppsGridAsset.url}
             alt="Grid of the apps I use every day — creative suite, notes, tasks, mail, and file managers on macOS and Windows"
             loading="lazy"
-            className="block w-full"
+            className="block w-full max-w-3xl"
           />
         </div>
       </Reveal>
