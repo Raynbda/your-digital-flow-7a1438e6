@@ -196,6 +196,7 @@ function DiagnosticPage() {
       <Results
         primary={previewRanking.primary}
         secondary={previewRanking.secondary}
+        answers={SAMPLE_ANSWERS}
       />
     );
   }
@@ -241,7 +242,14 @@ function DiagnosticPage() {
     }
   };
 
-  if (done) return <Results primary={ranking.primary} secondary={ranking.secondary} />;
+  if (done)
+    return (
+      <Results
+        primary={ranking.primary}
+        secondary={ranking.secondary}
+        answers={answers}
+      />
+    );
 
   return (
     <main className="min-h-screen bg-background">
@@ -509,12 +517,20 @@ function NavRow({
 function Results({
   primary,
   secondary,
+  answers,
 }: {
   primary: keyof typeof diagnoses;
   secondary: keyof typeof diagnoses | null;
+  answers: Answers;
 }) {
   const d = diagnoses[primary];
   const s = secondary ? diagnoses[secondary] : null;
+
+  const appsRaw = (answers["apps"] as string | undefined) ?? "";
+  const apps = appsRaw
+    .split(/[,\n]/)
+    .map((a) => a.trim())
+    .filter((a) => a.length > 0);
 
   return (
     <main className="min-h-screen bg-background">
@@ -540,6 +556,25 @@ function Results({
         <Block title={d.lookAtFirstTitle} items={d.lookAtFirst} />
         <Block title="What you can do today" items={d.doToday} />
         <Block title="Your first action" items={d.firstAction} />
+
+        {apps.length > 0 ? (
+          <div className="mt-10">
+            <h2 className="text-xl font-bold text-foreground">Your current tools</h2>
+            <p className="mt-2 text-sm text-muted-foreground">
+              These are the apps you told me you use right now.
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2.5">
+              {apps.map((app) => (
+                <li
+                  key={app}
+                  className="rounded-lg border border-border bg-secondary px-3 py-1.5 text-sm text-secondary-foreground"
+                >
+                  {app}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
 
         {s ? (
           <div className="mt-10 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
