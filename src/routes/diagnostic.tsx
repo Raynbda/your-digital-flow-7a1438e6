@@ -43,6 +43,7 @@ function DiagnosticPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState<string | null>(null);
+  const [newsletter, setNewsletter] = useState(true);
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [done, setDone] = useState(false);
@@ -84,6 +85,7 @@ function DiagnosticPage() {
           secondary: ranking.secondary,
           seriousness: (answers["seriousness"] as string) ?? null,
           interest: (answers["interest"] as string) ?? null,
+          newsletter_opt_in: newsletter,
         },
       });
       setDone(true);
@@ -176,6 +178,18 @@ function DiagnosticPage() {
               </label>
               {emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
               {saveError ? <p className="text-sm text-destructive">{saveError}</p> : null}
+              <label className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <input
+                  type="checkbox"
+                  checked={newsletter}
+                  onChange={(e) => setNewsletter(e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-[var(--primary)]"
+                />
+                <span className="text-sm leading-relaxed text-muted-foreground">
+                  By submitting this diagnostic you will also be signed up to the newsletter, where
+                  I share workflow systems, tools, and templates. You can unsubscribe at any time.
+                </span>
+              </label>
             </div>
             <NavRow
               onBack={() => setStep((s) => s - 1)}
