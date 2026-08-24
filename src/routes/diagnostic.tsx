@@ -8,7 +8,13 @@ import {
   type Question,
 } from "@/lib/diagnostic-questions";
 import { diagnose } from "@/lib/diagnostic-scoring";
-import { CONTACT_EMAIL, diagnoses, serviceCoverage } from "@/lib/diagnosis-content";
+import {
+  CONTACT_EMAIL,
+  PAYMENT_LINK,
+  diagnoses,
+  offer,
+  serviceCoverage,
+} from "@/lib/diagnosis-content";
 import { saveDiagnostic } from "@/lib/diagnostic.functions";
 
 const title = "Workflow Diagnostic - Digital Work OS";
@@ -405,25 +411,75 @@ function Results({
           </div>
         ) : null}
 
-        <div className="mt-10 rounded-2xl border border-border bg-card p-6 sm:p-8">
-          <h2 className="text-xl font-bold text-card-foreground">If we worked together</h2>
-          <p className="mt-3 leading-relaxed text-muted-foreground">{d.ifWeWorked}</p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className="mt-12">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+              {offer.eyebrow}
+            </p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground">
+              Get your Digital Work OS built
+            </h2>
+            <p className="mt-3 text-muted-foreground">{d.ifWeWorked}</p>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-3xl border-2 border-primary bg-card shadow-[var(--shadow-soft)]">
+            <div className="grid gap-8 p-6 sm:p-9 md:grid-cols-[1.1fr_1fr]">
+              <div>
+                <span className="inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-secondary-foreground">
+                  {offer.badge}
+                </span>
+                <h3 className="mt-4 text-2xl font-extrabold text-card-foreground">{offer.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {offer.subtitle}
+                </p>
+                <ul className="mt-6 space-y-3">
+                  {offer.includes.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-[0.95rem] text-card-foreground">
+                      <CheckCircle2
+                        className="mt-0.5 h-5 w-5 shrink-0 text-primary"
+                        aria-hidden="true"
+                      />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="flex flex-col justify-center rounded-2xl bg-band p-6 text-center">
+                <p className="text-5xl font-extrabold tracking-tight text-foreground">
+                  {offer.price}
+                </p>
+                <p className="mt-2 text-sm font-semibold text-primary">{offer.priceNote}</p>
+                <a
+                  href={PAYMENT_LINK}
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
+                >
+                  {offer.ctaLabel}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+                <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
+                  {offer.guarantee}
+                </p>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20question`}
+                  className="mt-3 text-xs text-muted-foreground underline"
+                >
+                  Email me a question first
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {serviceCoverage.map((item) => (
-              <li key={item.title} className="rounded-xl border border-border p-4">
+              <li key={item.title} className="rounded-xl border border-border bg-card p-4">
                 <p className="text-sm font-bold text-card-foreground">{item.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{item.body}</p>
               </li>
             ))}
           </ul>
-          <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%201:1%20Workflow%20Optimization`}
-            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
-          >
-            Apply for 1:1 Workflow Optimization
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
         </div>
+
 
         <Link to="/" className="mt-10 inline-block text-sm text-muted-foreground underline">
           Back to the main page
