@@ -29,6 +29,7 @@ const proofCards = [
     image: wpmShot.url,
     alt: "Typing speed result of 84 words per minute",
     fit: "contain",
+    tileBg: "#323437",
   },
   {
     icon: Cpu,
@@ -45,6 +46,7 @@ const proofCards = [
     image: bookmarksShot.url,
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
+    tileBg: "#232325",
   },
 ];
 
@@ -102,7 +104,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body, image, alt, fit }, i) => (
+            {proofCards.map(({ icon: Icon, title, body, image, alt, fit, tileBg }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -110,12 +112,15 @@ export function ProofSection() {
                     <p className="font-bold text-foreground">{title}</p>
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-                  <div className="mt-4 overflow-hidden rounded-xl border border-border bg-[#262626] p-2">
+                  <div
+                    className="mt-4 overflow-hidden rounded-xl border border-border p-2"
+                    style={{ backgroundColor: tileBg ?? "#262626" }}
+                  >
                     <img
                       src={image}
                       alt={alt}
                       loading="lazy"
-                      className={`mx-auto h-24 w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
+                      className={`mx-auto h-40 w-full ${fit === "contain" ? "object-contain" : "object-cover"}`}
                     />
                   </div>
                 </div>
