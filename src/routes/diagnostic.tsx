@@ -282,7 +282,7 @@ function DiagnosticPage() {
               Free diagnostic
             </span>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Digital Work OS Workflow <span className="bg-primary text-primary-foreground px-2 py-1 rounded-md box-decoration-clone">See Where Your Workflow Is Slowing You Down</span>
+              Digital Work OS Workflow See Where Your Workflow Is <span className="text-primary">Slowing You Down</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
               Answer a few questions about how you work, the tools you use, and where things currently feel harder than they should. I’ll use your answers to identify where your biggest opportunities are.
