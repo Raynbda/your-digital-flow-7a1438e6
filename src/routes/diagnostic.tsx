@@ -592,7 +592,7 @@ function Results({
               {offer.eyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground">
-              Get your Digital Work OS built
+              Get your Deep Work OS built
             </h2>
             <p className="mt-3 text-muted-foreground">{d.ifWeWorked}</p>
           </div>
@@ -638,7 +638,7 @@ function Results({
                   {offer.guarantee}
                 </p>
                 <a
-                  href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20question`}
+                  href={`mailto:${CONTACT_EMAIL}?subject=Deep%20Work%20OS%20-%20question`}
                   className="mt-3 text-xs text-muted-foreground underline"
                 >
                   Email me a question first
