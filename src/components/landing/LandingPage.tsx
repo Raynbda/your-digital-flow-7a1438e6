@@ -26,11 +26,11 @@ import { RoiCalculator } from "./RoiCalculator";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const heroFrictions = [
-  "The script you can\u2019t find.",
+  "The script you can't find.",
   "The thumbnail file buried three folders deep.",
-  "The project you\u2019re rebuilding from zero, again.",
+  "The project you're rebuilding from zero, again.",
   "The note you know you wrote somewhere.",
-  "The same AI prompt you\u2019re rewriting for the tenth time.",
+  "The same AI prompt you're rewriting for the tenth time.",
   "The fifteen minutes lost every time you switch between your editor, notes app, file explorer, browser, and project manager just to get one thing done.",
 ];
 
@@ -42,14 +42,14 @@ const heroWidgets = [
 ];
 
 const frictionPoints = [
-  "You\u2019re rebuilding your project setup from zero, every time.",
-  "You know you saved that asset, but can\u2019t find it.",
-  "You\u2019re doing the same repetitive steps manually, project after project.",
+  "You're rebuilding your project setup from zero, every time.",
+  "You know you saved that asset, but can't find it.",
+  "You're doing the same repetitive steps manually, project after project.",
   "Your footage, scripts, notes, ideas, and references live in different places.",
   "You have useful information everywhere, but no clear system for retrieving it.",
-  "You know your software can do more, but don\u2019t know which features actually matter.",
+  "You know your software can do more, but don't know which features actually matter.",
   "You create things you could reuse, but end up recreating them instead.",
-  "Your project management system doesn\u2019t reflect how your videos actually get made.",
+  "Your project management system doesn't reflect how your videos actually get made.",
 ];
 
 const toolsList = [
@@ -92,7 +92,7 @@ const outcomes = [
   {
     icon: Monitor,
     title: "Get More From Your Tools",
-    body: "Find the shortcuts, features, configurations, utilities, and workflows you\u2019re not taking advantage of.",
+    body: "Find the shortcuts, features, configurations, utilities, and workflows you're not taking advantage of.",
   },
   {
     icon: Layers,
@@ -122,7 +122,7 @@ const rebuildCategories = [
   {
     icon: FolderTree,
     title: "Your Files & Assets",
-    body: "Stop losing things you\u2019ve already created.",
+    body: "Stop losing things you've already created.",
     items: [
       "Folder structures",
       "Naming systems",
@@ -175,7 +175,7 @@ const rebuildCategories = [
   {
     icon: Repeat,
     title: "Your Templates & Reusable Systems",
-    body: "Stop rebuilding things you\u2019ve already built.",
+    body: "Stop rebuilding things you've already built.",
     items: [
       "Project templates",
       "Folder templates",
@@ -219,27 +219,27 @@ const deliverables = [
   {
     icon: Search,
     title: "The Workflow Diagnostic",
-    body: "A full breakdown of your recorded work week. Where you\u2019re losing time, repeating work, searching, switching context, and where your current systems break. You\u2019ll know exactly where the friction is coming from.",
+    body: "A full breakdown of your recorded work week. Where you're losing time, repeating work, searching, switching context, and where your current systems break. You'll know exactly where the friction is coming from.",
   },
   {
     icon: ListChecks,
     title: "Your Project Management System",
-    body: "A project system built around how you actually make content. This can include your Notion workspace, databases, dashboards, production stages, tasks, templates, and recurring workflows. So you always know what you\u2019re working on, what\u2019s next, and where every project stands.",
+    body: "A project system built around how you actually make content. This can include your Notion workspace, databases, dashboards, production stages, tasks, templates, and recurring workflows. So you always know what you're working on, what's next, and where every project stands.",
   },
   {
     icon: FolderTree,
     title: "Your File & Asset System",
-    body: "A structure for your projects, footage, graphics, thumbnails, exports, resources, and reusable assets. So finding something doesn\u2019t require remembering where you put it.",
+    body: "A structure for your projects, footage, graphics, thumbnails, exports, resources, and reusable assets. So finding something doesn't require remembering where you put it.",
   },
   {
     icon: Brain,
     title: "Your Note-Taking & Knowledge System",
-    body: "A system for capturing ideas, research, references, and information. So your knowledge becomes something you can actually use \u2014 not another pile of notes.",
+    body: "A system for capturing ideas, research, references, and information. So your knowledge becomes something you can actually use — not another pile of notes.",
   },
   {
     icon: Repeat,
     title: "Your Template & Reuse System",
-    body: "Templates, presets, prompts, project structures, SOPs, checklists, and reusable assets based on the work you repeat. So every new project benefits from everything you\u2019ve already built.",
+    body: "Templates, presets, prompts, project structures, SOPs, checklists, and reusable assets based on the work you repeat. So every new project benefits from everything you've already built.",
   },
   {
     icon: Keyboard,
@@ -249,7 +249,7 @@ const deliverables = [
   {
     icon: BookOpen,
     title: "Your Operating Manual",
-    body: "A written reference explaining how your new system works. Where things go, how projects move, how information is captured, what gets reused, and what happens at each stage. So the system doesn\u2019t slowly turn back into chaos a month later.",
+    body: "A written reference explaining how your new system works. Where things go, how projects move, how information is captured, what gets reused, and what happens at each stage. So the system doesn't slowly turn back into chaos a month later.",
   },
 ];
 
@@ -258,9 +258,9 @@ const processSteps = [
     number: "01",
     title: "Record Your Normal Work",
     paragraphs: [
-      "Don\u2019t show me your ideal workflow. Show me your real one.",
+      "Don't show me your ideal workflow. Show me your real one.",
       "Record yourself doing normal work across your production process.",
-      "Whatever applies to you. Don\u2019t clean anything up first. I want to see where the problems actually happen.",
+      "Whatever applies to you. Don't clean anything up first. I want to see where the problems actually happen.",
       "No performance. No preparation. No workflow documentation. Just work normally.",
     ],
     list: [
@@ -279,7 +279,7 @@ const processSteps = [
   {
     number: "02",
     title: "I Find The Friction",
-    paragraphs: ["I\u2019ll go through your workflow and identify:"],
+    paragraphs: ["I'll go through your workflow and identify:"],
     list: [
       "Unnecessary steps",
       "Repetitive work",
@@ -295,14 +295,14 @@ const processSteps = [
       "Unnecessary decisions",
     ],
     footer:
-      "Then I\u2019ll prioritize the changes that are actually worth making. Not everything needs fixing. We\u2019ll focus on the improvements with the biggest impact on your creative work.",
+      "Then I'll prioritize the changes that are actually worth making. Not everything needs fixing. We'll focus on the improvements with the biggest impact on your creative work.",
   },
   {
     number: "03",
     title: "I Build The System",
     paragraphs: [
       "This is where the audit becomes your Deep Work OS.",
-      "I\u2019ll turn the highest-value opportunities into practical systems. That could mean:",
+      "I'll turn the highest-value opportunities into practical systems. That could mean:",
     ],
     list: [
       "Building your Notion project system",
@@ -322,7 +322,7 @@ const processSteps = [
     number: "04",
     title: "You Start Using It",
     paragraphs: [
-      "You\u2019ll receive your completed systems, written documentation, and video walkthrough.",
+      "You'll receive your completed systems, written documentation, and video walkthrough.",
       "Then you start using them in real work:",
     ],
     list: [
@@ -341,14 +341,14 @@ const recordWeekDontNeed = [
   "Fill out complicated forms",
   "Prepare a presentation",
   "Clean up your desktop",
-  "Pretend you\u2019re working efficiently",
+  "Pretend you're working efficiently",
 ];
 
 const recordWeekExamples = [
   "If you search for a file for five minutes, I want to see it.",
   "If you rebuild the same project structure again, I want to see it.",
   "If you switch between four apps to complete one simple task, I want to see it.",
-  "If you can\u2019t remember where you saved something, that\u2019s exactly the kind of friction I\u2019m looking for.",
+  "If you can't remember where you saved something, that's exactly the kind of friction I'm looking for.",
 ];
 
 const imagineList = [
@@ -368,27 +368,27 @@ const imagineList = [
 
 const differences = [
   {
-    dont: "I don\u2019t tell you how creators should work.",
+    dont: "I don't tell you how creators should work.",
     do: "I look at how you work.",
   },
   {
-    dont: "I don\u2019t hand you a generic Notion template.",
+    dont: "I don't hand you a generic Notion template.",
     do: "I build your project system around your actual production process.",
   },
   {
-    dont: "I don\u2019t tell you to use a particular note-taking methodology.",
+    dont: "I don't tell you to use a particular note-taking methodology.",
     do: "I build a system around the information you actually collect and use.",
   },
   {
-    dont: "I don\u2019t give you a list of 50 shortcuts.",
+    dont: "I don't give you a list of 50 shortcuts.",
     do: "I identify the shortcuts that matter for your actual workflow.",
   },
   {
-    dont: "I don\u2019t tell you to organize every file on your computer.",
+    dont: "I don't tell you to organize every file on your computer.",
     do: "I create the structure and rules that make your important work easy to manage.",
   },
   {
-    dont: "I don\u2019t add complexity for the sake of optimization.",
+    dont: "I don't add complexity for the sake of optimization.",
     do: "I remove friction.",
   },
 ];
@@ -411,7 +411,7 @@ const investmentDetails = [
   {
     label: "Effort required",
     value:
-      "You don\u2019t need to figure out the solution. You record your normal work. I analyze it and build the system.",
+      "You don't need to figure out the solution. You record your normal work. I analyze it and build the system.",
   },
 ];
 
@@ -450,7 +450,7 @@ const bonuses = [
   {
     icon: Boxes,
     title: "The Tool Stack Audit",
-    body: "Your current tools flagged: KEEP \u00b7 REPLACE \u00b7 CUT. With reasoning behind each recommendation. Stop collecting tools. Start curating your stack.",
+    body: "Your current tools flagged: KEEP · REPLACE · CUT. With reasoning behind each recommendation. Stop collecting tools. Start curating your stack.",
   },
 ];
 
@@ -476,8 +476,8 @@ const especiallyIf = [
 ];
 
 const dontNeedCards = [
-  "You don\u2019t need to use a particular app.",
-  "You don\u2019t need to switch your entire setup.",
+  "You don't need to use a particular app.",
+  "You don't need to switch your entire setup.",
   "We start with what you already use and improve it from there.",
 ];
 
@@ -534,13 +534,13 @@ export function LandingPage() {
           </ul>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg font-semibold text-foreground">
-            Your creative work shouldn\u2019t require so much work just to manage the creative work.
+            Your creative work shouldn't require so much work just to manage the creative work.
           </p>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
             Record a normal week of how you create: ideation, research, scripting, recording,
             editing, thumbnails, file management, publishing, whatever your process actually
-            looks like. I\u2019ll analyze it from the inside and rebuild the systems around it: your
+            looks like. I'll analyze it from the inside and rebuild the systems around it: your
             tools, files, notes, projects, templates, shortcuts, and rules. So your next project
             starts faster than the last one ended.
           </p>
@@ -583,7 +583,7 @@ export function LandingPage() {
         <SectionHead
           eyebrow="The problem"
           title="The work behind the work is slowing you down."
-          lead="You\u2019re probably losing time in places that don\u2019t look important."
+          lead="You're probably losing time in places that don't look important."
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
           {frictionPoints.map((item) => (
@@ -597,7 +597,7 @@ export function LandingPage() {
           ))}
         </ul>
         <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-medium text-foreground">
-          Individually, these problems seem small. Together, they\u2019re the difference between a
+          Individually, these problems seem small. Together, they're the difference between a
           creative workflow that flows and one that fights you at every step.
         </p>
       </Section>
@@ -625,7 +625,7 @@ export function LandingPage() {
           </div>
           <div className="flex flex-col justify-center">
             <p className="text-lg leading-relaxed text-muted-foreground">
-              But your workflow doesn\u2019t automatically get better just because your tools get
+              But your workflow doesn't automatically get better just because your tools get
               better.
             </p>
             <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -633,7 +633,7 @@ export function LandingPage() {
               them.
             </p>
             <p className="mt-6 text-xl font-bold text-foreground">
-              The answer isn\u2019t another app. It\u2019s building the system behind the apps.
+              The answer isn't another app. It's building the system behind the apps.
             </p>
           </div>
         </div>
@@ -643,12 +643,12 @@ export function LandingPage() {
       <Section band>
         <SectionHead
           eyebrow="The approach"
-          title="I don\u2019t give you a productivity system. I build the system behind your creative work."
+          title="I don't give you a productivity system. I build the system behind your creative work."
           lead="There is no universal \u201cperfect\u201d creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different."
         />
         <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
           <p className="text-lg leading-relaxed text-muted-foreground">
-            So I don\u2019t give you a generic folder structure, Notion template, or list of
+            So I don't give you a generic folder structure, Notion template, or list of
             productivity apps and tell you to change the way you work.
           </p>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
@@ -663,7 +663,7 @@ export function LandingPage() {
         <SectionHead
           eyebrow="The approach"
           title="Your creative workflow, analyzed from the inside."
-          lead="This isn\u2019t a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
+          lead="This isn't a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
         />
         <ul className="mt-8 flex flex-wrap justify-center gap-2">
           {workflowList.map((item) => (
@@ -694,7 +694,7 @@ export function LandingPage() {
         <SectionHead
           eyebrow="What changes"
           title="What we can rebuild"
-          lead="Your workflow determines what changes. There isn\u2019t a fixed checklist I\u2019ll apply to every creator. I\u2019ll look at your workflow and identify what\u2019s actually worth fixing."
+          lead="Your workflow determines what changes. There isn't a fixed checklist I'll apply to every creator. I'll look at your workflow and identify what's actually worth fixing."
         />
         <div className="mt-12 space-y-5">
           {rebuildCategories.map(({ icon: Icon, title, body, items }) => (
@@ -744,7 +744,7 @@ export function LandingPage() {
                 ))}
               </ul>
               <p className="mt-5 text-sm font-semibold text-foreground">
-                We\u2019ll create clear rules for things like:
+                We'll create clear rules for things like:
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {operatingRules.map((rule) => (
@@ -786,7 +786,7 @@ export function LandingPage() {
 
       {/* How we'll work together */}
       <Section band id="how-it-works">
-        <SectionHead eyebrow="Process" title="How we\u2019ll work together" />
+        <SectionHead eyebrow="Process" title="How we'll work together" />
         <ol className="mt-12 space-y-6 border-l border-border pl-6 sm:pl-10">
           {processSteps.map((step) => (
             <li key={step.number} className="relative">
@@ -795,7 +795,7 @@ export function LandingPage() {
               </span>
               <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-card-foreground sm:text-2xl">
-                  {step.number} {"\u2014"} {step.title}
+                  {step.number} {"—"} {step.title}
                 </h3>
                 {step.paragraphs.map((p) => (
                   <p key={p} className="mt-3 text-[0.975rem] leading-relaxed text-muted-foreground">
@@ -823,13 +823,13 @@ export function LandingPage() {
         <SectionHead
           eyebrow="Recording"
           title="What \u201crecord a week\u201d actually means"
-          lead="Hit record. Work normally. Stop recording. That\u2019s it."
+          lead="Hit record. Work normally. Stop recording. That's it."
         />
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
           <div className="rounded-2xl border border-border bg-card p-8">
             <Video className="h-8 w-8 text-primary" aria-hidden="true" />
             <h3 className="mt-4 text-lg font-bold text-card-foreground">
-              You don\u2019t need to:
+              You don't need to:
             </h3>
             <ul className="mt-4 space-y-3">
               {recordWeekDontNeed.map((item) => (
@@ -838,7 +838,7 @@ export function LandingPage() {
                   className="flex items-start gap-3 text-[0.975rem] text-muted-foreground"
                 >
                   <span className="mt-0.5 text-primary" aria-hidden="true">
-                    {"\u2717"}
+                    {"✗"}
                   </span>
                   {item}
                 </li>
@@ -882,7 +882,7 @@ export function LandingPage() {
             ))}
           </ul>
           <p className="mt-8 text-center text-xl font-bold text-foreground">
-            Instead of figuring everything out again. That\u2019s the goal of Deep Work OS.
+            Instead of figuring everything out again. That's the goal of Deep Work OS.
           </p>
         </div>
       </Section>
@@ -891,7 +891,7 @@ export function LandingPage() {
       <Section>
         <SectionHead
           eyebrow="The difference"
-          title="I don\u2019t tell you how creators should work. I look at how you work."
+          title="I don't tell you how creators should work. I look at how you work."
         />
         <div className="mt-10 space-y-4">
           {differences.map(({ dont, do: doText }, i) => (
@@ -901,7 +901,7 @@ export function LandingPage() {
             >
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 text-xl text-muted-foreground" aria-hidden="true">
-                  {"\u2717"}
+                  {"✗"}
                 </span>
                 <p className="text-[0.975rem] leading-relaxed text-muted-foreground line-through opacity-70">
                   {dont}
@@ -1022,7 +1022,7 @@ export function LandingPage() {
             <p className="mt-5 text-[0.975rem] leading-relaxed text-muted-foreground">
               I personally watch your workflow, diagnose the friction, design your systems, and
               build the improvements. That creates a real capacity limit. So I only take 1 client
-              every 2 weeks. That\u2019s what it takes to build something that fits how you actually
+              every 2 weeks. That's what it takes to build something that fits how you actually
               create.
             </p>
           </div>
@@ -1050,16 +1050,16 @@ export function LandingPage() {
             Guarantee
           </h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            I\u2019ll keep working until the system fits.
+            I'll keep working until the system fits.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Record your workflow as instructed and implement the system as delivered. If you
-            don\u2019t feel more in control of your creative workflow within 14 days of receiving
-            it, I\u2019ll do one additional round of revisions at no charge.
+            don't feel more in control of your creative workflow within 14 days of receiving
+            it, I'll do one additional round of revisions at no charge.
           </p>
           <p className="mt-4 leading-relaxed text-muted-foreground">
-            And if after our intake you decide this isn\u2019t for you before your recording week
-            starts, I\u2019ll refund you. No questions asked.
+            And if after our intake you decide this isn't for you before your recording week
+            starts, I'll refund you. No questions asked.
           </p>
         </div>
       </Section>
@@ -1122,9 +1122,9 @@ export function LandingPage() {
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-90">
             There is no universal setup that makes every creator work better. The best workflow is
             the one that fits your content, your tools, your projects, your information, and your
-            creative process. You don\u2019t need another productivity philosophy. You don\u2019t
-            need another app. You don\u2019t need another generic template. You need a system built
-            around the way you actually create. Show me how you work. I\u2019ll rebuild the system
+            creative process. You don't need another productivity philosophy. You don't
+            need another app. You don't need another generic template. You need a system built
+            around the way you actually create. Show me how you work. I'll rebuild the system
             behind it.
           </p>
           <div className="mt-9 flex justify-center">
