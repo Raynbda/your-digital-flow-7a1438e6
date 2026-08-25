@@ -19,15 +19,15 @@ const proofCards = [
   {
     icon: SlidersHorizontal,
     title: "3+ years in public",
-    body: "Making Windows content since 2023. Over 1.25M views.",
+    body: "Building and publishing content publicly since 2023. Over 1.25M views.",
     image: youtubeShot.url,
     alt: "YouTube channel stats: joined Jul 12, 2023 with 1,252,847 views",
     fit: "cover",
   },
   {
     icon: Gauge,
-    title: "Speed I actually built",
-    body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
+    title: "84 WPM",
+    body: "Typing speed deliberately trained because input speed is the base layer of digital work.",
     image: wpmShot.url,
     alt: "Typing speed result of 84 words per minute",
     fit: "contain",
@@ -35,16 +35,16 @@ const proofCards = [
   },
   {
     icon: Cpu,
-    title: "A real knowledge system",
-    body: "3,000+ notes I still use and can find in seconds, not an abandoned second brain.",
+    title: "3,000+ notes",
+    body: "A knowledge system I still use and can retrieve from — not an abandoned second brain.",
     image: notesShot.url,
     alt: "Note search showing 3,154 results",
     fit: "cover",
   },
   {
     icon: Minus,
-    title: "Curation over collecting",
-    body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
+    title: "3K+ bookmarks",
+    body: "Structured and retrievable instead of an abandoned collection.",
     image: bookmarksShot.url,
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
@@ -139,7 +139,7 @@ export function ProofSection() {
 
       <Reveal>
         <p className="mt-10 text-center text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          Built through thousands of hours of actual digital work. Not productivity theory.
+          Built through thousands of hours of actual creative work. Not productivity theory.
         </p>
       </Reveal>
     </Section>

@@ -112,8 +112,8 @@ export function MyAppsSection() {
     <Section band id="my-apps">
       <SectionHead
         eyebrow="My Apps"
-        title="I work inside the same apps you do."
-        lead="Creative tools, note apps, task managers, AI assistants, and file systems. On both macOS and Windows. If it is part of your day, it is part of the diagnosis."
+        title="I work inside the same tools creators use every day."
+        lead="Creative tools, note apps, task managers, AI assistants, and file systems. On both macOS and Windows."
       />
 
       <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
