@@ -97,9 +97,9 @@ function RoiWidget() {
   );
 }
 
-const title = "Workflow Diagnostic - Digital Work OS";
+const title = "Workflow Diagnostic - Deep Work OS";
 const description =
-  "Answer a short questionnaire and find out what is holding your digital work back: speed, organization, reuse, information, or workflow.";
+  "Answer a few questions about how you create. I'll use your answers to identify where your biggest workflow opportunities are.";
 
 export const Route = createFileRoute("/diagnostic")({
   validateSearch: (
@@ -256,7 +256,7 @@ function DiagnosticPage() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
         <div className="mx-auto flex w-full max-w-[760px] items-center justify-between px-5 py-3">
           <Link to="/" className="text-sm font-bold tracking-tight text-foreground">
-            Digital Work OS
+            Deep Work OS
           </Link>
           {started ? (
             <span className="text-xs font-medium text-muted-foreground">
