@@ -282,11 +282,10 @@ function DiagnosticPage() {
               Free diagnostic
             </span>
             <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-5xl">
-              Digital Work OS <span className="text-primary">Workflow Diagnostic</span>
+              Digital Work OS Workflow <span className="text-primary">See Where Your Workflow Is Slowing You Down</span>
             </h1>
             <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Find out what is holding your digital work back. A few short questions about your
-              tools, files, information, and habits. You get a personalized diagnosis at the end.
+              Answer a few questions about how you work, the tools you use, and where things currently feel harder than they should. I’ll use your answers to identify where your biggest opportunities are.
             </p>
             <button
               type="button"
@@ -296,7 +295,7 @@ function DiagnosticPage() {
               Start the diagnostic
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
-            <p className="mt-4 text-sm text-muted-foreground">Takes about 4 minutes.</p>
+            <p className="mt-4 text-sm text-muted-foreground">Takes about 10 minutes.</p>
           </div>
         ) : onContactStep ? (
           <div>
