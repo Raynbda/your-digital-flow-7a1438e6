@@ -29,6 +29,7 @@ const proofCards = [
     image: wpmShot.url,
     alt: "Typing speed result of 84 words per minute",
     fit: "contain",
+    tileBg: "#323437",
   },
   {
     icon: Cpu,
@@ -45,6 +46,7 @@ const proofCards = [
     image: bookmarksShot.url,
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
+    tileBg: "#232325",
   },
 ];
 
