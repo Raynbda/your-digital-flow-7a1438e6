@@ -1,6 +1,7 @@
 # Deep Work OS — Full Copy Rewrite & Creator Refocus
 
 ## Goal
+
 Rebrand "Digital Work OS" → "Deep Work OS", refocus all copy on content creators (especially solo video creators running their own pipeline), and replace every section's text with the detailed new copy the user provided. CTAs still route through `/diagnostic` (quiz → results → Payoneer offer). Rebranding also applies to the diagnostic page and its results/offer card.
 
 ## Scope
@@ -11,7 +12,7 @@ Rewrite the entire page. Top-to-bottom section order and new copy:
 
 1. **Top bar pill** — `DEEP WORK OS` on the left; right side reads `Only 1 client per 2 weeks · For content creators`.
 2. **Hero** — heading "14-Day Creative Workflow Transformation"; new subheading; new 6-line friction bullet list (the script you can't find, etc.); one-liner "Your creative work shouldn't require so much work just to manage the creative work."; paragraph about recording a normal week; CTA label **"Get My Deep Work OS Audit"** (still `<ApplyButton>` → `/diagnostic`); note line "For content creators on macOS or Windows · 14-day turnaround · Only 1 client per 2 weeks"; the "No new productivity philosophy..." line. Keep the 4 hero widgets (Faster / Findable / Reusable / Clear) with updated microcopy matching the new approach section copy.
-3. **Friction** (replace existing) — "YOUR CREATIVE WORKFLOW SHOULDN'T FIGHT YOU" with the 9 new friction bullets; closing line about flow vs fighting.
+3. **Friction** (replace existing) — "THE WORK BEHIND THE WORK IS SLOWING YOU DOWN**.**" with the 9 new friction bullets; closing line about flow vs fighting.
 4. **NEW: More content, more tools** — "MORE CONTENT. MORE TOOLS. SAME BROKEN WORKFLOW." — the tools-list paragraph and the "building the system behind the apps" closer.
 5. **NEW: I don't give you a productivity system** — "I BUILD THE SYSTEM BEHIND YOUR CREATIVE WORK." — the "your content is different / your tools / your projects / your process" block.
 6. **The approach** (update existing) — "Your creative workflow, analyzed from the inside." with new lead copy and the 9-item workflow list (ideas, research, scripts, etc.).
@@ -44,6 +45,7 @@ Rewrite the entire page. Top-to-bottom section order and new copy:
 ### C. Offer data — `src/lib/diagnosis-content.ts`
 
 Update `offer` object:
+
 - `title`: "Deep Work OS"
 - `subtitle`: new creator-focused subtitle
 - `priceNote`: "14-day transformation · 1 client every 2 weeks"
@@ -58,6 +60,7 @@ Update `offer` object:
 - All CTA buttons on the landing page use this label and still link to `/diagnostic`.
 
 ## Technical notes
+
 - No new dependencies. No schema or server-function changes.
 - All changes are copy/JSX edits across: `LandingPage.tsx`, `primitives.tsx`, `FAQSection.tsx`, `ProofSection.tsx`, `MyAppsSection.tsx`, `diagnostic.tsx`, `diagnosis-content.ts`.
 - The new "The investment" offer card on the landing page is a **display-only** card (CTA → `/diagnostic`), distinct from the results-page offer card (CTA → Payoneer). Both pull copy from the same `offer` object where possible.
@@ -65,6 +68,7 @@ Update `offer` object:
 - Keep the sticky mobile CTA and persistent top bar.
 
 ## Verification
+
 - Build passes (typecheck).
 - Preview `/` shows the new Deep Work OS branding, hero copy, and all new sections.
 - Preview `/diagnostic` shows Deep Work OS branding in intro and results offer card.
