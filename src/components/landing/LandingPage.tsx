@@ -644,7 +644,7 @@ export function LandingPage() {
         <SectionHead
           eyebrow="The approach"
           title="I don't give you a productivity system. I build the system behind your creative work."
-          lead="There is no universal \u201cperfect\u201d creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different."
+          lead="There is no universal “perfect” creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different."
         />
         <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
           <p className="text-lg leading-relaxed text-muted-foreground">
@@ -822,7 +822,7 @@ export function LandingPage() {
       <Section>
         <SectionHead
           eyebrow="Recording"
-          title="What \u201crecord a week\u201d actually means"
+          title="What “record a week” actually means"
           lead="Hit record. Work normally. Stop recording. That's it."
         />
         <div className="mt-10 grid gap-8 lg:grid-cols-2">
