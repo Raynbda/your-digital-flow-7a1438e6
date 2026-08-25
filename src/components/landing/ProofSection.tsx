@@ -7,10 +7,12 @@ import notesShot from "@/assets/proof/notes-count.png.asset.json";
 import bookmarksShot from "@/assets/proof/bookmarks-count.png.asset.json";
 
 const cardStats = [
-  { value: "3+ Yrs", label: "Producing YouTube videos" },
-  { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
-  { value: "Scratch", label: "A workflow built from scratch,  not copied from a listicle" },
-  { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
+  { value: "3+ Years", label: "Producing content independently" },
+  { value: "1.25M+ Views", label: "Building and publishing content publicly since 2023" },
+  { value: "100+ Tools", label: "Apps and utilities used, tested, broken, and replaced in real work" },
+  { value: "84 WPM", label: "Typing speed deliberately trained — the base layer of digital work" },
+  { value: "3,000+ Notes", label: "A knowledge system I still use and can retrieve from" },
+  { value: "3K+ Bookmarks", label: "Structured and retrievable instead of an abandoned collection" },
 ];
 
 const proofCards = [
@@ -66,18 +68,23 @@ export function ProofSection() {
             />
             <div className="relative">
               <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-80">
-                Defensible authority
+                Built from real creative work
               </p>
               <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl">
-                I’ve spent three years obsessing over building better workflows for creating content.
+                Judgment + integration + real experience.
               </h2>
               <p className="mt-6 text-base leading-relaxed opacity-90">
-                 I make YouTube videos independently, which means I handle everything myself: research, writing, recording, editing, file management, publishing, and everything in between.
+                I've spent the last 3+ years obsessing over building better workflows for creating
+                content. I make YouTube videos independently, which means I handle everything
+                myself: ideation, research, scripting, recording, editing, thumbnails, file
+                management, publishing.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
-                Over the years, I&rsquo;ve tested and replaced dozens of apps, built systems from
-                scratch, and spent thousands of hours working on a computer. What you are buying is
-                judgment and integration, not more options.
+                There is nobody else organizing the project. Nobody else finding the assets.
+                Nobody else setting up the files. Nobody else figuring out the software. I've had
+                to build the systems myself. Over the years I've tested and replaced dozens of apps,
+                built workflows from scratch, and spent thousands of hours working on a computer.
+                What you're buying is judgment and integration — not more options.
               </p>
               <div className="mt-8 border-t border-primary-foreground/25 pt-8">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-7">
@@ -96,9 +103,9 @@ export function ProofSection() {
         <div>
           <Reveal>
             <div>
-              <Eyebrow>Why trust my framework</Eyebrow>
+              <Eyebrow>The receipts</Eyebrow>
               <h3 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
-                Judgment + Integration + Real Experience
+                Real work. Real numbers.
               </h3>
             </div>
           </Reveal>

@@ -8,60 +8,60 @@ import { Section, SectionHead } from "./primitives";
 
 const faqs = [
   {
-    q: "How does the screen recording review work?",
-    a: "You record yourself completing a real project from start to finish using OBS, Loom, or another screen recorder. Include the normal friction, such as searching for files, switching apps, getting distracted, or repeating tasks. You can hide or skip anything private. I review the recording to identify exactly where time and attention are being lost.",
+    q: "Is this only for YouTubers?",
+    a: "No. It's designed for creators who manage a substantial part of their own digital production workflow. That can include YouTubers, educators, streamers, designers, writers, video creators, and other solo creators.",
   },
   {
-    q: "What exactly do I need to record?",
-    a: "One real project from the first click to the final deliverable. Don't try to make your workflow look perfect. The messy parts are often where the biggest opportunities are.",
+    q: "Do I have to record my entire life for a week?",
+    a: "No. The goal is to capture representative examples of your normal creative workflow. You'll record the work that gives me a useful view of how you actually create.",
+  },
+  {
+    q: "What if my workflow is messy?",
+    a: "That's exactly what I want to see. Don't clean it up beforehand. The friction is the thing I'm trying to find.",
   },
   {
     q: "Do I have to share sensitive work?",
-    a: "No. You control what you share. Blur, hide, or skip passwords, financial information, private messages, client information, or anything else you're not comfortable showing.",
+    a: "No. You control what you record and can exclude confidential or sensitive material.",
   },
   {
     q: "What happens to my recordings?",
-    a: "Your recordings are used only to analyze your workflow and build your recommendations. They are kept private, never published or shared, and deleted after the engagement.",
-  },
-  {
-    q: "Is this only for Windows?",
-    a: "No. The system works across Windows and macOS. I use a MacBook for the majority of my own work and am fluent in both operating systems. Some recommendations will be OS specific, but the underlying workflow principles apply to both.",
+    a: "They're securely stored, never shared, and deleted after your audit.",
   },
   {
     q: "Do I need to buy new software?",
-    a: "No. I prioritize tools you already have, native OS features, and free or affordable utilities. If I recommend a paid tool, I'll explain why it's worth it and provide alternatives where possible.",
+    a: "No. I start with your existing tools. If I recommend something new, it will be because there's a specific problem it solves — not because you need another app.",
   },
   {
-    q: "Do I need to install anything?",
-    a: "Not to get started. Depending on your workflow, I may recommend lightweight tools, scripts, or utilities, but nothing is added without a clear reason.",
+    q: "Will you build my Notion workspace?",
+    a: "If Notion is useful for your workflow, yes. That can include project management, content pipelines, databases, dashboards, templates, and workflows.",
+  },
+  {
+    q: "Will you build my note-taking system?",
+    a: "If your workflow needs one, yes. The system will be designed around the information you actually collect, use, and need to retrieve.",
+  },
+  {
+    q: "What if I already have a productivity system?",
+    a: "That's fine. I'm not trying to replace something that's already working. I'll keep what's useful and improve what's creating friction.",
   },
   {
     q: "What if you don't know one of the tools I use?",
-    a: "I'll learn it. The goal isn't to force you into my preferred tools. It's to understand your workflow and improve it.",
+    a: "That's fine. The systems matter more than any individual app, and I learn new tools quickly.",
   },
   {
-    q: "Is this only for video editors?",
-    a: "No. It's designed for anyone who spends significant time working on a computer, including creators, freelancers, researchers, students, and knowledge workers.",
-  },
-  {
-    q: "How much time does the process take?",
-    a: "The main requirement is recording yourself doing your normal work. After that, I handle the analysis and turn what I find into a clear, actionable system.",
+    q: "Is this a course?",
+    a: "No. It's a personalized 1-on-1 service built around your actual workflow.",
   },
   {
     q: "How is this different from a generic productivity guide?",
-    a: "Generic productivity advice tells you what you should do. This service starts with how you actually work. I analyze your real workflow, identify your specific bottlenecks, and build recommendations around them.",
+    a: "A guide tells you what someone else thinks you should do. Deep Work OS starts with how you actually work. Your tools, projects, habits, files, information, and bottlenecks determine what gets changed.",
   },
   {
-    q: "What do I get at the end?",
-    a: "You get a personalized Digital Work OS: a structured system for your workspace, files, apps, workflows, shortcuts, and recurring processes, designed around the way you actually work.",
+    q: "What do I receive at the end?",
+    a: "You'll receive the systems, templates, structures, rules, recommendations, documentation, and walkthroughs that your workflow requires. Your exact deliverables are determined by the audit.",
   },
   {
-    q: "What happens after I complete the assessment?",
-    a: "You'll receive your results and see your biggest sources of digital friction. If the assessment indicates that a workflow audit could meaningfully help you, you'll be able to continue to the next step.",
-  },
-  {
-    q: "How quickly will I receive my results?",
-    a: "Your assessment results appear immediately. For the full workflow review, you'll receive your analysis and recommendations according to the timeline specified when you book.",
+    q: "How long does it take?",
+    a: "The complete process takes 14 days from receiving the required recordings and information to delivery.",
   },
 ];
 
@@ -71,7 +71,7 @@ export function FAQSection() {
       <SectionHead
         eyebrow="FAQ"
         title="Frequently Asked Questions"
-        lead="Everything you need to know about how the workflow diagnostic and audit work."
+        lead="Everything you need to know about how Deep Work OS works."
       />
       <div className="mx-auto mt-10 max-w-3xl">
         <Accordion
