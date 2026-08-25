@@ -27,8 +27,8 @@ const proofCards = [
     title: "Speed I actually built",
     body: "Went from 20 to 80+ WPM on purpose. Input speed is the base layer of every system I build.",
     image: wpmShot.url,
-    alt: "Typing progress chart showing words per minute rising from 20 to over 80",
-    fit: "cover",
+    alt: "Typing speed result of 84 words per minute",
+    fit: "contain",
   },
   {
     icon: Cpu,
@@ -43,7 +43,7 @@ const proofCards = [
     title: "Curation over collecting",
     body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
     image: bookmarksShot.url,
-    alt: "Bookmark manager showing the All bookmarks collection",
+    alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
   },
 ];
