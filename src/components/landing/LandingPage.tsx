@@ -795,7 +795,7 @@ export function LandingPage() {
               </span>
               <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-card-foreground sm:text-2xl">
-                  {step.number} \u2014 {step.title}
+                  {step.number} {"\u2014"} {step.title}
                 </h3>
                 {step.paragraphs.map((p) => (
                   <p key={p} className="mt-3 text-[0.975rem] leading-relaxed text-muted-foreground">
@@ -838,7 +838,7 @@ export function LandingPage() {
                   className="flex items-start gap-3 text-[0.975rem] text-muted-foreground"
                 >
                   <span className="mt-0.5 text-primary" aria-hidden="true">
-                    \u2717
+                    {"\u2717"}
                   </span>
                   {item}
                 </li>
@@ -901,7 +901,7 @@ export function LandingPage() {
             >
               <div className="flex items-start gap-3">
                 <span className="mt-0.5 text-xl text-muted-foreground" aria-hidden="true">
-                  \u2717
+                  {"\u2717"}
                 </span>
                 <p className="text-[0.975rem] leading-relaxed text-muted-foreground line-through opacity-70">
                   {dont}
