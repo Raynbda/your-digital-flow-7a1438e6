@@ -49,7 +49,9 @@ const proofCards = [
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
     tileBg: "#232325",
+    scale: 1.35,
   },
+
 ];
 
 export function ProofSection() {
