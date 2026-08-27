@@ -1083,7 +1083,7 @@ export function LandingPage() {
           title="Why only 1 client every 2 weeks?"
           lead="Because I work directly with every client, start to finish."
         />
-        <CapacityVisual />
+        <CapacityVisual cta={<ApplyButton variant="invert" label="Reserve My Slot" />} />
       </Section>
 
 
