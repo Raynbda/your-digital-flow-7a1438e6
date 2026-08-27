@@ -47,23 +47,10 @@ const beforeAfter = [
   { before: "Always wondering \u201cwhat should I do next?\u201d", after: "Your workflow makes the next step obvious" },
 ];
 
-const grewItems = [
-  "an app because you needed it",
-  "a folder because you started a project",
-  "a database because you had too many ideas",
-  "a bookmark because you found something useful",
-  "a shortcut because you discovered it",
-  "a template because you got tired of starting from scratch",
-  "another tool because the previous one wasn't quite enough",
-];
-
 const grewNow = [
-  "Your ideas are somewhere.",
-  "Your files are somewhere else.",
-  "Your projects have their own systems.",
+  "You search for things you know you saved.",
+  "You rebuild work you already built.",
   "Your best work is buried in old projects.",
-  "Your tools don't always work together.",
-  "And you're the one holding everything together in your head.",
 ];
 
 const dontNeed = [
@@ -71,16 +58,6 @@ const dontNeed = [
   "You don't need a generic Notion template.",
   "You don't need 50 new shortcuts.",
   "And you definitely don't need another productivity philosophy telling you to completely change the way you work.",
-];
-
-const transformations = [
-  { from: "Scattered", to: "Coherent", body: "Everything important has a logical place." },
-  { from: "Cluttered", to: "Clear", body: "Unnecessary tools, information, steps, and decisions disappear." },
-  { from: "Fragmented", to: "Connected", body: "Your apps, files, notes, projects, and resources support each other." },
-  { from: "Reactive", to: "Intentional", body: "You know what happens next instead of figuring it out every time." },
-  { from: "Overwhelming", to: "Calm", body: "Your digital environment asks less of your attention." },
-  { from: "Friction", to: "Flow", body: "Common actions become faster and easier." },
-  { from: "Collecting", to: "Creating", body: "The things you've already built become building blocks for what's next." },
 ];
 
 const stages = [
@@ -798,7 +775,7 @@ export function LandingPage() {
             Your exact system is determined by your workflow, not a fixed checklist.
           </p>
           <div className="mt-8">
-            <ApplyButton label="Apply for a Transformation" />
+            <ApplyButton label="Get a Free Workflow Audit" />
           </div>
           <p className="mt-5 text-sm text-muted-foreground">
             14-day turnaround · macOS & Windows · 1 client every 2 weeks
@@ -843,7 +820,7 @@ export function LandingPage() {
             Show me how you work. I'll rebuild the system behind it.
           </h2>
           <div className="mt-9 flex justify-center">
-            <ApplyButton variant="invert" label="Apply for a Transformation" />
+            <ApplyButton variant="invert" label="Get a Free Workflow Audit" />
           </div>
           <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
             14-day transformation · $500 · 1 client every 2 weeks
@@ -882,7 +859,7 @@ export function LandingPage() {
 
       {/* Sticky mobile CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
-        <ApplyButton size="sm" className="w-full" label="Apply for a Transformation" />
+        <ApplyButton size="sm" className="w-full" label="Get a Free Workflow Audit" />
       </div>
     </main>
   );
