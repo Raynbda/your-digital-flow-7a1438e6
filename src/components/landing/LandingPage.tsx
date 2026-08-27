@@ -709,37 +709,43 @@ export function LandingPage() {
         <SectionHead
           eyebrow="Recording"
           title={<>What "record your work" actually means</>}
-          lead="Hit record. Work normally. That's it."
+          lead="Hit record. Work normally. Stop recording. That's it."
         />
-        <div className="mx-auto mt-10 max-w-2xl">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <p className="text-[0.975rem] leading-relaxed text-muted-foreground">
-              You don't need to:
-            </p>
-            <ul className="mt-4 space-y-2">
+            <Video className="h-7 w-7 text-primary" aria-hidden="true" />
+            <p className="mt-6 text-lg font-bold text-foreground">You don't need to:</p>
+            <ul className="mt-5 space-y-3.5">
               {recordDontNeed.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-muted-foreground">
-                  <span className="mt-1 text-muted-foreground/50" aria-hidden="true">✕</span>
+                <li key={item} className="flex items-start gap-3 text-[0.975rem] text-muted-foreground">
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-lg font-bold text-foreground">The mess is useful.</p>
-            <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
-              <p>If you spend five minutes looking for a file, I want to know.</p>
-              <p>If you rebuild something you've already built, I want to know.</p>
-              <p>If you switch between six apps to complete one task, I want to know.</p>
-            </div>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
-              Those aren't embarrassing habits to hide.{" "}
-              <strong className="font-semibold text-foreground">They're opportunities to improve your system.</strong>
-            </p>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Your recordings are private, securely handled, and deleted after the engagement.
-            </p>
+          </div>
+          <div className="rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
+            <p className="text-lg font-bold">The mess is useful.</p>
+            <ul className="mt-5 space-y-3.5">
+              {[
+                "If you search for a file for five minutes, I want to see it.",
+                "If you rebuild the same project structure again, I want to see it.",
+                "If you switch between four apps to complete one simple task, I want to see it.",
+                "If you can't remember where you saved something, that's exactly the kind of friction I'm looking for.",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-[0.975rem] leading-relaxed opacity-90">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-glow" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
+          Those aren't embarrassing habits to hide — they're opportunities to improve your system. Your recordings are private, securely handled, and deleted after the engagement.
+        </p>
       </Section>
+
 
       {/* What we can rebuild */}
       <Section>
