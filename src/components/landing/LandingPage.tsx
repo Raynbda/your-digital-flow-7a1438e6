@@ -17,10 +17,13 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
+  Video,
   Wand2,
   Waves,
   Wrench,
+  X,
   Zap,
+
 } from "lucide-react";
 
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
