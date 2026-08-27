@@ -7,7 +7,6 @@ import {
   Layers,
   ListChecks,
   Mail,
-  Quote,
   Repeat,
   Search,
   Sparkles,
@@ -16,9 +15,18 @@ import {
 } from "lucide-react";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
-import { MyAppsSection } from "./MyAppsSection";
+import { MyAppsSection, appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
 import { RoiCalculator } from "./RoiCalculator";
+import {
+  CapacityVisual,
+  GrewFlags,
+  GrewVisual,
+  KeepToolsVisual,
+  NotAnotherSystemVisual,
+  TwoPathsVisual,
+  UniqueWorkflowVisual,
+} from "./visuals";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const heroWidgets = [
