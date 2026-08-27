@@ -779,42 +779,6 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* What "record your work" actually means */}
-      <Section>
-        <SectionHead
-          eyebrow="Recording"
-          title={<>What "record your work" actually means</>}
-          lead="Hit record. Work normally. That's it."
-        />
-        <div className="mx-auto mt-10 max-w-2xl">
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <p className="text-[0.975rem] leading-relaxed text-muted-foreground">
-              You don't need to:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {recordDontNeed.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-muted-foreground">
-                  <span className="mt-1 text-muted-foreground/50" aria-hidden="true">✕</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-lg font-bold text-foreground">The mess is useful.</p>
-            <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
-              <p>If you spend five minutes looking for a file, I want to know.</p>
-              <p>If you rebuild something you've already built, I want to know.</p>
-              <p>If you switch between six apps to complete one task, I want to know.</p>
-            </div>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
-              Those aren't embarrassing habits to hide.{" "}
-              <strong className="font-semibold text-foreground">They're opportunities to improve your system.</strong>
-            </p>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Your recordings are private, securely handled, and deleted after the engagement.
-            </p>
-          </div>
-        </div>
-      </Section>
 
       <RoiCalculator />
 
