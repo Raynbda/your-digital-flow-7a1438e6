@@ -903,21 +903,21 @@ export function LandingPage() {
 
       {/* Final CTA */}
       <Section>
-        <div className="text-center">
-          <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Your workflow is unique. Your system should be too.
-          </h2>
-          <div className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            <p>There is no universal setup that makes every creator work better. The best workflow is the one that fits:</p>
-            <p className="font-bold text-foreground">
-              your content · your tools · your projects · your information · your habits · your creative process
-            </p>
-            <p>You don't need another productivity philosophy. You don't need another app. You don't need another generic template.</p>
-            <p className="text-xl font-bold text-foreground">
-              You need a digital environment that makes sense for the way you actually work.
-            </p>
-          </div>
-        </div>
+        <SectionHead
+          eyebrow="The point"
+          title="Your workflow is unique. Your system should be too."
+          lead="There is no universal setup that makes every creator work better. The best workflow is the one that fits yours."
+        />
+        <UniqueWorkflowVisual
+          variables={[
+            "your content",
+            "your tools",
+            "your projects",
+            "your information",
+            "your habits",
+            "your creative process",
+          ]}
+        />
 
         <div className="mt-14 relative overflow-hidden rounded-2xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-20">
           <Sparkles
