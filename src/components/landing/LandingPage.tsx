@@ -615,8 +615,8 @@ export function LandingPage() {
       <Section band>
         <SectionHead
           eyebrow="Deliverables"
-          title="You don't just get recommendations."
-          lead="You leave with systems you can actually use. Depending on what your workflow needs, that might include:"
+          title="Not a list of recommendations. A rebuilt creative operating system."
+          lead="Your exact deliverables depend on what I find in your workflow. That might mean:"
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {deliverables.map(({ title, body }) => (
@@ -638,6 +638,30 @@ export function LandingPage() {
           You don't receive a 40-page report telling you what you could improve. You receive a system built around what you actually do.
         </p>
       </Section>
+
+      {/* The outcome */}
+      <Section>
+        <SectionHead
+          eyebrow="The outcome"
+          title="Your creative work, turned into a system"
+          lead="Imagine opening your next project and already having:"
+        />
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {outcomeItems.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+            >
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-semibold text-foreground">
+          Instead of figuring everything out again. That's the goal of Content Creator OS.
+        </p>
+      </Section>
+
 
       {/* Here's what changes */}
       <Section>
