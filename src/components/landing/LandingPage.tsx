@@ -757,26 +757,20 @@ export function LandingPage() {
 
       {/* You keep your tools */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            You keep your tools.
-          </h2>
-          <p className="mt-4 text-xl font-semibold text-primary">
-            I make them work around the way you create.
-          </p>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            <li>You don't have to switch from Notion.</li>
-            <li>You don't have to switch from Obsidian.</li>
-            <li>You don't have to abandon your current task manager.</li>
-            <li>You don't have to move everything into some "perfect" productivity app.</li>
-          </ul>
-          <p className="mt-8 text-lg text-muted-foreground">
-            If your current tools work, <strong className="font-semibold text-foreground">we keep them.</strong> If they're creating friction, we fix the way you're using them. If something genuinely needs replacing, I'll tell you why.
-          </p>
-          <p className="mt-6 text-xl font-bold text-foreground">
-            No mandatory app stack. No unnecessary complexity.
-          </p>
-        </div>
+        <SectionHead
+          eyebrow="Your stack"
+          title="You keep your tools."
+          lead="I make them work around the way you create."
+        />
+        <KeepToolsVisual
+          icons={appIconList}
+          keepChips={[
+            "Stay on Notion",
+            "Stay on Obsidian",
+            "Keep your task manager",
+            "No move to a \u201cperfect\u201d app",
+          ]}
+        />
       </Section>
 
 
