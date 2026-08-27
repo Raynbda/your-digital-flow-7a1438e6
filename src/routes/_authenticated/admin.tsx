@@ -7,7 +7,7 @@ import { listSubmissions } from "@/lib/admin.functions";
 import { supabase } from "@/integrations/supabase/client";
 import { diagnoses } from "@/lib/diagnosis-content";
 
-const title = "Diagnostic Submissions - Deep Work OS";
+const title = "Diagnostic Submissions - Digital Work OS";
 const description = "Admin view of Workflow Diagnostic submissions.";
 
 export const Route = createFileRoute("/_authenticated/admin")({
@@ -52,7 +52,7 @@ function AdminPage() {
       <header className="border-b border-border">
         <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-4">
           <Link to="/" className="font-extrabold tracking-tight text-foreground">
-            Deep Work OS
+            Digital Work OS
           </Link>
           <button
             type="button"

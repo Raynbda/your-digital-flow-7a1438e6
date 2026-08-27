@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing/LandingPage";
 
-const title = "Deep Work OS: Rebuilt Systems for Creative Work";
+const title = "Digital Work OS: Build a Better System for Your Digital Work";
 const description =
-  "A 14-day creative workflow transformation for solo content creators. Record a normal week of work. I analyze it from the inside and rebuild the systems behind your tools, files, notes, projects, templates, and shortcuts.";
+  "Personal 1:1 workflow optimization. I analyze how you actually work and build systems, templates, shortcuts, and file structures that make your digital work faster and easier.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

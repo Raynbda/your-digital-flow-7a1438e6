@@ -1,21 +1,19 @@
 import {
   ArrowRight,
-  BookOpen,
   Boxes,
   Brain,
   CheckCircle2,
-  Clock,
   FolderTree,
   Keyboard,
   Layers,
   ListChecks,
   Mail,
-  Monitor,
+  Quote,
+  Recycle,
   Repeat,
   Search,
-  ShieldCheck,
   Sparkles,
-  Video,
+  Wand2,
   Zap,
 } from "lucide-react";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
@@ -25,13 +23,211 @@ import { FAQSection } from "./FAQSection";
 import { RoiCalculator } from "./RoiCalculator";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
-const heroFrictions = [
-  "The script you can't find.",
-  "The thumbnail file buried three folders deep.",
-  "The project you're rebuilding from zero, again.",
-  "The note you know you wrote somewhere.",
-  "The same AI prompt you're rewriting for the tenth time.",
-  "The fifteen minutes lost every time you switch between your editor, notes app, file explorer, browser, and project manager just to get one thing done.",
+const frictions = [
+  "You keep doing the same things manually.",
+  "You know you've saved something, but can't find it.",
+  "Every new project starts from scratch.",
+  "Your files, notes, tasks, and ideas live in different places.",
+  "You know your software can do more, but don't know how.",
+  "You keep collecting information without knowing what to do with it.",
+  "You use the same tools every day but haven't set them up around the way you actually work.",
+];
+
+const outcomes = [
+  {
+    icon: Zap,
+    title: "Work faster",
+    body: "Remove unnecessary steps and discover better ways to perform repetitive work.",
+  },
+  {
+    icon: Search,
+    title: "Find things faster",
+    body: "Create clear systems for your files, notes, assets, resources, and information.",
+  },
+  {
+    icon: Recycle,
+    title: "Reuse more of your work",
+    body: "Turn things you've already created into templates, presets, assets, and reusable building blocks.",
+  },
+  {
+    icon: Wand2,
+    title: "Get more from your tools",
+    body: "Discover useful features, shortcuts, utilities, and better ways to use the software you already have.",
+  },
+  {
+    icon: Layers,
+    title: "Reduce digital friction",
+    body: "Create simple rules and systems that make your digital work easier to manage.",
+  },
+];
+
+const improvements = [
+  {
+    icon: Zap,
+    title: "Your tools and apps",
+    body: "Get more out of the software you already use.",
+    items: [
+      "Hidden features",
+      "Better configurations",
+      "Useful utilities",
+      "App-specific workflows",
+      "Faster ways to perform common tasks",
+      "Recommendations for tools that solve specific problems",
+    ],
+  },
+  {
+    icon: Keyboard,
+    title: "Your shortcuts and repetitive work",
+    body: "Stop wasting time on actions you perform hundreds of times.",
+    items: [
+      "Keyboard shortcuts",
+      "Custom shortcuts",
+      "Shortcut cheat sheets",
+      "Faster navigation",
+      "Repetitive workflows",
+      "Templates",
+      "Presets",
+    ],
+  },
+  {
+    icon: FolderTree,
+    title: "Your files and digital organization",
+    body: "Know exactly where things belong, and find them when you need them.",
+    items: [
+      "Folder structures",
+      "Naming systems",
+      "Smart folders",
+      "Asset libraries",
+      "Resource libraries",
+      "Inspiration libraries",
+      "Digital decluttering",
+      "Rules for where different types of information belong",
+    ],
+  },
+  {
+    icon: Brain,
+    title: "Your information and knowledge",
+    body: "Turn scattered information into something you can actually use.",
+    items: [
+      "Note-taking system",
+      "PKM",
+      "Task management",
+      "Content consumption",
+      "Idea capture",
+      "Research",
+      "Bookmarks",
+      "AI and Claude workflow",
+      "Prompt library",
+      "Saved resources",
+    ],
+  },
+  {
+    icon: Repeat,
+    title: "Your project workflows",
+    body: "Stop starting from a blank page.",
+    items: [
+      "Project templates",
+      "Starting structures",
+      "SOPs",
+      "Checklists",
+      "Reusable assets",
+      "Presets",
+      "Content systems",
+      "Email templates",
+      "Systems for storing and reusing old ideas",
+      "Processes for starting, finishing, and archiving projects",
+    ],
+  },
+];
+
+const deliverables = [
+  { title: "A custom shortcut cheat sheet", body: "So you know the fastest way to perform your most common actions." },
+  { title: "A project template", body: "So your next project starts with the structure already built." },
+  { title: "A file organization system", body: "So you know where everything belongs and can easily find it later." },
+  { title: "A prompt library", body: "So you stop rewriting the same AI instructions." },
+  { title: "A note template", body: "So recurring types of information are captured consistently." },
+  { title: "An SOP or checklist", body: "So you don't have to remember every step of a recurring process." },
+  { title: "A digital decluttering system", body: "So your workspace doesn't slowly become a mess again." },
+  { title: "A personal operating manual", body: "So you have clear rules for how your digital work is organized and performed." },
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Show me how you work",
+    paragraphs: [
+      "Record yourself doing your normal work.",
+      "Use your normal apps. Open your normal files. Do things the way you normally do them.",
+      "Don't optimize your workflow before I see it. I want to see where the problems actually happen.",
+      "You control what you share. Recordings are securely stored, never shared, and deleted after your audit.",
+    ],
+    list: [],
+  },
+  {
+    number: "02",
+    title: "I find the opportunities",
+    paragraphs: ["I'll go through your workflow and identify:"],
+    list: [
+      "Unnecessary steps",
+      "Repetitive work",
+      "Difficult-to-find information",
+      "Unused software features",
+      "Better tools and utilities",
+      "Opportunities for templates and presets",
+      "Organization problems",
+      "Reuse opportunities",
+      "Systems that are creating unnecessary decisions",
+    ],
+    footer: "Then we'll prioritize the improvements that are actually worth making.",
+  },
+  {
+    number: "03",
+    title: "We build the improvements",
+    paragraphs: [
+      "We implement the changes that make the biggest difference.",
+      "That could mean configuring your existing tools, creating templates, restructuring your files, building shortcuts, designing workflows, or introducing a better tool where one is genuinely needed.",
+      "Everything is based on your actual work.",
+    ],
+    list: [],
+  },
+  {
+    number: "04",
+    title: "You leave with a system you can keep using",
+    paragraphs: [
+      "You won't be left with a list of productivity tips.",
+      "You'll have practical systems built around your workflow and clear instructions for using them.",
+      "So the next time you:",
+    ],
+    list: [
+      "Start a project",
+      "Save an idea",
+      "Find an asset",
+      "Capture information",
+      "Repeat a task",
+      "Use a piece of software",
+      "Finish a project",
+    ],
+    footer: "you already know what to do.",
+  },
+] as const;
+
+const questions = [
+  "Where did I save that?",
+  "How did I do this last time?",
+  "Is there a faster way to do this?",
+  "Which app should I use for this?",
+  "Why am I rebuilding this again?",
+  "What am I supposed to do with all this information?",
+];
+
+const audiences = [
+  "Content creators",
+  "Freelancers",
+  "Knowledge workers",
+  "Consultants",
+  "Researchers",
+  "",
+  "Solopreneurs",
 ];
 
 const heroWidgets = [
@@ -41,454 +237,14 @@ const heroWidgets = [
   { icon: FolderTree, title: "Clear", body: "Everything has a place" },
 ];
 
-const frictionPoints = [
-  "You're rebuilding your project setup from zero, every time.",
-  "You know you saved that asset, but can't find it.",
-  "You're doing the same repetitive steps manually, project after project.",
-  "Your footage, scripts, notes, ideas, and references live in different places.",
-  "You have useful information everywhere, but no clear system for retrieving it.",
-  "You know your software can do more, but don't know which features actually matter.",
-  "You create things you could reuse, but end up recreating them instead.",
-  "Your project management system doesn't reflect how your videos actually get made.",
-];
-
-const toolsList = [
-  "New AI features.",
-  "New editing software.",
-  "New plugins.",
-  "New productivity apps.",
-  "New note-taking systems.",
-  "New project management tools.",
-];
-
-const workflowList = [
-  "The ideas you capture.",
-  "The research you collect.",
-  "The scripts you write.",
-  "The projects you manage.",
-  "The footage you record.",
-  "The files you organize.",
-  "The thumbnails you design.",
-  "The tools you switch between.",
-  "The things you repeat every week.",
-];
-
-const outcomes = [
-  {
-    icon: Zap,
-    title: "Work Faster",
-    body: "Remove unnecessary steps and find faster ways to perform repetitive work.",
-  },
-  {
-    icon: Search,
-    title: "Find Things Faster",
-    body: "Create clear systems for your footage, assets, scripts, notes, references, ideas, and resources.",
-  },
-  {
-    icon: Repeat,
-    title: "Reuse More of Your Work",
-    body: "Turn previous projects into templates, presets, prompts, assets, structures, and reusable building blocks.",
-  },
-  {
-    icon: Monitor,
-    title: "Get More From Your Tools",
-    body: "Find the shortcuts, features, configurations, utilities, and workflows you're not taking advantage of.",
-  },
-  {
-    icon: Layers,
-    title: "Reduce Creative Friction",
-    body: "Create simple systems and rules so you spend less time managing your workflow and more time actually creating.",
-  },
-];
-
-const rebuildCategories = [
-  {
-    icon: Monitor,
-    title: "Your Creative Tools",
-    body: "Make the software you already use work harder for you.",
-    items: [
-      "Better configurations",
-      "Hidden features",
-      "App-specific workflows",
-      "Keyboard shortcuts",
-      "Custom shortcuts",
-      "Useful utilities",
-      "Faster navigation",
-      "Tool recommendations",
-      "AI workflows",
-      "Better ways to connect your tools",
-    ],
-  },
-  {
-    icon: FolderTree,
-    title: "Your Files & Assets",
-    body: "Stop losing things you've already created.",
-    items: [
-      "Folder structures",
-      "Naming systems",
-      "Project structures",
-      "Asset libraries",
-      "Footage organization",
-      "Resource libraries",
-      "Inspiration libraries",
-      "Archive systems",
-      "Digital decluttering",
-      "Rules for where things belong",
-    ],
-  },
-  {
-    icon: Brain,
-    title: "Your Notes & Knowledge",
-    body: "Turn scattered information into a system you can actually use.",
-    items: [
-      "Note-taking systems",
-      "Idea capture",
-      "Research organization",
-      "Content research",
-      "Knowledge management",
-      "Bookmark organization",
-      "Saved resources",
-      "Prompt libraries",
-      "AI/Claude workflows",
-      "Systems for turning information into content",
-    ],
-  },
-  {
-    icon: ListChecks,
-    title: "Your Project Management",
-    body: "Stop keeping your entire production pipeline in your head.",
-    items: [
-      "Notion project management",
-      "Content pipelines",
-      "Project dashboards",
-      "Production databases",
-      "Project templates",
-      "Status systems",
-      "Task management",
-      "Recurring workflows",
-      "Editorial calendars",
-      "Systems for starting projects",
-      "Systems for finishing projects",
-      "Systems for archiving completed work",
-    ],
-  },
-  {
-    icon: Repeat,
-    title: "Your Templates & Reusable Systems",
-    body: "Stop rebuilding things you've already built.",
-    items: [
-      "Project templates",
-      "Folder templates",
-      "Notion templates",
-      "Note templates",
-      "Email templates",
-      "AI prompts",
-      "SOPs",
-      "Checklists",
-      "Presets",
-      "Reusable assets",
-      "Starting structures",
-      "Content systems",
-    ],
-  },
-];
-
-const operatingQuestions = [
-  "Where does this go?",
-  "What happens next?",
-  "How did I do this last time?",
-  "Should I save this?",
-  "Where should I put this idea?",
-  "When should this project be archived?",
-];
-
-const operatingRules = [
-  "Where information belongs",
-  "How ideas get captured",
-  "How ideas become projects",
-  "How projects move through your pipeline",
-  "How files are named",
-  "How assets are stored",
-  "What gets templated",
-  "What gets reused",
-  "What gets archived",
-  "What gets deleted",
-];
-
-const deliverables = [
-  {
-    icon: Search,
-    title: "The Workflow Diagnostic",
-    body: "A full breakdown of your recorded work week. Where you're losing time, repeating work, searching, switching context, and where your current systems break. You'll know exactly where the friction is coming from.",
-  },
-  {
-    icon: ListChecks,
-    title: "Your Project Management System",
-    body: "A project system built around how you actually make content. This can include your Notion workspace, databases, dashboards, production stages, tasks, templates, and recurring workflows. So you always know what you're working on, what's next, and where every project stands.",
-  },
-  {
-    icon: FolderTree,
-    title: "Your File & Asset System",
-    body: "A structure for your projects, footage, graphics, thumbnails, exports, resources, and reusable assets. So finding something doesn't require remembering where you put it.",
-  },
-  {
-    icon: Brain,
-    title: "Your Note-Taking & Knowledge System",
-    body: "A system for capturing ideas, research, references, and information. So your knowledge becomes something you can actually use — not another pile of notes.",
-  },
-  {
-    icon: Repeat,
-    title: "Your Template & Reuse System",
-    body: "Templates, presets, prompts, project structures, SOPs, checklists, and reusable assets based on the work you repeat. So every new project benefits from everything you've already built.",
-  },
-  {
-    icon: Keyboard,
-    title: "Your Shortcut System",
-    body: "The fastest ways to perform the actions you repeat most. Mapped to the actual software you use. So your tools become faster to operate without changing your entire workflow.",
-  },
-  {
-    icon: BookOpen,
-    title: "Your Operating Manual",
-    body: "A written reference explaining how your new system works. Where things go, how projects move, how information is captured, what gets reused, and what happens at each stage. So the system doesn't slowly turn back into chaos a month later.",
-  },
-];
-
-const processSteps = [
-  {
-    number: "01",
-    title: "Record Your Normal Work",
-    paragraphs: [
-      "Don't show me your ideal workflow. Show me your real one.",
-      "Record yourself doing normal work across your production process.",
-      "Whatever applies to you. Don't clean anything up first. I want to see where the problems actually happen.",
-      "No performance. No preparation. No workflow documentation. Just work normally.",
-    ],
-    list: [
-      "Research",
-      "Ideation",
-      "Scripting",
-      "Recording",
-      "Editing",
-      "Thumbnails",
-      "File management",
-      "Project management",
-    ],
-    footer:
-      "Your recordings are private, securely stored, never shared, and deleted after your audit.",
-  },
-  {
-    number: "02",
-    title: "I Find The Friction",
-    paragraphs: ["I'll go through your workflow and identify:"],
-    list: [
-      "Unnecessary steps",
-      "Repetitive work",
-      "Difficult-to-find information",
-      "Poor file organization",
-      "Project management problems",
-      "Unused software features",
-      "Tool friction",
-      "Context switching",
-      "Opportunities for templates",
-      "Opportunities for reuse",
-      "Missing systems",
-      "Unnecessary decisions",
-    ],
-    footer:
-      "Then I'll prioritize the changes that are actually worth making. Not everything needs fixing. We'll focus on the improvements with the biggest impact on your creative work.",
-  },
-  {
-    number: "03",
-    title: "I Build The System",
-    paragraphs: [
-      "This is where the audit becomes your Deep Work OS.",
-      "I'll turn the highest-value opportunities into practical systems. That could mean:",
-    ],
-    list: [
-      "Building your Notion project system",
-      "Creating your templates",
-      "Designing your note-taking system",
-      "Restructuring your files",
-      "Creating your asset library",
-      "Building your shortcut system",
-      "Writing your SOPs",
-      "Defining your operating rules",
-      "Creating reusable workflows",
-      "Configuring your existing tools",
-    ],
-    footer: "Everything is built around the way you actually work.",
-  },
-  {
-    number: "04",
-    title: "You Start Using It",
-    paragraphs: [
-      "You'll receive your completed systems, written documentation, and video walkthrough.",
-      "Then you start using them in real work:",
-    ],
-    list: [
-      "Your next video",
-      "Your next project",
-      "Your next research session",
-      "Your next editing session",
-    ],
-    footer: "The system gets tested where it matters: inside your actual creative work.",
-  },
-];
-
-const recordWeekDontNeed = [
-  "Reorganize your files beforehand",
-  "Document your workflow",
-  "Fill out complicated forms",
-  "Prepare a presentation",
-  "Clean up your desktop",
-  "Pretend you're working efficiently",
-];
-
-const recordWeekExamples = [
-  "If you search for a file for five minutes, I want to see it.",
-  "If you rebuild the same project structure again, I want to see it.",
-  "If you switch between four apps to complete one simple task, I want to see it.",
-  "If you can't remember where you saved something, that's exactly the kind of friction I'm looking for.",
-];
-
-const imagineList = [
-  "Your folder structure.",
-  "Your project template.",
-  "Your Notion project.",
-  "Your recurring tasks.",
-  "Your notes system.",
-  "Your shortcuts.",
-  "Your prompts.",
-  "Your reusable assets.",
-  "Your SOPs.",
-  "Your naming rules.",
-  "Your archive system.",
-  "Your operating rules.",
-];
-
-const differences = [
-  {
-    dont: "I don't tell you how creators should work.",
-    do: "I look at how you work.",
-  },
-  {
-    dont: "I don't hand you a generic Notion template.",
-    do: "I build your project system around your actual production process.",
-  },
-  {
-    dont: "I don't tell you to use a particular note-taking methodology.",
-    do: "I build a system around the information you actually collect and use.",
-  },
-  {
-    dont: "I don't give you a list of 50 shortcuts.",
-    do: "I identify the shortcuts that matter for your actual workflow.",
-  },
-  {
-    dont: "I don't tell you to organize every file on your computer.",
-    do: "I create the structure and rules that make your important work easy to manage.",
-  },
-  {
-    dont: "I don't add complexity for the sake of optimization.",
-    do: "I remove friction.",
-  },
-];
-
-const investmentDetails = [
-  {
-    label: "Your outcome",
-    value:
-      "Start every project already organized instead of rebuilding your setup from zero.",
-  },
-  {
-    label: "Why this can work",
-    value:
-      "Built from 3+ years of real content production and experience with 100+ tools, not generic productivity theory.",
-  },
-  {
-    label: "Time to result",
-    value: "14 days. Not months of trying to redesign your workflow yourself.",
-  },
-  {
-    label: "Effort required",
-    value:
-      "You don't need to figure out the solution. You record your normal work. I analyze it and build the system.",
-  },
-];
-
-const engagementIncludes = [
-  "Workflow Diagnostic",
-  "Project management system",
-  "Notion setup where relevant",
-  "File & asset system",
-  "Note-taking system where relevant",
-  "Templates and reusable structures",
-  "Shortcut system",
-  "Operating rules",
-  "SOPs and checklists where useful",
-  "Personal Operating Manual",
-  "Written implementation plan",
-  "Video walkthrough",
-  "Async support",
-];
-
-const bonuses = [
-  {
-    icon: Keyboard,
-    title: "The Shortcut Vault",
-    body: "A living reference of the shortcuts and custom hotkeys that matter most for your actual software. Stop breaking flow to remember how to do something faster.",
-  },
-  {
-    icon: FolderTree,
-    title: "The Next-Project Starter Kit",
-    body: "A pre-built folder and project structure for your next piece of content. Open it. Duplicate it. Start working.",
-  },
-  {
-    icon: Clock,
-    title: "The 14-Day Implementation Check-ins",
-    body: "Async support while you start using your new system. Find the problems in real use and fix them before they become habits.",
-  },
-  {
-    icon: Boxes,
-    title: "The Tool Stack Audit",
-    body: "Your current tools flagged: KEEP · REPLACE · CUT. With reasoning behind each recommendation. Stop collecting tools. Start curating your stack.",
-  },
-];
-
-const pipelineStages = [
-  "Ideation",
-  "Research",
-  "Scripting",
-  "Recording",
-  "Editing",
-  "Thumbnail design",
-  "File management",
-  "Project management",
-  "Publishing",
-];
-
-const especiallyIf = [
-  "Spend a significant part of your week creating",
-  "Feel like your workflow has accumulated too much friction",
-  "Rebuild the same things repeatedly",
-  "Have files, notes, tools, and projects scattered across your system",
-  "Want to work faster without adopting an entirely new productivity philosophy",
-  "Already use serious software for real creative work",
-];
-
-const dontNeedCards = [
-  "You don't need to use a particular app.",
-  "You don't need to switch your entire setup.",
-  "We start with what you already use and improve it from there.",
-];
 
 export function LandingPage() {
   return (
     <main className="pb-24 md:pb-0">
-      {/* Top bar */}
       <div className="sticky top-0 z-50">
         <div className="flex items-center justify-center gap-2 bg-panel px-4 py-2 text-center text-xs font-semibold text-panel-foreground">
           <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary-glow" aria-hidden="true" />
-          Only 1 client per 2 weeks &middot; For content creators
+          Only 1 client per 2 weeks
         </div>
         <header className="border-b border-border bg-background/90 backdrop-blur">
           <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-3 sm:px-8">
@@ -496,7 +252,7 @@ export function LandingPage() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Layers className="h-4 w-4" aria-hidden="true" />
               </span>
-              Deep Work OS
+              Digital Work OS
             </span>
             <ApplyButton size="sm" className="hidden sm:inline-flex" />
           </div>
@@ -512,51 +268,21 @@ export function LandingPage() {
         <div className="relative mx-auto w-full max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-4 py-2 text-sm font-semibold text-primary">
             <Zap className="h-4 w-4" aria-hidden="true" />
-            14-Day Creative Workflow Transformation
+            Complete OS for creators, knowledge workers and freelancers
           </span>
           <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-5xl md:text-6xl">
-            You know your own workflow better than anyone.
+            14-Day Digital Work Transformation
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            You also know exactly where it breaks.
+            Record a normal week of work. I'll analyze how you actually work and rebuild the systems
+            around your apps, files, information, and projects into a personalized operating system that gives you more speed, focus, and time.
           </p>
-
-          <ul className="mx-auto mt-8 max-w-xl space-y-2 text-left">
-            {heroFrictions.map((item) => (
-              <li
-                key={item}
-                className="flex items-start gap-3 text-[0.975rem] leading-relaxed text-muted-foreground"
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <p className="mx-auto mt-8 max-w-2xl text-lg font-semibold text-foreground">
-            Your creative work shouldn't require so much work just to manage the creative work.
-          </p>
-
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Record a normal week of how you create: ideation, research, scripting, recording,
-            editing, thumbnails, file management, publishing, whatever your process actually
-            looks like. I'll analyze it from the inside and rebuild the systems around it: your
-            tools, files, notes, projects, templates, shortcuts, and rules. So your next project
-            starts faster than the last one ended.
-          </p>
-
           <div className="mt-9 flex flex-col items-center gap-3">
-            <ApplyButton label="Get My Deep Work OS Audit" />
+            <ApplyButton />
             <span className="text-sm text-muted-foreground">
-              For content creators on macOS or Windows &middot; 14-day turnaround &middot; Only 1
-              client per 2 weeks
+              For macOS and Windows &middot; only 1 client per 2 weeks
             </span>
           </div>
-
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            No new productivity philosophy. No mandatory app stack. You keep your tools. I make them
-            work around the way you actually create.
-          </p>
 
           <div className="mt-14 border-t border-border pt-10">
             <ul className="grid gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
@@ -574,6 +300,7 @@ export function LandingPage() {
             </ul>
           </div>
         </div>
+
       </section>
 
       <ProofSection />
@@ -582,11 +309,11 @@ export function LandingPage() {
       <Section band>
         <SectionHead
           eyebrow="The problem"
-          title="The work behind the work is slowing you down."
-          lead="You're probably losing time in places that don't look important."
+          title="Your digital work has more friction than it should."
+          lead="You probably don't need another productivity app. You need to fix the small problems that keep slowing you down:"
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2">
-          {frictionPoints.map((item) => (
+          {frictions.map((item) => (
             <li
               key={item}
               className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-card-foreground"
@@ -597,82 +324,18 @@ export function LandingPage() {
           ))}
         </ul>
         <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-medium text-foreground">
-          Individually, these problems seem small. Together, they're the difference between a
-          creative workflow that flows and one that fights you at every step.
+          Individually, these problems seem small. Together, they create a huge amount of
+          unnecessary work. That's what I help you fix.
         </p>
       </Section>
 
-      {/* More content, more tools */}
-      <Section>
-        <SectionHead
-          eyebrow="The real problem"
-          title="More content. More tools. Same broken workflow."
-          lead="Creators are producing more content, more often, with more tools than ever."
-        />
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <ul className="space-y-3">
-              {toolsList.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[0.975rem] text-card-foreground"
-                >
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="flex flex-col justify-center">
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              But your workflow doesn't automatically get better just because your tools get
-              better.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-              You can have the best apps in the world and still have a terrible system connecting
-              them.
-            </p>
-            <p className="mt-6 text-xl font-bold text-foreground">
-              The answer isn't another app. It's building the system behind the apps.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* I don't give you a productivity system */}
-      <Section band>
-        <SectionHead
-          eyebrow="The approach"
-          title="I don't give you a productivity system. I build the system behind your creative work."
-          lead="There is no universal “perfect” creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different."
-        />
-        <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
-          <p className="text-lg leading-relaxed text-muted-foreground">
-            So I don't give you a generic folder structure, Notion template, or list of
-            productivity apps and tell you to change the way you work.
-          </p>
-          <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            I start with the way you already work. You show me the real process. I find the
-            friction. Then I rebuild the parts that are slowing you down.
-          </p>
-        </div>
-      </Section>
-
-      {/* The approach — workflow list + outcomes */}
+      {/* Analyzed from the inside */}
       <Section>
         <SectionHead
           eyebrow="The approach"
-          title="Your creative workflow, analyzed from the inside."
-          lead="This isn't a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
+          title="Your workflow, analyzed from the inside."
+          lead="This isn't a generic productivity consultation. I want to see how you actually work. You show me your normal workflow: the apps you use, the projects you work on, the files you manage, the information you collect, and the things you repeatedly do."
         />
-        <ul className="mt-8 flex flex-wrap justify-center gap-2">
-          {workflowList.map((item) => (
-            <Chip key={item}>{item}</Chip>
-          ))}
-        </ul>
-        <p className="mt-8 text-center text-lg font-semibold text-foreground">
-          Then I look for opportunities to make five things better.
-        </p>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {outcomes.map(({ icon: Icon, title, body }) => (
             <article
@@ -689,15 +352,15 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* What we can rebuild */}
+      {/* What we can improve */}
       <Section band>
         <SectionHead
           eyebrow="What changes"
-          title="What we can rebuild"
-          lead="Your workflow determines what changes. There isn't a fixed checklist I'll apply to every creator. I'll look at your workflow and identify what's actually worth fixing."
+          title="What we can improve"
+          lead="Your workflow is different from everyone else's, so what we change depends on what you actually need."
         />
         <div className="mt-12 space-y-5">
-          {rebuildCategories.map(({ icon: Icon, title, body, items }) => (
+          {improvements.map(({ icon: Icon, title, body, items }) => (
             <article
               key={title}
               className="rounded-xl border border-border bg-card p-6 sm:p-8 md:flex md:gap-10"
@@ -716,64 +379,24 @@ export function LandingPage() {
               </ul>
             </article>
           ))}
-
-          {/* Operating Rules — special block */}
-          <article className="rounded-xl border border-border bg-card p-6 sm:p-8 md:flex md:gap-10">
-            <div className="md:w-2/5">
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                <BookOpen className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 text-xl font-bold text-card-foreground">Your Operating Rules</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                Make your workflow easier to run.
-              </p>
-            </div>
-            <div className="mt-6 md:mt-0 md:w-3/5">
-              <p className="text-sm font-semibold text-foreground">
-                Instead of constantly asking yourself:
-              </p>
-              <ul className="mt-3 space-y-2">
-                {operatingQuestions.map((q) => (
-                  <li
-                    key={q}
-                    className="flex items-start gap-2 text-[0.9rem] italic text-muted-foreground"
-                  >
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-muted-foreground" aria-hidden="true" />
-                    {q}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-sm font-semibold text-foreground">
-                We'll create clear rules for things like:
-              </p>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {operatingRules.map((rule) => (
-                  <Chip key={rule}>{rule}</Chip>
-                ))}
-              </ul>
-            </div>
-          </article>
         </div>
-        <p className="mt-8 text-center text-lg font-medium text-foreground">
-          The goal is fewer decisions, not more systems to manage.
-        </p>
       </Section>
 
-      {/* What you actually get */}
+      {/* Deliverables */}
       <Section>
         <SectionHead
           eyebrow="Deliverables"
-          title="Not a list of recommendations. A rebuilt creative operating system."
-          lead="Your exact deliverables depend on what I find in your workflow. That might mean:"
+          title="You won't just get advice."
+          lead="We'll turn the improvements into systems you can actually use. Depending on your workflow, this might mean creating:"
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {deliverables.map(({ icon: Icon, title, body }) => (
+          {deliverables.map(({ title, body }) => (
             <article
               key={title}
               className="rounded-xl border border-border bg-card p-6 transition-colors hover:border-primary/50"
             >
               <div className="flex items-start gap-3">
-                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <Boxes className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
                 <div>
                   <h3 className="text-base font-bold text-card-foreground">{title}</h3>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{body}</p>
@@ -784,18 +407,18 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* How we'll work together */}
+      {/* How it works */}
       <Section band id="how-it-works">
-        <SectionHead eyebrow="Process" title="How we'll work together" />
+        <SectionHead eyebrow="Process" title="How it works" />
         <ol className="mt-12 space-y-6 border-l border-border pl-6 sm:pl-10">
-          {processSteps.map((step) => (
+          {steps.map((step) => (
             <li key={step.number} className="relative">
               <span className="absolute -left-[1.9rem] top-1 flex h-6 w-6 items-center justify-center rounded-lg bg-primary text-[0.65rem] font-bold text-primary-foreground sm:-left-[3.15rem] sm:h-8 sm:w-8 sm:text-xs">
                 {step.number}
               </span>
               <div className="rounded-xl border border-border bg-card p-6 sm:p-8">
                 <h3 className="text-xl font-bold text-card-foreground sm:text-2xl">
-                  {step.number} {"—"} {step.title}
+                  {step.number} - {step.title}
                 </h3>
                 {step.paragraphs.map((p) => (
                   <p key={p} className="mt-3 text-[0.975rem] leading-relaxed text-muted-foreground">
@@ -809,7 +432,7 @@ export function LandingPage() {
                     ))}
                   </ul>
                 )}
-                {step.footer ? (
+                {"footer" in step && step.footer ? (
                   <p className="mt-5 font-semibold text-foreground">{step.footer}</p>
                 ) : null}
               </div>
@@ -818,280 +441,57 @@ export function LandingPage() {
         </ol>
       </Section>
 
-      {/* What "record a week" actually means */}
+      {/* Why it matters */}
       <Section>
-        <SectionHead
-          eyebrow="Recording"
-          title="What “record a week” actually means"
-          lead="Hit record. Work normally. Stop recording. That's it."
-        />
-        <div className="mt-10 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <Video className="h-8 w-8 text-primary" aria-hidden="true" />
-            <h3 className="mt-4 text-lg font-bold text-card-foreground">
-              You don't need to:
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {recordWeekDontNeed.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[0.975rem] text-muted-foreground"
-                >
-                  <span className="mt-0.5 text-primary" aria-hidden="true">
-                    {"✗"}
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <div className="rounded-2xl bg-panel px-6 py-14 text-panel-foreground sm:px-12">
+          <div className="text-center">
+            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+              Why it matters
+            </p>
+            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
+              This isn't about becoming more productive for the sake of it.
+            </h2>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-80 sm:text-lg">
+              It's about removing the unnecessary work surrounding the work that actually matters.
+              You shouldn't have to constantly ask:
+            </p>
           </div>
-          <div className="rounded-2xl bg-panel p-8 text-panel-foreground">
-            <p className="text-lg font-bold">The mess is useful.</p>
-            <ul className="mt-4 space-y-3">
-              {recordWeekExamples.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[0.975rem] leading-relaxed opacity-90"
-                >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-glow" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Section>
-
-      {/* Your creative work, turned into a system */}
-      <Section band>
-        <SectionHead
-          eyebrow="The outcome"
-          title="Your creative work, turned into a system"
-          lead="Imagine opening your next project and already having:"
-        />
-        <div className="mt-10 rounded-2xl border border-border bg-card p-8 sm:p-10">
-          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {imagineList.map((item) => (
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
+            {questions.map((q) => (
               <li
-                key={item}
-                className="flex items-start gap-3 rounded-lg border border-border bg-secondary px-4 py-3 text-[0.925rem] text-secondary-foreground"
+                key={q}
+                className="flex items-start gap-3 rounded-xl border border-panel-foreground/15 p-5"
               >
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                {item}
+                <Quote className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" aria-hidden="true" />
+                <span className="text-[0.975rem] italic leading-relaxed opacity-90">{q}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-8 text-center text-xl font-bold text-foreground">
-            Instead of figuring everything out again. That's the goal of Deep Work OS.
+          <p className="mt-10 text-center text-xl font-bold">
+            Your digital work should have systems behind it.
           </p>
         </div>
       </Section>
 
-      {/* The difference */}
-      <Section>
-        <SectionHead
-          eyebrow="The difference"
-          title="I don't tell you how creators should work. I look at how you work."
-        />
-        <div className="mt-10 space-y-4">
-          {differences.map(({ dont, do: doText }, i) => (
-            <div
-              key={i}
-              className="grid gap-4 rounded-2xl border border-border bg-card p-6 sm:grid-cols-2 sm:gap-8 sm:p-8"
-            >
-              <div className="flex items-start gap-3">
-                <span className="mt-0.5 text-xl text-muted-foreground" aria-hidden="true">
-                  {"✗"}
-                </span>
-                <p className="text-[0.975rem] leading-relaxed text-muted-foreground line-through opacity-70">
-                  {dont}
-                </p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                <p className="text-[0.975rem] font-semibold leading-relaxed text-foreground">
-                  {doText}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* The investment */}
-      <Section band id="investment">
-        <SectionHead eyebrow="The investment" title="Deep Work OS" />
-        <div className="mt-10 overflow-hidden rounded-3xl border-2 border-primary bg-card shadow-[var(--shadow-soft)]">
-          <div className="p-8 sm:p-10">
-            <p className="text-lg font-semibold text-muted-foreground">
-              A personalized rebuild of the systems behind your creative workflow.
-            </p>
-            <div className="mt-8 flex flex-col items-center">
-              <p className="text-6xl font-extrabold tracking-tight text-foreground">$500</p>
-            </div>
-
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {investmentDetails.map(({ label, value }) => (
-                <div key={label} className="rounded-xl border border-border bg-secondary p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
-                    {label}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-secondary-foreground">{value}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <p className="text-xs font-bold uppercase tracking-[0.14em] text-primary">
-                Your engagement includes
-              </p>
-              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
-                {engagementIncludes.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-2.5 text-[0.925rem] text-card-foreground"
-                  >
-                    <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 text-sm italic text-muted-foreground">
-                Your exact system is determined by your workflow.
-              </p>
-            </div>
-
-            <div className="mt-8 flex justify-center">
-              <ApplyButton label="Reserve My Slot" />
-            </div>
-            <p className="mt-4 text-center text-sm text-muted-foreground">
-              For content creators on macOS or Windows &middot; 14-day turnaround &middot; 1 client
-              per 2 weeks
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      {/* Included at no extra cost */}
-      <Section>
-        <SectionHead
-          eyebrow="Bonuses"
-          title="Included at no extra cost"
-          lead="Four additions that make the system easier to actually use."
-        />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {bonuses.map(({ icon: Icon, title, body }) => (
-            <article
-              key={title}
-              className="rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/50 sm:p-8"
-            >
-              <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 text-lg font-bold text-card-foreground">{title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      {/* Why only 1 client per 2 weeks */}
-      <Section band>
-        <SectionHead
-          eyebrow="Capacity"
-          title="Why only 1 client per 2 weeks?"
-          lead="I work directly with every client."
-        />
-        <div className="mt-8 grid gap-8 lg:grid-cols-2">
-          <div className="rounded-2xl border border-border bg-card p-8">
-            <ul className="space-y-3">
-              {[
-                "No team.",
-                "No generic templates applied blindly.",
-                "No automated audit that gives everyone the same recommendations.",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[0.975rem] text-card-foreground"
-                >
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-[0.975rem] leading-relaxed text-muted-foreground">
-              I personally watch your workflow, diagnose the friction, design your systems, and
-              build the improvements. That creates a real capacity limit. So I only take 1 client
-              every 2 weeks. That's what it takes to build something that fits how you actually
-              create.
-            </p>
-          </div>
-          <div className="flex flex-col items-center justify-center rounded-2xl bg-panel p-8 text-center text-panel-foreground">
-            <p className="text-lg font-semibold">
-              Price increases with each new client I take on.
-            </p>
-            <p className="mt-2 text-base opacity-80">
-              Reserve your slot at the current rate.
-            </p>
-            <div className="mt-6">
-              <ApplyButton label="Reserve My Slot" variant="invert" />
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Guarantee */}
-      <Section>
-        <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 text-center sm:p-10">
-          <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
-            <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-          </span>
-          <h2 className="mt-5 text-2xl font-extrabold tracking-tight text-card-foreground sm:text-3xl">
-            Guarantee
-          </h2>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            I'll keep working until the system fits.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            Record your workflow as instructed and implement the system as delivered. If you
-            don't feel more in control of your creative workflow within 14 days of receiving
-            it, I'll do one additional round of revisions at no charge.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            And if after our intake you decide this isn't for you before your recording week
-            starts, I'll refund you. No questions asked.
-          </p>
-        </div>
-      </Section>
-
-      {/* Who this is for */}
+      {/* Who is this for */}
       <Section band>
         <SectionHead
           eyebrow="Audience"
-          title="Who this is for"
-          lead="Deep Work OS is built for creators who handle multiple parts of production themselves:"
+          title="Who is this for?"
+          lead="This is for people who spend a significant part of their day doing digital work and want to improve the way they work without adopting an entirely new productivity philosophy. Especially:"
         />
         <ul className="mt-8 flex flex-wrap justify-center gap-2">
-          {pipelineStages.map((stage) => (
-            <Chip key={stage}>{stage}</Chip>
+          {audiences.map((a) => (
+            <Chip key={a}>{a}</Chip>
           ))}
+          <Chip>Anyone whose work happens primarily through apps, files, and digital information</Chip>
         </ul>
-        <p className="mt-8 text-center text-lg font-semibold text-foreground">
-          Especially if you:
-        </p>
-        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-          {especiallyIf.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-[0.975rem] text-card-foreground"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          {dontNeedCards.map((item) => (
+        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          {[
+            "You don't need to use a particular app.",
+            "You don't need to switch your entire setup.",
+            "You don't need a complicated productivity system.",
+          ].map((item) => (
             <p
               key={item}
               className="flex items-start gap-3 rounded-xl border border-border bg-card p-5 text-[0.95rem] text-card-foreground"
@@ -1101,6 +501,9 @@ export function LandingPage() {
             </p>
           ))}
         </div>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-lg text-foreground">
+          We start with what you already use and improve it from there.
+        </p>
       </Section>
 
       <RoiCalculator />
@@ -1117,39 +520,36 @@ export function LandingPage() {
             className="absolute right-6 top-6 h-10 w-10 opacity-25"
           />
           <h2 className="mx-auto max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-            Your creative work is unique. Your workflow should be too.
+            Your work is unique. Your workflow should be too.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-90">
-            There is no universal setup that makes every creator work better. The best workflow is
-            the one that fits your content, your tools, your projects, your information, and your
-            creative process. You don't need another productivity philosophy. You don't
-            need another app. You don't need another generic template. You need a system built
-            around the way you actually create. Show me how you work. I'll rebuild the system
-            behind it.
+            There is no universal setup that makes everyone work better. The best workflow is the
+            one that fits your work, your tools, your projects, and the way you think. Show me how
+            you work. I'll help you build a better system for it.
           </p>
           <div className="mt-9 flex justify-center">
-            <ApplyButton label="Get My Deep Work OS Audit" variant="invert" />
+            <ApplyButton variant="invert" />
           </div>
           <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
-            14-day transformation &middot; $500 &middot; 1 client every 2 weeks
+            Every engagement is personalized, so I only take on 1 client per 2 weeks.
           </p>
         </div>
       </Section>
 
-      {/* Contact */}
+      {/* Ask something */}
       <Section band id="contact">
         <div className="mx-auto max-w-2xl rounded-2xl border border-border bg-card p-8 text-center sm:p-10">
           <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent text-primary">
             <Mail className="h-5 w-5" aria-hidden="true" />
           </span>
           <h2 className="mt-5 text-2xl font-extrabold tracking-tight text-card-foreground sm:text-3xl">
-            Still not sure?
+            Still not sure, or just want to ask something?
           </h2>
           <p className="mt-4 leading-relaxed text-muted-foreground">
             Send me an email. Happy to help clear up any questions.
           </p>
           <a
-            href={`mailto:${CONTACT_EMAIL}?subject=Deep%20Work%20OS%20-%20Question`}
+            href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20Question`}
             className="mt-7 inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-base font-semibold text-primary-foreground transition-colors hover:bg-primary-deep"
           >
             Email me
@@ -1160,8 +560,8 @@ export function LandingPage() {
 
       <footer className="border-t border-border px-5 py-10 sm:px-8">
         <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>Deep Work OS</p>
-          <p>Your creative workflow, rebuilt around the way you actually work. macOS & Windows.</p>
+          <p>Digital Work OS</p>
+          <p>Better systems for your digital work. macOS and Windows.</p>
         </div>
       </footer>
 
