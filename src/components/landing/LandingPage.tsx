@@ -261,7 +261,6 @@ const rebuildCategories = [
       "What gets archived",
       "What gets deleted",
     ],
-    footer: "The goal is fewer decisions, not more systems to manage.",
   },
 ];
 
