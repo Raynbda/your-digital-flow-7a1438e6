@@ -614,7 +614,7 @@ export function LandingPage() {
           lead="Your workflow determines what changes. There isn't a fixed checklist I'll blindly apply to every creator."
         />
         <div className="mt-12 space-y-5">
-          {rebuildCategories.map(({ icon: Icon, title, body, items, footer }) => ({ ...rebuildCategories, footer } = rebuildCategories))}
+          {rebuildCategories.map(({ icon: Icon, title, body, items, footer }: { icon: typeof Wand2; title: string; body: string; items: string[]; footer?: string }) => (
             <article
               key={title}
               className="rounded-xl border border-border bg-card p-6 sm:p-8 md:flex md:gap-10"
