@@ -945,7 +945,7 @@ export function LandingPage() {
         <SectionHead
           eyebrow="Bonuses"
           title="Included at no extra cost"
-          lead="Five additions that make the system easier to actually use."
+          lead="Six additions that make the system easier to actually use."
         />
         <div className="mt-10 grid gap-5 sm:grid-cols-2">
           {bonuses.map(({ icon: Icon, title, body, problem }) => (
