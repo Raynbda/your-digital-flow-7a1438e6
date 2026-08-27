@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing/LandingPage";
 
-const title = "Digital Work OS: Build a Better System for Your Digital Work";
+const title = "Creative Workflow Transformation: Rebuild Your Creator Workflow in 14 Days";
 const description =
-  "Personal 1:1 workflow optimization. I analyze how you actually work and build systems, templates, shortcuts, and file structures that make your digital work faster and easier.";
+  "A personalized 14-day rebuild of the systems behind your creative work. I analyze how you actually make content and build templates, file structures, shortcuts, and project systems that make creating faster and easier. For content creators on macOS & Windows.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

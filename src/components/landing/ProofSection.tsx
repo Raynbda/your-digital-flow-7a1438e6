@@ -7,17 +7,19 @@ import notesShot from "@/assets/proof/notes-count.png.asset.json";
 import bookmarksShot from "@/assets/proof/bookmarks-count.png.asset.json";
 
 const cardStats = [
-  { value: "3+ Yrs", label: "Producing YouTube videos" },
-  { value: "100+", label: "Apps & tools used, broken, and replaced in real work" },
-  { value: "Scratch", label: "A workflow built from scratch,  not copied from a listicle" },
-  { value: "Windows", label: "Deep in the apps space: I know what’s possible and a dead end" },
+  { value: "3+ Yrs", label: "Producing and publishing content independently since 2023" },
+  { value: "1.25M+", label: "Views building and publishing content publicly" },
+  { value: "100+", label: "Apps and utilities used, tested, broken, and replaced in real work" },
+  { value: "84 WPM", label: "Typing speed deliberately trained — a fundamental layer of digital work" },
+  { value: "3,000+", label: "Notes in a knowledge system I still use and retrieve from" },
+  { value: "3K+", label: "Bookmarks, structured and retrievable instead of an abandoned collection" },
 ];
 
 const proofCards = [
   {
     icon: SlidersHorizontal,
     title: "3+ years in public",
-    body: "Making Windows content since 2023. Over 1.25M views.",
+    body: "Producing and publishing content since 2023. Over 1.25M views.",
     image: youtubeShot.url,
     alt: "YouTube channel stats: joined Jul 12, 2023 with 1,252,847 views",
     fit: "cover",
@@ -52,7 +54,7 @@ const proofCards = [
 
 export function ProofSection() {
   return (
-    <Section band id="proof">
+    <Section id="proof">
       <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)]">
         <Reveal>
           <div
@@ -66,18 +68,19 @@ export function ProofSection() {
             />
             <div className="relative">
               <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-80">
-                Defensible authority
+                Built through real creative work
               </p>
               <h2 className="mt-4 text-3xl font-extrabold leading-[1.08] tracking-tight sm:text-4xl">
-                I’ve spent three years obsessing over building better workflows for creating content.
+                Judgment + integration + experience.
               </h2>
               <p className="mt-6 text-base leading-relaxed opacity-90">
-                 I make YouTube videos independently, which means I handle everything myself: research, writing, recording, editing, file management, publishing, and everything in between.
+                I've spent the last 3+ years obsessing over building better workflows for creating content.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
-                Over the years, I&rsquo;ve tested and replaced dozens of apps, built systems from
-                scratch, and spent thousands of hours working on a computer. What you are buying is
-                judgment and integration, not more options.
+                I make YouTube videos independently, which means I handle the entire process myself: ideation → packaging → research → scripting → recording → editing → publishing. There is nobody else organizing the project, finding the assets, setting up the files, or figuring out the software.
+              </p>
+              <p className="mt-4 text-base leading-relaxed opacity-90">
+                Over the years, I've tested and replaced dozens of apps, built workflows from scratch, and spent thousands of hours working on a computer. <strong className="font-bold">What you're buying is judgment and integration, not more options.</strong>
               </p>
               <div className="mt-8 border-t border-primary-foreground/25 pt-8">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-7">
@@ -96,9 +99,9 @@ export function ProofSection() {
         <div>
           <Reveal>
             <div>
-              <Eyebrow>Why trust my framework</Eyebrow>
+              <Eyebrow>The receipts</Eyebrow>
               <h3 className="text-3xl font-extrabold leading-[1.1] tracking-tight text-foreground sm:text-4xl">
-                Judgment + Integration + Real Experience
+                Real work. Real numbers.
               </h3>
             </div>
           </Reveal>
