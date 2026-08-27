@@ -692,37 +692,6 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Remove the unnecessary work */}
-      <Section band>
-        <div className="rounded-2xl bg-panel px-6 py-14 text-panel-foreground sm:px-12">
-          <div className="text-center">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
-              Why it matters
-            </p>
-            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              Remove the unnecessary work surrounding the work that matters.
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-80 sm:text-lg">
-              So you spend less time asking:
-            </p>
-          </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {questions.map((q) => (
-              <li
-                key={q}
-                className="flex items-start gap-3 rounded-xl border border-panel-foreground/15 p-5"
-              >
-                <Quote className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" aria-hidden="true" />
-                <span className="text-[0.975rem] italic leading-relaxed opacity-90">{q}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 text-center text-xl font-bold">
-            And more time doing the thing you actually care about:{" "}
-            <span className="text-primary-glow">Creating.</span>
-          </p>
-        </div>
-      </Section>
 
       {/* Why this is different */}
       <Section>
