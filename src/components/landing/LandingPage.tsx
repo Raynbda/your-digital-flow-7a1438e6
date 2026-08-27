@@ -474,36 +474,40 @@ export function LandingPage() {
         <TwoPathsVisual />
       </Section>
 
-      {/* Your workflow, analyzed from the inside */}
+      {/* Your creative workflow, analyzed from the inside */}
       <Section>
         <SectionHead
           eyebrow="The approach"
-          title="Your workflow, analyzed from the inside."
-          lead="This isn't a generic productivity consultation. I want to see how you actually work — the apps you use, the projects you work on, the files you manage, and the things you repeatedly do."
+          title="Your creative workflow, analyzed from the inside."
+          lead="This isn't a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
         />
-        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-6 sm:p-8">
-          <p className="text-lg font-semibold text-foreground">
-            Don't show me your ideal workflow. <span className="text-primary">Show me your real one.</span>
-          </p>
-          <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-            Record yourself doing normal work across your production process:
-          </p>
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {stages.map((stage) => (
-              <Chip key={stage}>{stage}</Chip>
-            ))}
-          </ul>
-          <div className="mt-6 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
-            <p>If you search for a file for five minutes, I want to see it.</p>
-            <p>If you rebuild the same project structure again, I want to see it.</p>
-            <p>If you switch between four apps to complete one simple task, I want to see it.</p>
-            <p>If you can't remember where you saved something, <strong className="font-semibold text-foreground">that's exactly what I'm looking for.</strong></p>
-          </div>
-          <p className="mt-6 font-semibold text-foreground">
-            The mess isn't a problem. <span className="text-primary">It shows me what needs to change.</span>
-          </p>
+        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {showMeItems.map((item) => (
+            <li
+              key={item}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+            >
+              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              {item}
+            </li>
+          ))}
+        </ul>
+        <p className="mx-auto mt-12 max-w-2xl text-center text-lg font-semibold text-foreground">
+          Then I look for opportunities to make five things better.
+        </p>
+        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {fiveImprovements.map(({ icon: Icon, title, body }) => (
+            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+              <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                <Icon className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-card-foreground">{title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+            </article>
+          ))}
         </div>
       </Section>
+
 
       {/* How we'll work together */}
       <Section band id="how-it-works">
