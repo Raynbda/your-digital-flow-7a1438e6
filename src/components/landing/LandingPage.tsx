@@ -750,6 +750,51 @@ export function LandingPage() {
         </div>
       </Section>
 
+      {/* Bonuses */}
+      <Section band>
+        <SectionHead
+          eyebrow="Bonuses"
+          title="Included at no extra cost"
+          lead="Five additions that make the system easier to actually use."
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {bonuses.map(({ icon: Icon, title, body, problem }) => (
+            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+              <div className="flex items-start gap-3">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-2 text-base font-bold text-card-foreground">{title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              <p className="mt-4 border-t border-border pt-3 text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">Problem solved: </span>
+                {problem}
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+            The maintenance system
+          </p>
+          <p className="mt-4 text-[0.975rem] leading-relaxed opacity-90">
+            A simple rule set for the question “What do I do when I encounter something new?”
+          </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {maintenanceRules.map((rule) => (
+              <li
+                key={rule}
+                className="rounded-lg border border-panel-foreground/15 px-4 py-2.5 text-sm opacity-90"
+              >
+                {rule}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 font-bold">Your environment doesn't just get cleaned. It becomes self-maintaining.</p>
+        </div>
+      </Section>
+
       {/* Pricing card */}
       <Section id="apply">
         <div className="mx-auto max-w-xl rounded-2xl border-2 border-primary bg-card p-8 text-center sm:p-10">
@@ -771,17 +816,58 @@ export function LandingPage() {
               </li>
             ))}
           </ul>
+
+          <div className="mt-8 grid gap-3 text-left">
+            {offerValue.map(({ icon: Icon, label, body }) => (
+              <div key={label} className="flex items-start gap-3 rounded-xl border border-border bg-secondary/40 p-4">
+                <Icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                <span>
+                  <span className="block text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                    {label}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-card-foreground">{body}</span>
+                </span>
+              </div>
+            ))}
+          </div>
+
           <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
             Your exact system is determined by your workflow, not a fixed checklist.
           </p>
           <div className="mt-8">
-            <ApplyButton label="Get a Free Workflow Audit" />
+            <ApplyButton label="Reserve My Slot" />
           </div>
-          <p className="mt-5 text-sm text-muted-foreground">
-            14-day turnaround · macOS & Windows · 1 client every 2 weeks
+          <p className="mt-5 text-sm font-semibold text-foreground">
+            Price increases with each new client I take on. Reserve your slot at the current rate.
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            14-day turnaround · macOS &amp; Windows · 1 client every 2 weeks
           </p>
         </div>
       </Section>
+
+      {/* Guarantee */}
+      <Section band>
+        <SectionHead
+          eyebrow="Guarantee"
+          title="I'll keep working until the system fits."
+        />
+        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <div className="flex items-start gap-3">
+            <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
+            <div className="space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
+              <p>
+                Record your workflow as instructed and implement the system as delivered. If you don't feel more in control of your creative workflow within 14 days of receiving it, I'll do one additional round of revisions at no charge.
+              </p>
+              <p>
+                And if after our intake you decide this isn't for you before your recording week starts,{" "}
+                <strong className="font-semibold text-foreground">I'll refund you. No questions asked.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
 
       {/* Why only 1 client every 2 weeks */}
       <Section band>
