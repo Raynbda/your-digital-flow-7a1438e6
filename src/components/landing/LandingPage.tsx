@@ -7,7 +7,6 @@ import {
   Layers,
   ListChecks,
   Mail,
-  Quote,
   Repeat,
   Search,
   Sparkles,
@@ -16,9 +15,18 @@ import {
 } from "lucide-react";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
-import { MyAppsSection } from "./MyAppsSection";
+import { MyAppsSection, appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
 import { RoiCalculator } from "./RoiCalculator";
+import {
+  CapacityVisual,
+  GrewFlags,
+  GrewVisual,
+  KeepToolsVisual,
+  NotAnotherSystemVisual,
+  TwoPathsVisual,
+  UniqueWorkflowVisual,
+} from "./visuals";
 import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const heroWidgets = [
@@ -39,23 +47,10 @@ const beforeAfter = [
   { before: "Always wondering \u201cwhat should I do next?\u201d", after: "Your workflow makes the next step obvious" },
 ];
 
-const grewItems = [
-  "an app because you needed it",
-  "a folder because you started a project",
-  "a database because you had too many ideas",
-  "a bookmark because you found something useful",
-  "a shortcut because you discovered it",
-  "a template because you got tired of starting from scratch",
-  "another tool because the previous one wasn't quite enough",
-];
-
 const grewNow = [
-  "Your ideas are somewhere.",
-  "Your files are somewhere else.",
-  "Your projects have their own systems.",
+  "You search for things you know you saved.",
+  "You rebuild work you already built.",
   "Your best work is buried in old projects.",
-  "Your tools don't always work together.",
-  "And you're the one holding everything together in your head.",
 ];
 
 const dontNeed = [
@@ -63,16 +58,6 @@ const dontNeed = [
   "You don't need a generic Notion template.",
   "You don't need 50 new shortcuts.",
   "And you definitely don't need another productivity philosophy telling you to completely change the way you work.",
-];
-
-const transformations = [
-  { from: "Scattered", to: "Coherent", body: "Everything important has a logical place." },
-  { from: "Cluttered", to: "Clear", body: "Unnecessary tools, information, steps, and decisions disappear." },
-  { from: "Fragmented", to: "Connected", body: "Your apps, files, notes, projects, and resources support each other." },
-  { from: "Reactive", to: "Intentional", body: "You know what happens next instead of figuring it out every time." },
-  { from: "Overwhelming", to: "Calm", body: "Your digital environment asks less of your attention." },
-  { from: "Friction", to: "Flow", body: "Common actions become faster and easier." },
-  { from: "Collecting", to: "Creating", body: "The things you've already built become building blocks for what's next." },
 ];
 
 const stages = [
@@ -456,89 +441,37 @@ export function LandingPage() {
 
       {/* Your digital environment grew */}
       <Section>
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Your digital environment grew. It was never designed.
-          </h2>
-          <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>You added:</p>
-            <ul className="space-y-2">
-              {grewItems.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="pt-2">Each decision made sense at the time. But nobody designed the whole thing.</p>
-            <p className="pt-2">So now:</p>
-            <ul className="space-y-2">
-              {grewNow.map((item) => (
-                <li key={item} className="font-semibold text-foreground">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <SectionHead
+          eyebrow="The problem"
+          title="Your digital environment grew. It was never designed."
+          lead="An app here. A folder there. A database, a bookmark, a shortcut, a template, another tool. It accumulated."
+        />
+        <div className="mt-10">
+          <GrewVisual />
+          <GrewFlags items={grewNow} />
+          <p className="mx-auto mt-8 max-w-2xl text-center text-lg font-semibold text-foreground">
+            And you're the one holding everything together in your head.
+          </p>
         </div>
       </Section>
 
       {/* You don't need another productivity system */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            You don't need another productivity system.
-          </h2>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            {dontNeed.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-8 text-xl font-bold text-primary">
-            You need the system behind your tools to make sense. That's what I build.
-          </p>
-        </div>
-      </Section>
-
-      {/* From scattered → coherent */}
-      <Section>
         <SectionHead
-          eyebrow="The direction"
-          title="From scattered → coherent."
-          lead="Your digital environment should feel like one system. Not a pile of disconnected tools."
+          eyebrow="The real issue"
+          title="You don't need another productivity system."
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {transformations.map(({ from, to, body }, i) => (
-            <div
-              key={from}
-              className="rounded-xl border border-border bg-card p-6 transition-shadow duration-200 hover:shadow-[var(--shadow-lift)]"
-              style={{ transitionDelay: `${i * 40}ms` }}
-            >
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-                {from} <span className="text-muted-foreground">→</span> {to}
-              </p>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground">{body}</p>
-            </div>
-          ))}
-        </div>
+        <NotAnotherSystemVisual rejected={dontNeed} questions={questions} />
       </Section>
 
       {/* I don't give you a productivity system */}
-      <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            I don't give you a productivity system.
-          </h2>
-          <p className="mt-6 text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-3xl">
-            I build the system behind your creative work.
-          </p>
-          <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>There is no universal "perfect" creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different.</p>
-            <p>So I don't start with a template and force your workflow into it.</p>
-            <p className="text-xl font-bold text-foreground">I start with you.</p>
-            <p>You show me how you actually work. I identify where your workflow breaks down. Then I simplify, organize, optimize, and systemize the environment around it.</p>
-          </div>
-        </div>
+      <Section>
+        <SectionHead
+          eyebrow="The approach"
+          title="I don't give you a productivity system."
+          lead="I build the system behind your creative work."
+        />
+        <TwoPathsVisual />
       </Section>
 
       {/* Your workflow, analyzed from the inside */}
@@ -604,6 +537,43 @@ export function LandingPage() {
             </li>
           ))}
         </ol>
+      </Section>
+
+      {/* What "record your work" actually means */}
+      <Section>
+        <SectionHead
+          eyebrow="Recording"
+          title={<>What "record your work" actually means</>}
+          lead="Hit record. Work normally. That's it."
+        />
+        <div className="mx-auto mt-10 max-w-2xl">
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+            <p className="text-[0.975rem] leading-relaxed text-muted-foreground">
+              You don't need to:
+            </p>
+            <ul className="mt-4 space-y-2">
+              {recordDontNeed.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-muted-foreground">
+                  <span className="mt-1 text-muted-foreground/50" aria-hidden="true">✕</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-lg font-bold text-foreground">The mess is useful.</p>
+            <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
+              <p>If you spend five minutes looking for a file, I want to know.</p>
+              <p>If you rebuild something you've already built, I want to know.</p>
+              <p>If you switch between six apps to complete one task, I want to know.</p>
+            </div>
+            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
+              Those aren't embarrassing habits to hide.{" "}
+              <strong className="font-semibold text-foreground">They're opportunities to improve your system.</strong>
+            </p>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Your recordings are private, securely handled, and deleted after the engagement.
+            </p>
+          </div>
+        </div>
       </Section>
 
       {/* What we can rebuild */}
@@ -692,37 +662,6 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Remove the unnecessary work */}
-      <Section band>
-        <div className="rounded-2xl bg-panel px-6 py-14 text-panel-foreground sm:px-12">
-          <div className="text-center">
-            <p className="mb-4 text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
-              Why it matters
-            </p>
-            <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl">
-              Remove the unnecessary work surrounding the work that matters.
-            </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed opacity-80 sm:text-lg">
-              So you spend less time asking:
-            </p>
-          </div>
-          <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-            {questions.map((q) => (
-              <li
-                key={q}
-                className="flex items-start gap-3 rounded-xl border border-panel-foreground/15 p-5"
-              >
-                <Quote className="mt-0.5 h-4 w-4 shrink-0 text-primary-glow" aria-hidden="true" />
-                <span className="text-[0.975rem] italic leading-relaxed opacity-90">{q}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-10 text-center text-xl font-bold">
-            And more time doing the thing you actually care about:{" "}
-            <span className="text-primary-glow">Creating.</span>
-          </p>
-        </div>
-      </Section>
 
       {/* Why this is different */}
       <Section>
@@ -757,64 +696,22 @@ export function LandingPage() {
 
       {/* You keep your tools */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            You keep your tools.
-          </h2>
-          <p className="mt-4 text-xl font-semibold text-primary">
-            I make them work around the way you create.
-          </p>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            <li>You don't have to switch from Notion.</li>
-            <li>You don't have to switch from Obsidian.</li>
-            <li>You don't have to abandon your current task manager.</li>
-            <li>You don't have to move everything into some "perfect" productivity app.</li>
-          </ul>
-          <p className="mt-8 text-lg text-muted-foreground">
-            If your current tools work, <strong className="font-semibold text-foreground">we keep them.</strong> If they're creating friction, we fix the way you're using them. If something genuinely needs replacing, I'll tell you why.
-          </p>
-          <p className="mt-6 text-xl font-bold text-foreground">
-            No mandatory app stack. No unnecessary complexity.
-          </p>
-        </div>
+        <SectionHead
+          eyebrow="Your stack"
+          title="You keep your tools."
+          lead="I make them work around the way you create."
+        />
+        <KeepToolsVisual
+          icons={appIconList}
+          keepChips={[
+            "Stay on Notion",
+            "Stay on Obsidian",
+            "Keep your task manager",
+            "No move to a \u201cperfect\u201d app",
+          ]}
+        />
       </Section>
 
-      {/* What "record your work" actually means */}
-      <Section>
-        <SectionHead
-          eyebrow="Recording"
-          title={<>What "record your work" actually means</>}
-          lead="Hit record. Work normally. That's it."
-        />
-        <div className="mx-auto mt-10 max-w-2xl">
-          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <p className="text-[0.975rem] leading-relaxed text-muted-foreground">
-              You don't need to:
-            </p>
-            <ul className="mt-4 space-y-2">
-              {recordDontNeed.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-muted-foreground">
-                  <span className="mt-1 text-muted-foreground/50" aria-hidden="true">✕</span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-lg font-bold text-foreground">The mess is useful.</p>
-            <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
-              <p>If you spend five minutes looking for a file, I want to know.</p>
-              <p>If you rebuild something you've already built, I want to know.</p>
-              <p>If you switch between six apps to complete one task, I want to know.</p>
-            </div>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
-              Those aren't embarrassing habits to hide.{" "}
-              <strong className="font-semibold text-foreground">They're opportunities to improve your system.</strong>
-            </p>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Your recordings are private, securely handled, and deleted after the engagement.
-            </p>
-          </div>
-        </div>
-      </Section>
 
       <RoiCalculator />
 
@@ -878,7 +775,7 @@ export function LandingPage() {
             Your exact system is determined by your workflow, not a fixed checklist.
           </p>
           <div className="mt-8">
-            <ApplyButton label="Apply for a Transformation" />
+            <ApplyButton label="Get a Free Workflow Audit" />
           </div>
           <p className="mt-5 text-sm text-muted-foreground">
             14-day turnaround · macOS & Windows · 1 client every 2 weeks
@@ -888,36 +785,31 @@ export function LandingPage() {
 
       {/* Why only 1 client every 2 weeks */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Why only 1 client every 2 weeks?
-          </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>Because I work directly with every client.</p>
-            <p>There is no team applying a template to your setup. No automated report. No generic productivity recommendations. I personally watch your workflow, analyze it, design the improvements, and build the systems around it.</p>
-            <p className="font-semibold text-foreground">That forces a capacity limit.</p>
-            <p>So I only take on <strong className="font-bold text-primary">1 creator every 2 weeks.</strong></p>
-          </div>
-        </div>
+        <SectionHead
+          eyebrow="Capacity"
+          title="Why only 1 client every 2 weeks?"
+          lead="Because I work directly with every client, start to finish."
+        />
+        <CapacityVisual />
       </Section>
 
       {/* Final CTA */}
       <Section>
-        <div className="text-center">
-          <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Your workflow is unique. Your system should be too.
-          </h2>
-          <div className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            <p>There is no universal setup that makes every creator work better. The best workflow is the one that fits:</p>
-            <p className="font-bold text-foreground">
-              your content · your tools · your projects · your information · your habits · your creative process
-            </p>
-            <p>You don't need another productivity philosophy. You don't need another app. You don't need another generic template.</p>
-            <p className="text-xl font-bold text-foreground">
-              You need a digital environment that makes sense for the way you actually work.
-            </p>
-          </div>
-        </div>
+        <SectionHead
+          eyebrow="The point"
+          title="Your workflow is unique. Your system should be too."
+          lead="There is no universal setup that makes every creator work better. The best workflow is the one that fits yours."
+        />
+        <UniqueWorkflowVisual
+          variables={[
+            "your content",
+            "your tools",
+            "your projects",
+            "your information",
+            "your habits",
+            "your creative process",
+          ]}
+        />
 
         <div className="mt-14 relative overflow-hidden rounded-2xl bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12 sm:py-20">
           <Sparkles
@@ -928,7 +820,7 @@ export function LandingPage() {
             Show me how you work. I'll rebuild the system behind it.
           </h2>
           <div className="mt-9 flex justify-center">
-            <ApplyButton variant="invert" label="Apply for a Transformation" />
+            <ApplyButton variant="invert" label="Get a Free Workflow Audit" />
           </div>
           <p className="mx-auto mt-5 max-w-xl text-sm opacity-85">
             14-day transformation · $500 · 1 client every 2 weeks
@@ -967,7 +859,7 @@ export function LandingPage() {
 
       {/* Sticky mobile CTA */}
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-border bg-background/95 p-3 backdrop-blur md:hidden">
-        <ApplyButton size="sm" className="w-full" label="Apply for a Transformation" />
+        <ApplyButton size="sm" className="w-full" label="Get a Free Workflow Audit" />
       </div>
     </main>
   );

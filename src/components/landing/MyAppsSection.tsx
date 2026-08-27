@@ -153,3 +153,5 @@ export function MyAppsSection() {
     </Section>
   );
 }
+
+export const appIconList = apps.map((a) => ({ name: a.name, src: iconSrc(a) }));

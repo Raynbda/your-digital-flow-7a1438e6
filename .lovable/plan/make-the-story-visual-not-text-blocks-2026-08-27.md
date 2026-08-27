@@ -6,6 +6,7 @@ Six text-heavy sections on the landing page get turned into visual explainers, t
 
 **1. "Your digital environment grew. It was never designed." — visualize**
 Replace the bullet list with a two-panel visual:
+
 - Left: a chaotic "grew" cluster — app/file/note/tab chips scattered at slight random rotations with tangled connector lines behind them, tagged with a timeline ("year 1 → year 3") showing things piling on.
 - Right: the same chips arranged in a clean, aligned grid with straight connectors, labelled "designed".
 The "each decision made sense at the time / nobody designed the whole thing" line becomes the caption under the left panel. The "so now" consequences become 3 small red-flag stat tiles (searching, rebuilding, friction).
@@ -17,6 +18,7 @@ Turn into a crossed-out stack visual: a column of greyed, struck-through cards (
 
 **4. "I don't give you a productivity system" — visualize**
 Becomes a side-by-side flow diagram instead of paragraphs:
+
 - Template-first path: `Template → forced onto your workflow → friction` (muted, dead-ends).
 - My path: `Your real workflow → analysis → simplify · organize · optimize · systemize → your system` (primary colour, arrows connecting numbered nodes).
 Keeps the headline and the "I start with you" emphasis line.
@@ -34,7 +36,9 @@ The section is deleted; its questions live on inside section 2 as described abov
 Becomes a capacity visual: a 14-day strip of day cells where one client block spans all 14 days and the remaining slots are shown as unavailable, plus three role tiles showing that the same person does analysis, design, and build (no team, no automated report). Short caption keeps the "that forces a capacity limit" point.
 
 **9. Final CTA "Your workflow is unique. Your system should be too." — visualize**
-Becomes a fingerprint-style visual: three mini workflow cards (different creators) each with a different node arrangement, over a caption row of your-variables chips (content · tools · projects · information · habits · process). The "you don't need another philosophy/app/template" lines become struck-through chips, ending on the emphasized closing line. CTA panel unchanged.
+Becomes a fingerprint-style visual: three mini workflow cards (different creators) each with a different node arrangement, over a caption row of your-variables chips (content · tools · projects · information · habits · process). The "you don't need another philosophy/app/template" lines become struck-through chips, ending on the emphasized closing line. CTA panel unchanged.  
+
+Change all CTA buttons to "Get a Free Workflow Audit"
 
 ## Technical notes
 
