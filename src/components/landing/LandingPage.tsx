@@ -3,16 +3,26 @@ import {
   Boxes,
   Brain,
   CheckCircle2,
+  Clock,
   FolderTree,
+  Gauge,
+  KeyRound,
   Layers,
   ListChecks,
   Mail,
+  MessageSquare,
   Repeat,
+  Rocket,
   Search,
+  ShieldCheck,
   Sparkles,
+  Target,
   Wand2,
+  Waves,
+  Wrench,
   Zap,
 } from "lucide-react";
+
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { appIconList } from "./MyAppsSection";
