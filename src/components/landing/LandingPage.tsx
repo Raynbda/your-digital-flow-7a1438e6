@@ -456,89 +456,37 @@ export function LandingPage() {
 
       {/* Your digital environment grew */}
       <Section>
-        <div className="mx-auto max-w-2xl">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Your digital environment grew. It was never designed.
-          </h2>
-          <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>You added:</p>
-            <ul className="space-y-2">
-              {grewItems.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-muted-foreground/50" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="pt-2">Each decision made sense at the time. But nobody designed the whole thing.</p>
-            <p className="pt-2">So now:</p>
-            <ul className="space-y-2">
-              {grewNow.map((item) => (
-                <li key={item} className="font-semibold text-foreground">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+        <SectionHead
+          eyebrow="The problem"
+          title="Your digital environment grew. It was never designed."
+          lead="An app here. A folder there. A database, a bookmark, a shortcut, a template, another tool. It accumulated."
+        />
+        <div className="mt-10">
+          <GrewVisual />
+          <GrewFlags items={grewNow} />
+          <p className="mx-auto mt-8 max-w-2xl text-center text-lg font-semibold text-foreground">
+            And you're the one holding everything together in your head.
+          </p>
         </div>
       </Section>
 
       {/* You don't need another productivity system */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            You don't need another productivity system.
-          </h2>
-          <ul className="mt-8 space-y-3 text-lg leading-relaxed text-muted-foreground">
-            {dontNeed.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <p className="mt-8 text-xl font-bold text-primary">
-            You need the system behind your tools to make sense. That's what I build.
-          </p>
-        </div>
-      </Section>
-
-      {/* From scattered → coherent */}
-      <Section>
         <SectionHead
-          eyebrow="The direction"
-          title="From scattered → coherent."
-          lead="Your digital environment should feel like one system. Not a pile of disconnected tools."
+          eyebrow="The real issue"
+          title="You don't need another productivity system."
         />
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {transformations.map(({ from, to, body }, i) => (
-            <div
-              key={from}
-              className="rounded-xl border border-border bg-card p-6 transition-shadow duration-200 hover:shadow-[var(--shadow-lift)]"
-              style={{ transitionDelay: `${i * 40}ms` }}
-            >
-              <p className="text-sm font-bold uppercase tracking-[0.12em] text-primary">
-                {from} <span className="text-muted-foreground">→</span> {to}
-              </p>
-              <p className="mt-3 text-[0.95rem] leading-relaxed text-muted-foreground">{body}</p>
-            </div>
-          ))}
-        </div>
+        <NotAnotherSystemVisual rejected={dontNeed} questions={questions} />
       </Section>
 
       {/* I don't give you a productivity system */}
-      <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            I don't give you a productivity system.
-          </h2>
-          <p className="mt-6 text-2xl font-extrabold leading-tight tracking-tight text-primary sm:text-3xl">
-            I build the system behind your creative work.
-          </p>
-          <div className="mt-8 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>There is no universal "perfect" creator workflow. Your content is different. Your tools are different. Your projects are different. Your creative process is different.</p>
-            <p>So I don't start with a template and force your workflow into it.</p>
-            <p className="text-xl font-bold text-foreground">I start with you.</p>
-            <p>You show me how you actually work. I identify where your workflow breaks down. Then I simplify, organize, optimize, and systemize the environment around it.</p>
-          </div>
-        </div>
+      <Section>
+        <SectionHead
+          eyebrow="The approach"
+          title="I don't give you a productivity system."
+          lead="I build the system behind your creative work."
+        />
+        <TwoPathsVisual />
       </Section>
 
       {/* Your workflow, analyzed from the inside */}
