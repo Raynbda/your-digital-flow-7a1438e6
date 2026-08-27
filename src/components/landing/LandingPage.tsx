@@ -559,6 +559,9 @@ export function LandingPage() {
       {/* Proof — moved under hero */}
       <ProofSection />
 
+      <TransformationAnimation />
+
+
       {/* Before / After */}
       <Section band>
         <SectionHead
