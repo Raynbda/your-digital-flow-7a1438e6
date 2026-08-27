@@ -639,13 +639,12 @@ export function LandingPage() {
           title="Your creative workflow, analyzed from the inside."
           lead="This isn't a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
         />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-2.5">
           {showMeItems.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+              className="rounded-full bg-secondary px-4 py-2 text-[0.95rem] text-secondary-foreground"
             >
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               {item}
             </li>
           ))}
@@ -655,7 +654,10 @@ export function LandingPage() {
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {fiveImprovements.map(({ icon: Icon, title, body }) => (
-            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+            <article
+              key={title}
+              className="flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-elevated,0_18px_40px_-18px_rgba(15,23,42,0.28))]"
+            >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -664,6 +666,7 @@ export function LandingPage() {
             </article>
           ))}
         </div>
+
       </Section>
 
 
