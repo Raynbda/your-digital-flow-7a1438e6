@@ -65,7 +65,7 @@ export function ApplyButton({
   size = "lg",
   className = "",
   variant = "primary",
-  label = "Get My Digital Workspace Audit",
+  label = "Free Workflow Audit",
 }: {
   size?: "lg" | "sm";
   className?: string;
