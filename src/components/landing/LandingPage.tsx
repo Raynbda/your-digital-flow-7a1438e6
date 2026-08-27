@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
-import { MyAppsSection, appIconList } from "./MyAppsSection";
+import { appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
 import { RoiCalculator } from "./RoiCalculator";
 import {
@@ -715,7 +715,7 @@ export function LandingPage() {
 
       <RoiCalculator />
 
-      <MyAppsSection />
+
 
       {/* Who this is for */}
       <Section band>
