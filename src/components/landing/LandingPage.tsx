@@ -249,15 +249,163 @@ const rebuildCategories = [
   },
 ];
 
-const deliverables = [
-  { title: "A Workflow Diagnostic", body: "A detailed breakdown of where your creative process is losing time, creating friction, or generating unnecessary work." },
-  { title: "A Project System", body: "A structure for managing your content from idea → production → publishing → archive." },
-  { title: "A File & Asset System", body: "Clear structures and rules for your projects, footage, graphics, thumbnails, exports, references, and reusable assets." },
-  { title: "A Template & Reuse System", body: "Templates, presets, prompts, checklists, SOPs, and reusable structures based on the work you actually repeat." },
-  { title: "A Personalized Shortcut System", body: "The shortcuts and faster methods that matter for the software you use every day." },
-  { title: "A Personal Operating Manual", body: "A simple reference explaining how your new system works—and the rules that keep it from slowly becoming messy again." },
-  { title: "A Walkthrough", body: "A guided explanation of what changed, why it changed, and how to use your new system." },
+const showMeItems = [
+  "The ideas you capture.",
+  "The research you collect.",
+  "The scripts you write.",
+  "The projects you manage.",
+  "The footage you record.",
+  "The files you organize.",
+  "The thumbnails you design.",
+  "The tools you switch between.",
+  "The things you repeat every week.",
 ];
+
+const fiveImprovements = [
+  {
+    icon: Zap,
+    title: "Work Faster",
+    body: "Remove unnecessary steps and find faster ways to perform repetitive work.",
+  },
+  {
+    icon: Search,
+    title: "Find Things Faster",
+    body: "Create clear systems for your footage, assets, scripts, notes, references, ideas, and resources.",
+  },
+  {
+    icon: Repeat,
+    title: "Reuse More of Your Work",
+    body: "Turn previous projects into templates, presets, prompts, assets, structures, and reusable building blocks.",
+  },
+  {
+    icon: Wand2,
+    title: "Get More From Your Tools",
+    body: "Find the shortcuts, features, configurations, utilities, and workflows you're not taking advantage of.",
+  },
+  {
+    icon: Waves,
+    title: "Reduce Creative Friction",
+    body: "Create simple systems and rules so you spend less time managing your workflow and more time actually creating.",
+  },
+];
+
+const deliverables = [
+  {
+    title: "The Workflow Diagnostic",
+    body: "A full breakdown of your recorded work week. Where you're losing time, repeating work, searching, switching context, and where your current systems break. You'll know exactly where the friction is coming from.",
+  },
+  {
+    title: "Your Project Management System",
+    body: "A project system built around how you actually make content. This can include your Notion workspace, databases, dashboards, production stages, tasks, templates, and recurring workflows. So you always know what you're working on, what's next, and where every project stands.",
+  },
+  {
+    title: "Your File & Asset System",
+    body: "A structure for your projects, footage, graphics, thumbnails, exports, resources, and reusable assets. So finding something doesn't require remembering where you put it.",
+  },
+  {
+    title: "Your Note-Taking & Knowledge System",
+    body: "A system for capturing ideas, research, references, and information. So your knowledge becomes something you can actually use — not another pile of notes.",
+  },
+  {
+    title: "Your Template & Reuse System",
+    body: "Templates, presets, prompts, project structures, SOPs, checklists, and reusable assets based on the work you repeat. So every new project benefits from everything you've already built.",
+  },
+  {
+    title: "Your Shortcut System",
+    body: "The fastest ways to perform the actions you repeat most. Mapped to the actual software you use. So your tools become faster to operate without changing your entire workflow.",
+  },
+  {
+    title: "Your Operating Manual",
+    body: "A written reference explaining how your new system works. Where things go, how projects move, how information is captured, what gets reused, and what happens at each stage. So the system doesn't slowly turn back into chaos a month later.",
+  },
+];
+
+const outcomeItems = [
+  "Your folder structure.",
+  "Your project template.",
+  "Your Notion project.",
+  "Your recurring tasks.",
+  "Your notes system.",
+  "Your shortcuts.",
+  "Your prompts.",
+  "Your reusable assets.",
+  "Your SOPs.",
+  "Your naming rules.",
+  "Your archive system.",
+  "Your operating rules.",
+];
+
+const offerValue = [
+  {
+    icon: Target,
+    label: "Your outcome",
+    body: "Start every project already organized instead of rebuilding your setup from zero.",
+  },
+  {
+    icon: ShieldCheck,
+    label: "Why this can work",
+    body: "Built from 3+ years of real content production and experience with 100+ tools, not generic productivity theory.",
+  },
+  {
+    icon: Clock,
+    label: "Time to result",
+    body: "14 days. Not months of trying to redesign your workflow yourself.",
+  },
+  {
+    icon: Gauge,
+    label: "Effort required",
+    body: "You don't need to figure out the solution. You record your normal work. I analyze it and build the system.",
+  },
+];
+
+const bonuses = [
+  {
+    icon: KeyRound,
+    title: "The Shortcut Vault",
+    body: "A living reference of the shortcuts and custom hotkeys that matter most for your actual software, plus a personalized cheat sheet of your highest-value keys.",
+    problem: "“I know I could work faster, but I don't know what shortcuts actually matter.”",
+  },
+  {
+    icon: Rocket,
+    title: "The Next-Project Starter Kit",
+    body: "A pre-built folder and project structure for your next piece of content, with a quickstart guide for your new system. Open it. Duplicate it. Start working.",
+    problem: "“Okay… what do I actually do now?”",
+  },
+  {
+    icon: MessageSquare,
+    title: "The 14-Day Implementation Check-ins",
+    body: "Async support while you start using your new system. Find the problems in real use and fix them before they become habits.",
+    problem: "“I'll get stuck the first time something doesn't fit.”",
+  },
+  {
+    icon: Wrench,
+    title: "The Tool Stack Audit",
+    body: "Your current tools flagged KEEP · REPLACE · CUT, with reasoning behind each call, plus a curated setup library of tools, configurations, and utilities worth having.",
+    problem: "“I keep collecting tools and don't know what's worth setting up.”",
+  },
+  {
+    icon: Boxes,
+    title: "The Reusable Work Vault",
+    body: "A ready-made structure for storing templates, presets, scripts, hooks, assets, references, and checklists.",
+    problem: "“I keep recreating things I've already made.”",
+  },
+  {
+    icon: Search,
+    title: "The Friction Finder",
+    body: "A recurring checklist for spotting new sources of friction before they pile up again.",
+    problem: "“My system will eventually become messy again.”",
+  },
+];
+
+const maintenanceRules = [
+  "New app → Where does it fit?",
+  "New project → How do I set it up?",
+  "New idea → Where does it go?",
+  "New asset → Where is it stored?",
+  "Repeated task → Should it become a template?",
+  "New friction → How do I fix it?",
+];
+
 
 const questions = [
   "Where did I save that?",
