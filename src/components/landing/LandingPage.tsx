@@ -820,20 +820,23 @@ export function LandingPage() {
           title="Your creative work, turned into a system"
           lead="Imagine opening your next project and already having:"
         />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {outcomeItems.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-semibold text-foreground">
-          Instead of figuring everything out again. That's the goal of Content Creator OS.
-        </p>
+        <div className="mt-10 rounded-2xl border border-border bg-card p-5 sm:p-8">
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {outcomeItems.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-3 rounded-xl bg-accent/60 px-4 py-3.5 text-[0.95rem] text-card-foreground"
+              >
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-lg font-bold text-foreground">
+            Instead of figuring everything out again. That's the goal of Content Creator OS.
+          </p>
+        </div>
+
       </Section>
 
 
