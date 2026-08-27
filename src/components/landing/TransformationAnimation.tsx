@@ -279,7 +279,7 @@ export function TransformationAnimation() {
       <SectionHead
         eyebrow="The transformation"
         title="This is what actually changes on your screen"
-        subtitle="Not productivity theory. The same four things, rebuilt."
+        lead="Not productivity theory. The same four things, rebuilt."
       />
 
       <div ref={ref} className="mt-10 space-y-5">
