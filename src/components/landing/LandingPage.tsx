@@ -4,12 +4,10 @@ import {
   Brain,
   CheckCircle2,
   FolderTree,
-  Keyboard,
   Layers,
   ListChecks,
   Mail,
   Quote,
-  Recycle,
   Repeat,
   Search,
   Sparkles,
@@ -21,7 +19,7 @@ import { ProofSection } from "./ProofSection";
 import { MyAppsSection } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
 import { RoiCalculator } from "./RoiCalculator";
-import { CONTACT_EMAIL, PAYMENT_LINK } from "@/lib/diagnosis-content";
+import { CONTACT_EMAIL } from "@/lib/diagnosis-content";
 
 const heroWidgets = [
   { icon: Zap, title: "Faster", body: "Fewer clicks, fewer steps" },
