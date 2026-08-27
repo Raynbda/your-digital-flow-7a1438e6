@@ -1008,39 +1008,6 @@ export function LandingPage() {
         </div>
       </Section>
 
-      {/* Guarantee */}
-      <Section band>
-        <SectionHead
-          eyebrow="Guarantee"
-          title="I'll keep working until the system fits."
-        />
-        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-6 sm:p-8">
-          <div className="flex items-start gap-3">
-            <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
-            <div className="space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-              <p>
-                Record your workflow as instructed and implement the system as delivered. If you don't feel more in control of your creative workflow within 14 days of receiving it, I'll do one additional round of revisions at no charge.
-              </p>
-              <p>
-                And if after our intake you decide this isn't for you before your recording week starts,{" "}
-                <strong className="font-semibold text-foreground">I'll refund you. No questions asked.</strong>
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
-
-      {/* Why only 1 client every 2 weeks */}
-      <Section band>
-        <SectionHead
-          eyebrow="Capacity"
-          title="Why only 1 client every 2 weeks?"
-          lead="Because I work directly with every client, start to finish."
-        />
-        <CapacityVisual />
-      </Section>
-
       {/* Bonuses */}
       <Section band>
         <SectionHead
@@ -1085,6 +1052,40 @@ export function LandingPage() {
           <p className="mt-6 font-bold">Your environment doesn't just get cleaned. It becomes self-maintaining.</p>
         </div>
       </Section>
+
+      {/* Guarantee */}
+      <Section band>
+        <SectionHead
+          eyebrow="Guarantee"
+          title="I'll keep working until the system fits."
+        />
+        <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <div className="flex items-start gap-3">
+            <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
+            <div className="space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
+              <p>
+                Record your workflow as instructed and implement the system as delivered. If you don't feel more in control of your creative workflow within 14 days of receiving it, I'll do one additional round of revisions at no charge.
+              </p>
+              <p>
+                And if after our intake you decide this isn't for you before your recording week starts,{" "}
+                <strong className="font-semibold text-foreground">I'll refund you. No questions asked.</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+
+      {/* Why only 1 client every 2 weeks */}
+      <Section band>
+        <SectionHead
+          eyebrow="Capacity"
+          title="Why only 1 client every 2 weeks?"
+          lead="Because I work directly with every client, start to finish."
+        />
+        <CapacityVisual />
+      </Section>
+
 
 
       {/* Final CTA */}
