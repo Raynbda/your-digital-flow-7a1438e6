@@ -135,8 +135,9 @@ export function ProofSection() {
 
       <Reveal>
         <p className="mt-10 text-center text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
-          Built through thousands of hours of actual digital work. Not productivity theory.
+          Built through thousands of hours of actual creative work. Not productivity theory.
         </p>
+
       </Reveal>
     </Section>
   );
