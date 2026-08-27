@@ -888,17 +888,12 @@ export function LandingPage() {
 
       {/* Why only 1 client every 2 weeks */}
       <Section band>
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold leading-tight tracking-tight text-foreground sm:text-4xl">
-            Why only 1 client every 2 weeks?
-          </h2>
-          <div className="mt-6 space-y-4 text-lg leading-relaxed text-muted-foreground">
-            <p>Because I work directly with every client.</p>
-            <p>There is no team applying a template to your setup. No automated report. No generic productivity recommendations. I personally watch your workflow, analyze it, design the improvements, and build the systems around it.</p>
-            <p className="font-semibold text-foreground">That forces a capacity limit.</p>
-            <p>So I only take on <strong className="font-bold text-primary">1 creator every 2 weeks.</strong></p>
-          </div>
-        </div>
+        <SectionHead
+          eyebrow="Capacity"
+          title="Why only 1 client every 2 weeks?"
+          lead="Because I work directly with every client, start to finish."
+        />
+        <CapacityVisual />
       </Section>
 
       {/* Final CTA */}
