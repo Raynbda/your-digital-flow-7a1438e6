@@ -748,7 +748,11 @@ export function LandingPage() {
             ))}
           </ul>
         </div>
+        <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-medium text-foreground">
+          We start with what you already use and improve it from there.
+        </p>
       </Section>
+
 
       {/* Bonuses */}
       <Section band>
