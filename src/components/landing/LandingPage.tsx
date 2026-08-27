@@ -17,16 +17,21 @@ import {
   ShieldCheck,
   Sparkles,
   Target,
+  Video,
   Wand2,
   Waves,
   Wrench,
+  X,
   Zap,
+
 } from "lucide-react";
 
 import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
+import { TransformationAnimation } from "./TransformationAnimation";
+
 import { RoiCalculator } from "./RoiCalculator";
 import {
   CapacityVisual,
@@ -556,6 +561,9 @@ export function LandingPage() {
       {/* Proof — moved under hero */}
       <ProofSection />
 
+      <TransformationAnimation />
+
+
       {/* Before / After */}
       <Section band>
         <SectionHead
@@ -639,13 +647,12 @@ export function LandingPage() {
           title="Your creative workflow, analyzed from the inside."
           lead="This isn't a generic productivity consultation. I want to see how you actually create. You show me your normal workflow:"
         />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mx-auto mt-10 flex max-w-4xl flex-wrap justify-center gap-2.5">
           {showMeItems.map((item) => (
             <li
               key={item}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
+              className="rounded-full bg-secondary px-4 py-2 text-[0.95rem] text-secondary-foreground"
             >
-              <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
               {item}
             </li>
           ))}
@@ -655,7 +662,10 @@ export function LandingPage() {
         </p>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {fiveImprovements.map(({ icon: Icon, title, body }) => (
-            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+            <article
+              key={title}
+              className="flex h-full flex-col rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[var(--shadow-elevated,0_18px_40px_-18px_rgba(15,23,42,0.28))]"
+            >
               <span className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Icon className="h-5 w-5" aria-hidden="true" />
               </span>
@@ -664,6 +674,7 @@ export function LandingPage() {
             </article>
           ))}
         </div>
+
       </Section>
 
 
@@ -706,37 +717,43 @@ export function LandingPage() {
         <SectionHead
           eyebrow="Recording"
           title={<>What "record your work" actually means</>}
-          lead="Hit record. Work normally. That's it."
+          lead="Hit record. Work normally. Stop recording. That's it."
         />
-        <div className="mx-auto mt-10 max-w-2xl">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
           <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-            <p className="text-[0.975rem] leading-relaxed text-muted-foreground">
-              You don't need to:
-            </p>
-            <ul className="mt-4 space-y-2">
+            <Video className="h-7 w-7 text-primary" aria-hidden="true" />
+            <p className="mt-6 text-lg font-bold text-foreground">You don't need to:</p>
+            <ul className="mt-5 space-y-3.5">
               {recordDontNeed.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-[0.95rem] text-muted-foreground">
-                  <span className="mt-1 text-muted-foreground/50" aria-hidden="true">✕</span>
+                <li key={item} className="flex items-start gap-3 text-[0.975rem] text-muted-foreground">
+                  <X className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-lg font-bold text-foreground">The mess is useful.</p>
-            <div className="mt-3 space-y-2 text-[0.95rem] leading-relaxed text-muted-foreground">
-              <p>If you spend five minutes looking for a file, I want to know.</p>
-              <p>If you rebuild something you've already built, I want to know.</p>
-              <p>If you switch between six apps to complete one task, I want to know.</p>
-            </div>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-muted-foreground">
-              Those aren't embarrassing habits to hide.{" "}
-              <strong className="font-semibold text-foreground">They're opportunities to improve your system.</strong>
-            </p>
-            <p className="mt-6 text-sm text-muted-foreground">
-              Your recordings are private, securely handled, and deleted after the engagement.
-            </p>
+          </div>
+          <div className="rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
+            <p className="text-lg font-bold">The mess is useful.</p>
+            <ul className="mt-5 space-y-3.5">
+              {[
+                "If you search for a file for five minutes, I want to see it.",
+                "If you rebuild the same project structure again, I want to see it.",
+                "If you switch between four apps to complete one simple task, I want to see it.",
+                "If you can't remember where you saved something, that's exactly the kind of friction I'm looking for.",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-[0.975rem] leading-relaxed opacity-90">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary-glow" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
+          Those aren't embarrassing habits to hide — they're opportunities to improve your system. Your recordings are private, securely handled, and deleted after the engagement.
+        </p>
       </Section>
+
 
       {/* What we can rebuild */}
       <Section>
@@ -808,20 +825,23 @@ export function LandingPage() {
           title="Your creative work, turned into a system"
           lead="Imagine opening your next project and already having:"
         />
-        <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {outcomeItems.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 text-[0.95rem] text-card-foreground"
-            >
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-              {item}
-            </li>
-          ))}
-        </ul>
-        <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-semibold text-foreground">
-          Instead of figuring everything out again. That's the goal of Content Creator OS.
-        </p>
+        <div className="mt-10 rounded-2xl border border-border bg-card p-5 sm:p-8">
+          <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {outcomeItems.map((item) => (
+              <li
+                key={item}
+                className="flex items-center gap-3 rounded-xl bg-accent/60 px-4 py-3.5 text-[0.95rem] text-card-foreground"
+              >
+                <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mx-auto mt-8 max-w-2xl text-center text-lg font-bold text-foreground">
+            Instead of figuring everything out again. That's the goal of Content Creator OS.
+          </p>
+        </div>
+
       </Section>
 
 
@@ -940,50 +960,7 @@ export function LandingPage() {
       </Section>
 
 
-      {/* Bonuses */}
-      <Section band>
-        <SectionHead
-          eyebrow="Bonuses"
-          title="Included at no extra cost"
-          lead="Six additions that make the system easier to actually use."
-        />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
-          {bonuses.map(({ icon: Icon, title, body, problem }) => (
-            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
-              <div className="flex items-start gap-3">
-                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </span>
-                <h3 className="mt-2 text-base font-bold text-card-foreground">{title}</h3>
-              </div>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              <p className="mt-4 border-t border-border pt-3 text-sm text-muted-foreground">
-                <span className="font-semibold text-foreground">Problem solved: </span>
-                {problem}
-              </p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-8 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
-            The maintenance system
-          </p>
-          <p className="mt-4 text-[0.975rem] leading-relaxed opacity-90">
-            A simple rule set for the question “What do I do when I encounter something new?”
-          </p>
-          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
-            {maintenanceRules.map((rule) => (
-              <li
-                key={rule}
-                className="rounded-lg border border-panel-foreground/15 px-4 py-2.5 text-sm opacity-90"
-              >
-                {rule}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 font-bold">Your environment doesn't just get cleaned. It becomes self-maintaining.</p>
-        </div>
-      </Section>
+
 
       {/* Pricing card */}
       <Section id="apply">
@@ -1036,6 +1013,51 @@ export function LandingPage() {
         </div>
       </Section>
 
+      {/* Bonuses */}
+      <Section band>
+        <SectionHead
+          eyebrow="Bonuses"
+          title="Included at no extra cost"
+          lead="Six additions that make the system easier to actually use."
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          {bonuses.map(({ icon: Icon, title, body, problem }) => (
+            <article key={title} className="flex h-full flex-col rounded-xl border border-border bg-card p-6">
+              <div className="flex items-start gap-3">
+                <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </span>
+                <h3 className="mt-2 text-base font-bold text-card-foreground">{title}</h3>
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              <p className="mt-4 border-t border-border pt-3 text-sm text-muted-foreground">
+                <span className="font-semibold text-foreground">Problem solved: </span>
+                {problem}
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="mt-8 rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+            The maintenance system
+          </p>
+          <p className="mt-4 text-[0.975rem] leading-relaxed opacity-90">
+            A simple rule set for the question “What do I do when I encounter something new?”
+          </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            {maintenanceRules.map((rule) => (
+              <li
+                key={rule}
+                className="rounded-lg border border-panel-foreground/15 px-4 py-2.5 text-sm opacity-90"
+              >
+                {rule}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 font-bold">Your environment doesn't just get cleaned. It becomes self-maintaining.</p>
+        </div>
+      </Section>
+
       {/* Guarantee */}
       <Section band>
         <SectionHead
@@ -1066,8 +1088,10 @@ export function LandingPage() {
           title="Why only 1 client every 2 weeks?"
           lead="Because I work directly with every client, start to finish."
         />
-        <CapacityVisual />
+        <CapacityVisual cta={<ApplyButton variant="invert" label="Reserve My Slot" />} />
       </Section>
+
+
 
       {/* Final CTA */}
       <Section>

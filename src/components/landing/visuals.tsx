@@ -423,80 +423,69 @@ export function KeepToolsVisual({
 /* 5. Why only 1 client every 2 weeks                                 */
 /* ------------------------------------------------------------------ */
 
-export function CapacityVisual() {
-  const days = Array.from({ length: 14 }, (_, i) => i + 1);
+export function CapacityVisual({ cta }: { cta?: React.ReactNode }) {
   return (
-    <div className="mt-10 grid gap-5 lg:grid-cols-2">
-      <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-          One 14-day window
-        </p>
-        <ul className="mt-5 grid grid-cols-7 gap-1.5">
-          {days.map((d) => (
-            <li
-              key={d}
-              className="grid aspect-square place-items-center rounded-md bg-primary/15 text-[0.65rem] font-bold text-primary"
-            >
-              {d}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-3 rounded-lg bg-primary px-4 py-2.5 text-center text-sm font-bold text-primary-foreground">
-          1 creator · all 14 days
+    <div className="mt-10 space-y-5">
+      <div className="grid gap-5 lg:grid-cols-2">
+        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+          <ul className="space-y-3.5">
+            {[
+              "No team.",
+              "No generic templates applied blindly.",
+              "No automated audit that gives everyone the same recommendations.",
+            ].map((item) => (
+              <li key={item} className="flex items-start gap-3 text-[0.975rem] text-card-foreground">
+                <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-[0.975rem] leading-relaxed text-muted-foreground">
+            I personally watch your workflow, diagnose the friction, design your systems, and build
+            the improvements. That creates a real capacity limit. So I only take 1 client every 2
+            weeks. That's what it takes to build something that fits how you actually create.
+          </p>
         </div>
-        <ul className="mt-5 space-y-1.5">
-          {["Slot 2", "Slot 3", "Slot 4"].map((s) => (
-            <li
-              key={s}
-              className="flex items-center gap-2 rounded-lg border border-dashed border-border px-4 py-2 text-sm text-muted-foreground"
-            >
-              <X className="h-4 w-4 shrink-0 text-muted-foreground/50" aria-hidden="true" />
-              {s} — unavailable
-            </li>
-          ))}
-        </ul>
+
+        <div className="flex flex-col items-center justify-center rounded-2xl bg-panel p-8 text-center text-panel-foreground">
+          <p className="text-xl font-bold leading-snug">
+            Price increases with each new client I take on.
+          </p>
+          <p className="mt-3 text-[0.975rem] opacity-80">
+            Reserve your slot at the current rate.
+          </p>
+          {cta ? <div className="mt-8">{cta}</div> : null}
+        </div>
       </div>
 
-      <div className="rounded-2xl bg-panel p-6 text-panel-foreground sm:p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary-glow">
+      <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
           Who does the work
         </p>
-        <ul className="mt-5 space-y-3">
+        <ul className="mt-5 grid gap-3 sm:grid-cols-3">
           {[
             { icon: Search, label: "Analysis", body: "I watch your workflow myself." },
             { icon: Wand2, label: "Design", body: "I design the improvements myself." },
             { icon: Repeat, label: "Build", body: "I build the systems myself." },
           ].map((r) => (
-            <li
-              key={r.label}
-              className="flex items-start gap-3 rounded-xl border border-panel-foreground/15 p-4"
-            >
-              <r.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary-glow" aria-hidden="true" />
+            <li key={r.label} className="flex items-start gap-3 rounded-xl border border-border p-4">
+              <r.icon className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
               <span>
-                <span className="block font-bold">{r.label}</span>
-                <span className="block text-sm opacity-80">{r.body}</span>
+                <span className="block font-bold text-card-foreground">{r.label}</span>
+                <span className="block text-sm text-muted-foreground">{r.body}</span>
               </span>
             </li>
           ))}
         </ul>
-        <ul className="mt-5 space-y-1.5 text-sm opacity-80">
-          {["No team applying a template", "No automated report", "No generic recommendations"].map(
-            (n) => (
-              <li key={n} className="flex items-center gap-2">
-                <X className="h-4 w-4 shrink-0 text-primary-glow" aria-hidden="true" />
-                {n}
-              </li>
-            ),
-          )}
-        </ul>
-        <p className="mt-6 flex items-center gap-2 font-bold">
-          <Users className="h-5 w-5 text-primary-glow" aria-hidden="true" />
+        <p className="mt-5 flex items-center gap-2 font-bold text-foreground">
+          <Users className="h-5 w-5 text-primary" aria-hidden="true" />
           That forces a capacity limit: 1 creator every 2 weeks.
         </p>
       </div>
     </div>
   );
 }
+
 
 /* ------------------------------------------------------------------ */
 /* 6. Your workflow is unique                                         */
