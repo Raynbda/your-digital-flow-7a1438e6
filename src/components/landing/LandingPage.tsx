@@ -39,6 +39,7 @@ import {
   GrewVisual,
   KeepToolsVisual,
   NotAnotherSystemVisual,
+  ShiftTimeline,
   TwoPathsVisual,
   UniqueWorkflowVisual,
 } from "./visuals";
