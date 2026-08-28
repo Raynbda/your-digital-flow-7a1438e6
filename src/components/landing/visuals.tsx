@@ -16,6 +16,7 @@ import {
   Wand2,
   X,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
 /* 1. Your digital environment grew — scattered cluster vs. designed grid */
@@ -564,6 +565,183 @@ export function UniqueWorkflowVisual({ variables }: { variables: string[] }) {
       <p className="mx-auto mt-9 max-w-2xl text-center text-xl font-bold text-foreground">
         You need a digital environment that makes sense for the way you actually work.
       </p>
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* 7. The shift — horizontal timeline: before falls below, after rises */
+/* ------------------------------------------------------------------ */
+
+export function ShiftTimeline({
+  pairs,
+}: {
+  pairs: Array<{ before: string; after: string }>;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [active, setActive] = useState(false);
+  const [instant, setInstant] = useState(false);
+
+  useEffect(() => {
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      setInstant(true);
+      setActive(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === "undefined") {
+      setActive(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setActive(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const delay = (ms: number) => (instant ? "0ms" : `${ms}ms`);
+
+  return (
+    <div
+      ref={ref}
+      className="mt-10 overflow-hidden rounded-2xl border border-border bg-card p-5 sm:p-8"
+    >
+      {/* end labels */}
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
+          A workflow that fights you
+        </p>
+        <p className="text-xs font-bold uppercase tracking-[0.18em] text-primary">
+          A workflow that supports you
+        </p>
+      </div>
+
+      {/* ---------------- desktop / tablet: horizontal axis ---------------- */}
+      <div className="mt-6 hidden sm:block">
+        <div className="grid gap-y-10 sm:grid-cols-4 lg:grid-cols-8">
+          {pairs.map((pair, i) => (
+            <div key={pair.before} className="flex flex-col items-center">
+              {/* after — above the line */}
+              <div
+                className="flex h-[150px] w-full items-end justify-center px-1 transition-all duration-500 ease-out"
+                style={{
+                  opacity: active ? 1 : 0,
+                  transform: active ? "none" : "translateY(14px)",
+                  transitionDelay: delay(420 + i * 110),
+                }}
+              >
+                <div className="w-full rounded-xl border border-primary/25 bg-primary/5 p-2.5 text-center">
+                  <Check
+                    className="mx-auto h-4 w-4 text-primary"
+                    aria-hidden="true"
+                  />
+                  <p className="mt-1.5 text-[0.72rem] font-semibold leading-snug text-foreground">
+                    {pair.after}
+                  </p>
+                </div>
+              </div>
+              <span
+                aria-hidden="true"
+                className="h-4 w-px origin-bottom bg-primary/35 transition-transform duration-300"
+                style={{
+                  transform: active ? "scaleY(1)" : "scaleY(0)",
+                  transitionDelay: delay(420 + i * 110),
+                }}
+              />
+
+              {/* axis segment */}
+              <span
+                aria-hidden="true"
+                className="relative flex h-[3px] w-full items-center"
+              >
+                <span
+                  className="h-[3px] w-full origin-left rounded-full transition-transform duration-500 ease-out"
+                  style={{
+                    background:
+                      "linear-gradient(90deg, var(--color-muted-foreground, currentColor), var(--color-primary, currentColor))",
+                    opacity: 0.5,
+                    transform: active ? "scaleX(1)" : "scaleX(0)",
+                    transitionDelay: delay(i * 70),
+                  }}
+                />
+                <span
+                  className="absolute left-1/2 h-2 w-2 -translate-x-1/2 rounded-full bg-primary transition-opacity duration-300"
+                  style={{ opacity: active ? 1 : 0, transitionDelay: delay(120 + i * 70) }}
+                />
+                {i === pairs.length - 1 ? (
+                  <ArrowRight className="absolute -right-1 h-4 w-4 shrink-0 text-primary" />
+                ) : null}
+              </span>
+
+              <span
+                aria-hidden="true"
+                className="h-4 w-px origin-top bg-border transition-transform duration-300"
+                style={{
+                  transform: active ? "scaleY(1)" : "scaleY(0)",
+                  transitionDelay: delay(200 + i * 110),
+                }}
+              />
+
+              {/* before — falling below the line */}
+              <div
+                className="flex h-[96px] w-full items-start justify-center px-1 transition-all duration-500 ease-out"
+                style={{
+                  opacity: active ? 0.55 : 0,
+                  transform: active ? `translateY(6px) rotate(${(i % 3) - 1}deg)` : "none",
+                  transitionDelay: delay(200 + i * 110),
+                }}
+              >
+                <p className="rounded-lg border border-border bg-secondary px-2 py-1.5 text-center text-[0.7rem] leading-snug text-muted-foreground line-through decoration-muted-foreground/40">
+                  {pair.before}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ---------------------- mobile: vertical axis ---------------------- */}
+      <div className="mt-6 sm:hidden">
+        <ul className="relative space-y-4 pl-4">
+          <span
+            aria-hidden="true"
+            className="absolute bottom-0 left-0 top-0 w-[3px] origin-top rounded-full bg-gradient-to-b from-muted-foreground/40 to-primary transition-transform duration-700 ease-out"
+            style={{ transform: active ? "scaleY(1)" : "scaleY(0)" }}
+          />
+          {pairs.map((pair, i) => (
+            <li
+              key={pair.before}
+              className="grid grid-cols-2 items-center gap-3 transition-all duration-500 ease-out"
+              style={{
+                opacity: active ? 1 : 0,
+                transform: active ? "none" : "translateY(10px)",
+                transitionDelay: delay(120 + i * 90),
+              }}
+            >
+              <p className="rounded-lg border border-border bg-secondary px-2.5 py-2 text-[0.72rem] leading-snug text-muted-foreground line-through decoration-muted-foreground/40">
+                {pair.before}
+              </p>
+              <div className="rounded-lg border border-primary/25 bg-primary/5 px-2.5 py-2">
+                <Check className="h-4 w-4 text-primary" aria-hidden="true" />
+                <p className="mt-1 text-[0.72rem] font-semibold leading-snug text-foreground">
+                  {pair.after}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

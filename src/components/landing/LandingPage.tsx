@@ -30,7 +30,7 @@ import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
-import { TransformationAnimation } from "./TransformationAnimation";
+
 
 import { RoiCalculator } from "./RoiCalculator";
 import {
@@ -39,6 +39,7 @@ import {
   GrewVisual,
   KeepToolsVisual,
   NotAnotherSystemVisual,
+  ShiftTimeline,
   TwoPathsVisual,
   UniqueWorkflowVisual,
 } from "./visuals";
@@ -561,45 +562,13 @@ export function LandingPage() {
       {/* Proof — moved under hero */}
       <ProofSection />
 
-      <TransformationAnimation />
-
-
       {/* Before / After */}
       <Section band>
         <SectionHead
           eyebrow="The shift"
           title="From a workflow that fights you → one that supports you"
         />
-        <div className="mt-10 overflow-hidden rounded-2xl border border-border bg-card">
-          <div className="grid grid-cols-1 sm:grid-cols-2">
-            <div className="border-b border-border sm:border-b-0 sm:border-r">
-              <p className="bg-secondary px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
-                Before
-              </p>
-              <ul className="divide-y divide-border">
-                {beforeAfter.map((row) => (
-                  <li key={row.before} className="flex items-start gap-3 px-6 py-4 text-[0.95rem] text-muted-foreground">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/40" aria-hidden="true" />
-                    {row.before}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="bg-primary/10 px-6 py-4 text-xs font-bold uppercase tracking-[0.18em] text-primary">
-                After
-              </p>
-              <ul className="divide-y divide-border">
-                {beforeAfter.map((row) => (
-                  <li key={row.after} className="flex items-start gap-3 px-6 py-4 text-[0.95rem] font-medium text-foreground">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                    {row.after}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <ShiftTimeline pairs={beforeAfter} />
         <p className="mx-auto mt-10 max-w-2xl text-center text-lg font-medium text-foreground">
           Your creative work shouldn't require almost as much work to manage as it does to create.
         </p>
