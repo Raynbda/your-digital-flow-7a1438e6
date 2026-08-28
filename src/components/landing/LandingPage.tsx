@@ -30,7 +30,7 @@ import { ApplyButton, Chip, Section, SectionHead } from "./primitives";
 import { ProofSection } from "./ProofSection";
 import { appIconList } from "./MyAppsSection";
 import { FAQSection } from "./FAQSection";
-import { TransformationAnimation } from "./TransformationAnimation";
+
 
 import { RoiCalculator } from "./RoiCalculator";
 import {
