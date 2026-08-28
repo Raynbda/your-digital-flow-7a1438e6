@@ -16,6 +16,7 @@ import {
   Wand2,
   X,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 /* ------------------------------------------------------------------ */
 /* 1. Your digital environment grew — scattered cluster vs. designed grid */
