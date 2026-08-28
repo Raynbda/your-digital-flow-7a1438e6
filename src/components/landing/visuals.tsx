@@ -634,7 +634,7 @@ export function ShiftTimeline({
             <div key={pair.before} className="flex flex-col items-center">
               {/* after — above the line */}
               <div
-                className="flex min-h-[104px] w-full items-end justify-center px-1 transition-all duration-500 ease-out"
+                className="flex h-[126px] w-full items-end justify-center px-1 transition-all duration-500 ease-out"
                 style={{
                   opacity: active ? 1 : 0,
                   transform: active ? "none" : "translateY(14px)",
