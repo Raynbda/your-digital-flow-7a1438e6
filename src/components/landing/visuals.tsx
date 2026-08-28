@@ -695,7 +695,7 @@ export function ShiftTimeline({
 
               {/* before — falling below the line */}
               <div
-                className="flex min-h-[72px] w-full items-start justify-center px-1 transition-all duration-500 ease-out"
+                className="flex h-[86px] w-full items-start justify-center px-1 transition-all duration-500 ease-out"
                 style={{
                   opacity: active ? 0.55 : 0,
                   transform: active ? `translateY(6px) rotate(${(i % 3) - 1}deg)` : "none",
