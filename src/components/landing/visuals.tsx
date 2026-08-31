@@ -133,17 +133,20 @@ export function GrewVisual() {
         <div className="relative mt-4 h-[268px] overflow-hidden rounded-xl bg-primary/5 p-4">
           <svg
             aria-hidden="true"
-            viewBox="0 0 300 260"
+            viewBox="0 0 100 100"
             className="absolute inset-0 h-full w-full text-primary/25"
             preserveAspectRatio="none"
           >
+            {/* clean grid rails aligned to the 3x3 chip grid */}
             <path
-              d="M150 20 V240 M20 90 H280 M20 170 H280"
+              d="M33.3 8 V92 M66.6 8 H66.6 M66.6 8 V92 M8 33.3 H92 M8 66.6 H92"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="0.5"
+              vectorEffect="non-scaling-stroke"
             />
           </svg>
+
           <div className="relative grid h-full grid-cols-3 place-items-center gap-2">
             {nodes.map((n) => (
               <NodeChip key={n.label} icon={n.icon} label={n.label} />
