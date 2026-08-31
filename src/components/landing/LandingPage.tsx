@@ -507,7 +507,7 @@ export function LandingPage() {
               <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
                 <Layers className="h-4 w-4" aria-hidden="true" />
               </span>
-              Digital Work OS
+              Creator OS
             </span>
             <ApplyButton size="sm" className="hidden sm:inline-flex" />
           </div>
