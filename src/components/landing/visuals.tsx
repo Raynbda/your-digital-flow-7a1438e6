@@ -85,18 +85,21 @@ export function GrewVisual() {
         <div className="relative mt-4 h-[268px] overflow-hidden rounded-xl bg-secondary/60">
           <svg
             aria-hidden="true"
-            viewBox="0 0 300 260"
-            className="absolute inset-0 h-full w-full text-muted-foreground/35"
+            viewBox="0 0 100 100"
+            className="absolute inset-0 h-full w-full text-muted-foreground/40"
             preserveAspectRatio="none"
           >
-            <path
-              d="M30 30 C120 90 60 150 190 60 S110 210 250 200 M40 210 C140 180 90 60 260 40"
+            {/* dashed path threading through the centre of every scattered chip */}
+            <polyline
+              points="20,13 58,9 86,22 70,45 36,39 15,33 22,61 54,68 84,75"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
-              strokeDasharray="5 5"
+              strokeWidth="0.5"
+              strokeDasharray="2 2"
+              vectorEffect="non-scaling-stroke"
             />
           </svg>
+
           {nodes.map((n, i) => {
             const pos = scatterPositions[i]!;
             return (
