@@ -85,18 +85,21 @@ export function GrewVisual() {
         <div className="relative mt-4 h-[268px] overflow-hidden rounded-xl bg-secondary/60">
           <svg
             aria-hidden="true"
-            viewBox="0 0 300 260"
-            className="absolute inset-0 h-full w-full text-muted-foreground/35"
+            viewBox="0 0 100 100"
+            className="absolute inset-0 h-full w-full text-muted-foreground/40"
             preserveAspectRatio="none"
           >
-            <path
-              d="M30 30 C120 90 60 150 190 60 S110 210 250 200 M40 210 C140 180 90 60 260 40"
+            {/* dashed path threading through the centre of every scattered chip */}
+            <polyline
+              points="20,13 58,9 86,22 70,45 36,39 15,33 22,61 54,68 84,75"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
-              strokeDasharray="5 5"
+              strokeWidth="0.5"
+              strokeDasharray="2 2"
+              vectorEffect="non-scaling-stroke"
             />
           </svg>
+
           {nodes.map((n, i) => {
             const pos = scatterPositions[i]!;
             return (
@@ -130,17 +133,20 @@ export function GrewVisual() {
         <div className="relative mt-4 h-[268px] overflow-hidden rounded-xl bg-primary/5 p-4">
           <svg
             aria-hidden="true"
-            viewBox="0 0 300 260"
+            viewBox="0 0 100 100"
             className="absolute inset-0 h-full w-full text-primary/25"
             preserveAspectRatio="none"
           >
+            {/* clean grid rails aligned to the 3x3 chip grid */}
             <path
-              d="M150 20 V240 M20 90 H280 M20 170 H280"
+              d="M33.3 8 V92 M66.6 8 H66.6 M66.6 8 V92 M8 33.3 H92 M8 66.6 H92"
               fill="none"
               stroke="currentColor"
-              strokeWidth="1.5"
+              strokeWidth="0.5"
+              vectorEffect="non-scaling-stroke"
             />
           </svg>
+
           <div className="relative grid h-full grid-cols-3 place-items-center gap-2">
             {nodes.map((n) => (
               <NodeChip key={n.label} icon={n.icon} label={n.label} />
