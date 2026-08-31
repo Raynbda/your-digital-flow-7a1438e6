@@ -53,7 +53,7 @@ const faqs = [
   },
   {
     q: "What do I get at the end?",
-    a: "You get a personalized Digital Work OS: a structured system for your workspace, files, apps, workflows, shortcuts, and recurring processes, designed around the way you actually work.",
+    a: "You get a personalized Creator OS: a structured system for your workspace, files, apps, workflows, shortcuts, and recurring processes, designed around the way you actually work.",
   },
   {
     q: "What happens after I complete the assessment?",

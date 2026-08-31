@@ -97,7 +97,7 @@ function RoiWidget() {
   );
 }
 
-const title = "Workflow Diagnostic - Digital Work OS";
+const title = "Workflow Diagnostic - Creator OS";
 const description =
   "Answer a short questionnaire and find out what is holding your digital work back: speed, organization, reuse, information, or workflow.";
 
@@ -256,7 +256,7 @@ function DiagnosticPage() {
       <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur">
         <div className="mx-auto flex w-full max-w-[760px] items-center justify-between px-5 py-3">
           <Link to="/" className="text-sm font-bold tracking-tight text-foreground">
-            Digital Work OS
+            Creator OS
           </Link>
           {started ? (
             <span className="text-xs font-medium text-muted-foreground">
@@ -592,7 +592,7 @@ function Results({
               {offer.eyebrow}
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-foreground">
-              Get your Digital Work OS built
+              Get your Creator OS built
             </h2>
             <p className="mt-3 text-muted-foreground">{d.ifWeWorked}</p>
           </div>
