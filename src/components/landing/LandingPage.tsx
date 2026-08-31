@@ -1121,7 +1121,7 @@ export function LandingPage() {
 
       <footer className="border-t border-border px-5 py-10 sm:px-8">
         <div className="mx-auto flex w-full max-w-[1100px] flex-col gap-2 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <p>Digital Work OS</p>
+          <p>Creator OS</p>
           <p>Better systems for your creative work. macOS and Windows.</p>
         </div>
       </footer>
