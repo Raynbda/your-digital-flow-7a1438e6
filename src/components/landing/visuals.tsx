@@ -427,37 +427,16 @@ export function KeepToolsVisual({
 export function CapacityVisual({ cta }: { cta?: React.ReactNode }) {
   return (
     <div className="mt-10 space-y-5">
-      <div className="grid gap-5 lg:grid-cols-2">
-        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
-          <ul className="space-y-3.5">
-            {[
-              "No team.",
-              "No generic templates applied blindly.",
-              "No automated audit that gives everyone the same recommendations.",
-            ].map((item) => (
-              <li key={item} className="flex items-start gap-3 text-[0.975rem] text-card-foreground">
-                <Check className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
-                {item}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-[0.975rem] leading-relaxed text-muted-foreground">
-            I personally watch your workflow, diagnose the friction, design your systems, and build
-            the improvements. That creates a real capacity limit. So I only take 1 client every 2
-            weeks. That's what it takes to build something that fits how you actually create.
-          </p>
-        </div>
-
-        <div className="flex flex-col items-center justify-center rounded-2xl bg-panel p-8 text-center text-panel-foreground">
-          <p className="text-xl font-bold leading-snug">
-            Price increases with each new client I take on.
-          </p>
-          <p className="mt-3 text-[0.975rem] opacity-80">
-            Reserve your slot at the current rate.
-          </p>
-          {cta ? <div className="mt-8">{cta}</div> : null}
-        </div>
+      <div className="flex flex-col items-center justify-center rounded-2xl bg-panel p-8 text-center text-panel-foreground">
+        <p className="text-xl font-bold leading-snug">
+          Price increases with each new client I take on.
+        </p>
+        <p className="mt-3 text-[0.975rem] opacity-80">
+          Reserve your slot at the current rate.
+        </p>
+        {cta ? <div className="mt-8">{cta}</div> : null}
       </div>
+
 
       <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
         <p className="text-xs font-bold uppercase tracking-[0.18em] text-muted-foreground">
