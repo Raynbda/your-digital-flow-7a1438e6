@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Loader2, Lock } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 
-const title = "Admin Sign In - Digital Work OS";
+const title = "Admin Sign In - Creator OS";
 const description = "Sign in to review Workflow Diagnostic submissions.";
 
 export const Route = createFileRoute("/auth")({
