@@ -70,23 +70,36 @@ function AuthPage() {
         </p>
 
         <form onSubmit={submit} className="mt-6 space-y-3">
+          <label htmlFor="admin-email" className="sr-only">
+            Email address
+          </label>
           <input
+            id="admin-email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
+            autoComplete="email"
             required
             placeholder="you@example.com"
             className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary"
           />
+          <label htmlFor="admin-password" className="sr-only">
+            Password
+          </label>
           <input
+            id="admin-password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
+            autoComplete={mode === "signin" ? "current-password" : "new-password"}
             required
             minLength={8}
             placeholder="Password"
             className="w-full rounded-xl border border-border bg-background px-4 py-3 text-foreground outline-none focus:border-primary"
           />
+
           {error ? <p className="text-sm text-destructive">{error}</p> : null}
           {notice ? <p className="text-sm text-muted-foreground">{notice}</p> : null}
           <button
