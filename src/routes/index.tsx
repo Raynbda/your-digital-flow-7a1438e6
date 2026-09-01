@@ -13,8 +13,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://creator-os.the-control-panel.com/" },
+      { property: "og:image", content: "https://creator-os.the-control-panel.com/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: "https://creator-os.the-control-panel.com/og-image.jpg" },
     ],
+    links: [{ rel: "canonical", href: "https://creator-os.the-control-panel.com/" }],
   }),
   component: LandingPage,
 });
