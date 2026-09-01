@@ -15,7 +15,9 @@ export const listSubmissions = createServerFn({ method: "POST" })
 
     const { data, error } = await context.supabase
       .from("diagnostic_submissions")
-      .select("*")
+      .select(
+        "id, first_name, email, answers, scores, primary_diagnosis, secondary_diagnosis, seriousness, interest, newsletter_opt_in, created_at",
+      )
       .order("created_at", { ascending: false })
       .limit(500);
     if (error) throw new Error(error.message);

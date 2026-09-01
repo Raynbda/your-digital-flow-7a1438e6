@@ -1,3 +1,5 @@
+&nbsp;
+
 # Fuller admin view for diagnostic submissions
 
 Submissions are already being stored — the database holds 3 real entries, and the form's submit path writes every answer, score, and diagnosis. The gap is the admin page: it dumps raw question IDs and gives no way to scan, filter, or export. This plan rebuilds `/admin` into a real inbox.
@@ -11,6 +13,7 @@ Submissions are already being stored — the database holds 3 real entries, and 
 5. **Prev / next navigation** — move between entries from inside the detail view without collapsing back to the list.
 6. **Copy + export** — one-click copy of an entry's email, a "copy all emails" button for the filtered set, and a CSV export of the filtered set (name, email, date, diagnoses, readiness, interest, newsletter, one column per question).
 7. **Free-text highlight** — the longer written answers (the ones worth reading before a call) are pulled to the top of the detail view in a "In their own words" block.
+8. The dynamic result based on the visitors answers answer
 
 ## Technical notes
 
