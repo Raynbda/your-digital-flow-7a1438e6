@@ -164,11 +164,30 @@ const SAMPLE_ANSWERS: Answers = {
   interest: "Yes, that's exactly what I'm looking for",
 };
 
+// Options that act as an "Other" free-text toggle. When selected, a text
+// field expands so the user can describe what that "other" actually is.
+const OTHER_LABELS = new Set(["Other", "Something else"]);
+const isOtherOption = (option: string) => OTHER_LABELS.has(option);
+const otherKey = (id: string) => `${id}__other`;
+
 function isAnswered(q: Question, answers: Answers) {
   if (q.optional) return true;
   const value = answers[q.id];
-  if (Array.isArray(value)) return value.length > 0;
-  return typeof value === "string" && value.trim().length > 0;
+  if (Array.isArray(value)) {
+    if (value.length === 0) return false;
+    // If "Other" is among the selected options, require the custom text.
+    if (value.some(isOtherOption)) {
+      return ((answers[otherKey(q.id)] as string | undefined) ?? "").trim().length > 0;
+    }
+    return true;
+  }
+  if (typeof value === "string" && value.trim().length > 0) {
+    if (isOtherOption(value)) {
+      return ((answers[otherKey(q.id)] as string | undefined) ?? "").trim().length > 0;
+    }
+    return true;
+  }
+  return false;
 }
 
 function DiagnosticPage() {
