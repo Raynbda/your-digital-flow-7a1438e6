@@ -4,7 +4,7 @@ import { Cpu, Gauge, Minus, SlidersHorizontal } from "lucide-react";
 import youtubeShot from "@/assets/proof/youtube-metrics.png.asset.json";
 import wpmShot from "@/assets/proof/wpm-chart.png.asset.json";
 import notesShot from "@/assets/proof/notes-count.png.asset.json";
-import bookmarksShot from "@/assets/proof/bookmarks-count.png.asset.json";
+import bookmarksShot from "@/assets/proof/bookmarks-new.png.asset.json";
 
 const cardStats = [
   { value: "3+ Yrs", label: "Producing and publishing content independently since 2023" },
