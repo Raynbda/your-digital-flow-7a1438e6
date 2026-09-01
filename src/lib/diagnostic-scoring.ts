@@ -98,11 +98,6 @@ const scaleSignals: Record<string, Record<string, string>> = {
     "I mostly do them manually": "repetitive_manual",
     "I haven't really thought about it": "repetitive_manual",
   },
-  next_action_freq: {
-    "A few times a day": "no_processes",
-    "Very often": "no_processes",
-    Constantly: "no_processes",
-  },
   lose_place_freq: {
     "A few times a week": "loses_place",
     "Every day": "loses_place",

@@ -140,7 +140,7 @@ const SAMPLE_ANSWERS: Answers = {
   main_problem: "Doing things manually / too slowly",
   cond_manual:
     "Exporting videos with the same settings every time, renaming files by hand, copying tags between uploads.",
-  wish: "Feel like everything I make has a permanent home and a faster path to get there.",
+  
   find_ease: "I regularly spend several minutes looking",
   files_org: "I have a structure, but it has become messy",
   notes_system: "I use several different systems",
