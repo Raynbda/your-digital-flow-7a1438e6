@@ -49,7 +49,7 @@ const proofCards = [
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
     tileBg: "#232325",
-    imgHeight: "h-200",
+    imgHeight: "h-100",
   },
 ];
 
