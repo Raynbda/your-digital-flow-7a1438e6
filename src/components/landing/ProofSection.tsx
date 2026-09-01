@@ -47,9 +47,10 @@ const proofCards = [
     body: "3K bookmarks, all structured and retrievable. Subtraction first: a simple system is a better system.",
     image: bookmarksShot.url,
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
-    fit: "contain",
+    fit: "cover",
     tileBg: "#232325",
-    imgHeight: "h-100",
+    imgHeight: "h-40",
+    objectPosition: "center",
   },
 ];
 
