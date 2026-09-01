@@ -499,7 +499,7 @@ export function LandingPage() {
       <div className="sticky top-0 z-50">
         <div className="flex items-center justify-center gap-2 bg-panel px-4 py-2 text-center text-xs font-semibold text-panel-foreground">
           <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-primary-glow" aria-hidden="true" />
-          Only 1 client per 2 weeks · For content creators · macOS & Windows
+          Only 1 client per 2 weeks · For creators · macOS & Windows
         </div>
         <header className="border-b border-border bg-background/90 backdrop-blur">
           <div className="mx-auto flex w-full max-w-[1100px] items-center justify-between px-5 py-3 sm:px-8">
