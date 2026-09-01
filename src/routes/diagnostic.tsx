@@ -408,6 +408,31 @@ function DiagnosticPage() {
   );
 }
 
+function OtherInput({
+  question,
+  answers,
+  setValue,
+}: {
+  question: Question;
+  answers: Answers;
+  setValue: (id: string, value: string | string[]) => void;
+}) {
+  const key = otherKey(question.id);
+  const value = (answers[key] as string | undefined) ?? "";
+  return (
+    <div className="mt-2.5">
+      <input
+        value={value}
+        maxLength={200}
+        autoFocus
+        placeholder="Tell me what it is"
+        onChange={(e) => setValue(key, e.target.value)}
+        className="w-full rounded-xl border border-primary/50 bg-card px-4 py-3 text-foreground outline-none focus:border-primary"
+      />
+    </div>
+  );
+}
+
 function QuestionField({
   question,
   answers,
@@ -444,24 +469,29 @@ function QuestionField({
   const options = question.options ?? [];
   if (question.type === "single") {
     const value = answers[question.id] as string | undefined;
+    const showOther = value ? isOtherOption(value) : false;
     return (
       <div className="grid gap-2.5">
         {options.map((option) => {
           const active = value === option;
           return (
-            <button
-              key={option}
-              type="button"
-              onClick={() => setValue(question.id, option)}
-              className={`flex items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.975rem] transition-colors ${
-                active
-                  ? "border-primary bg-accent text-foreground"
-                  : "border-border bg-card text-card-foreground hover:border-primary/50"
-              }`}
-            >
-              {option}
-              {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
-            </button>
+            <div key={option}>
+              <button
+                type="button"
+                onClick={() => setValue(question.id, option)}
+                className={`flex w-full items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.975rem] transition-colors ${
+                  active
+                    ? "border-primary bg-accent text-foreground"
+                    : "border-border bg-card text-card-foreground hover:border-primary/50"
+                }`}
+              >
+                {option}
+                {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
+              </button>
+              {active && isOtherOption(option) ? (
+                <OtherInput question={question} answers={answers} setValue={setValue} />
+              ) : null}
+            </div>
           );
         })}
       </div>
@@ -476,20 +506,26 @@ function QuestionField({
         const blocked =
           !active && question.maxSelect ? selected.length >= question.maxSelect : false;
         return (
-          <button
-            key={option}
-            type="button"
-            disabled={blocked}
-            onClick={() => toggleMulti(question, option)}
-            className={`flex items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.95rem] transition-colors ${
-              active
-                ? "border-primary bg-accent text-foreground"
-                : "border-border bg-card text-card-foreground hover:border-primary/50"
-            } ${blocked ? "opacity-40" : ""}`}
-          >
-            {option}
-            {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
-          </button>
+          <div key={option}>
+            <button
+              type="button"
+              disabled={blocked}
+              onClick={() => toggleMulti(question, option)}
+              className={`flex w-full items-center justify-between gap-3 rounded-xl border p-4 text-left text-[0.95rem] transition-colors ${
+                active
+                  ? "border-primary bg-accent text-foreground"
+                  : "border-border bg-card text-card-foreground hover:border-primary/50"
+              } ${blocked ? "opacity-40" : ""}`}
+            >
+              {option}
+              {active ? <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" /> : null}
+            </button>
+            {active && isOtherOption(option) ? (
+              <div className="sm:col-span-1">
+                <OtherInput question={question} answers={answers} setValue={setValue} />
+              </div>
+            ) : null}
+          </div>
         );
       })}
     </div>
