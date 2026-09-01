@@ -642,7 +642,7 @@ function Results({
                   {offer.guarantee}
                 </p>
                 <a
-                  href={`mailto:${CONTACT_EMAIL}?subject=Digital%20Work%20OS%20-%20question`}
+                  href={`mailto:${CONTACT_EMAIL}?subject=Creative%20Workflow%20Transformation%20-%20Question`}
                   className="mt-3 text-xs text-muted-foreground underline"
                 >
                   Email me a question first
