@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://digital-work-os.lovable.app/sitemap.xml
+Sitemap: https://creator-os.the-control-panel.com/sitemap.xml
