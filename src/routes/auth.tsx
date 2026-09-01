@@ -7,6 +7,9 @@ const title = "Admin Sign In - Creator OS";
 const description = "Sign in to review Workflow Diagnostic submissions.";
 
 export const Route = createFileRoute("/auth")({
+  // Client-only: the sign-in form depends on the browser Supabase session,
+  // so SSR-ing it produced a hydration mismatch.
+  ssr: false,
   head: () => ({
     meta: [
       { title },
