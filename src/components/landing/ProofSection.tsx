@@ -113,7 +113,7 @@ export function ProofSection() {
           </Reveal>
 
           <div className="mt-7 grid gap-5 sm:grid-cols-2">
-            {proofCards.map(({ icon: Icon, title, body, image, alt, fit, tileBg, imgHeight }, i) => (
+            {proofCards.map(({ icon: Icon, title, body, image, alt, fit, tileBg, imgHeight, objectPosition }, i) => (
               <Reveal key={title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-5">
                   <div className="flex items-center gap-2.5">
@@ -129,6 +129,7 @@ export function ProofSection() {
                       src={image}
                       alt={alt}
                       loading="lazy"
+                      style={{ objectPosition: objectPosition ?? "center" }}
                       className={`mx-auto w-full ${fit === "contain" ? "object-contain" : "object-cover"} ${imgHeight ?? "h-40"}`}
                     />
                   </div>
