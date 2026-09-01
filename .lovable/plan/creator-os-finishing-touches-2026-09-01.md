@@ -7,6 +7,7 @@ A few concrete items remain before the site is fully launch-ready. These are qui
 `src/routes/__root.tsx` still ships the default `Lovable App` title and `Lovable Generated Project` description. The leaf routes (`/`, `/diagnostic`, `/auth`) already have proper metadata, so this only affects pages that fall back to root defaults — but it's a failing SEO finding and looks unprofessional in any share/tab that hits the fallback.
 
 Replace the root defaults with sitewide values only (no per-page title here):
+
 - title → `Creator OS`
 - description → `A 14-day creative workflow transformation — record your week, get a personalized operating system for apps, files, info, and projects.`
 - og:title → `Creator OS`
@@ -37,4 +38,5 @@ All SEO scanners are stale (last commit differs from current `ef77183`). Two met
 2. Trigger a fresh SEO scan to clear the failing findings.
 3. (Optional) generate og:image + favicon if you approve.
 
-Approve to proceed with #1 and #2. Say the word if you also want #3.
+Approve to proceed with #1 and #2. Say the word if you also want #3.   
+#3 is also approved
