@@ -49,7 +49,7 @@ const proofCards = [
     alt: "Bookmark manager showing the All bookmarks collection with a count of 3K",
     fit: "contain",
     tileBg: "#232325",
-    imgHeight: "h-64",
+    imgHeight: "h-200",
   },
 ];
 
@@ -78,10 +78,14 @@ export function ProofSection() {
                 I've spent the last 3+ years obsessing over building better workflows for creating content.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
-                I make YouTube videos independently, which means I handle the entire process myself: ideation → packaging → research → scripting → recording → editing → publishing. There is nobody else organizing the project, finding the assets, setting up the files, or figuring out the software.
+                I make YouTube videos independently, which means I handle the entire process myself: ideation →
+                packaging → research → scripting → recording → editing → publishing. There is nobody else organizing the
+                project, finding the assets, setting up the files, or figuring out the software.
               </p>
               <p className="mt-4 text-base leading-relaxed opacity-90">
-                Over the years, I've tested and replaced dozens of apps, built workflows from scratch, and spent thousands of hours working on a computer. <strong className="font-bold">What you're buying is judgment and integration, not more options.</strong>
+                Over the years, I've tested and replaced dozens of apps, built workflows from scratch, and spent
+                thousands of hours working on a computer.{" "}
+                <strong className="font-bold">What you're buying is judgment and integration, not more options.</strong>
               </p>
               <div className="mt-8 border-t border-primary-foreground/25 pt-8">
                 <div className="grid grid-cols-2 gap-x-6 gap-y-7">
@@ -138,7 +142,6 @@ export function ProofSection() {
         <p className="mt-10 text-center text-sm font-medium uppercase tracking-[0.18em] text-muted-foreground">
           Built through thousands of hours of actual creative work. Not productivity theory.
         </p>
-
       </Reveal>
     </Section>
   );
