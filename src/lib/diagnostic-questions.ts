@@ -211,12 +211,6 @@ export const questions: Question[] = [
     showIf: mainProblemIs("Staying focused"),
   },
   {
-    id: "wish",
-    section: "time",
-    title: "Finish this sentence: \"I wish my digital workflow could...\"",
-    type: "longtext",
-  },
-  {
     id: "find_ease",
     section: "files",
     title: "How easy is it to find something you've previously saved or created?",
@@ -319,14 +313,6 @@ export const questions: Question[] = [
     options: ["Almost never", "Occasionally", "Pretty often", "Constantly"],
   },
   {
-    id: "apps_to_learn",
-    section: "tools",
-    title: "Which apps do you wish you knew better?",
-    help: "Optional.",
-    type: "text",
-    optional: true,
-  },
-  {
     id: "repetitive_handling",
     section: "tools",
     title: "How do you currently handle repetitive tasks?",
@@ -358,13 +344,6 @@ export const questions: Question[] = [
       "I mostly keep things in my head",
       "Other",
     ],
-  },
-  {
-    id: "next_action_freq",
-    section: "workflow",
-    title: "How often do you have to stop and figure out \"what should I do next?\"",
-    type: "single",
-    options: ["Almost never", "Occasionally", "A few times a day", "Very often", "Constantly"],
   },
   {
     id: "lose_place_freq",

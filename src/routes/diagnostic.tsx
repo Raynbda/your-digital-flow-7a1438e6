@@ -140,7 +140,7 @@ const SAMPLE_ANSWERS: Answers = {
   main_problem: "Doing things manually / too slowly",
   cond_manual:
     "Exporting videos with the same settings every time, renaming files by hand, copying tags between uploads.",
-  wish: "Feel like everything I make has a permanent home and a faster path to get there.",
+  
   find_ease: "I regularly spend several minutes looking",
   files_org: "I have a structure, but it has become messy",
   notes_system: "I use several different systems",
@@ -149,10 +149,10 @@ const SAMPLE_ANSWERS: Answers = {
   project_start: "I have a rough process but still figure things out each time",
   project_end: "Some things get reused, while others disappear into folders",
   app_discovery: "Pretty often",
-  apps_to_learn: "Notion, DaVinci Resolve, Obsidian",
+  
   repetitive_handling: "I know I should create systems, but haven't",
   task_tools: ["Task manager", "Notes app", "Notion", "Calendar"],
-  next_action_freq: "A few times a day",
+  
   lose_place_freq: "Every day",
   one_thing: "Stop losing time recreating things I've already made.",
   better_outcomes: [

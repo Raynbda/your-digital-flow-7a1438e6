@@ -1,6 +1,6 @@
 import type { DiagnosisKey } from "./diagnostic-scoring";
 
-export const CONTACT_EMAIL = "rayentechyt@gmail.com";
+export const CONTACT_EMAIL = "rayen@the-control-panel.com";
 export const PAYMENT_LINK =
   "https://link.payoneer.com/Token?t=2DC993AF112A411EB9EF0E95051EBA3F&src=dpl";
 
