@@ -149,10 +149,10 @@ const SAMPLE_ANSWERS: Answers = {
   project_start: "I have a rough process but still figure things out each time",
   project_end: "Some things get reused, while others disappear into folders",
   app_discovery: "Pretty often",
-  apps_to_learn: "Notion, DaVinci Resolve, Obsidian",
+  
   repetitive_handling: "I know I should create systems, but haven't",
   task_tools: ["Task manager", "Notes app", "Notion", "Calendar"],
-  next_action_freq: "A few times a day",
+  
   lose_place_freq: "Every day",
   one_thing: "Stop losing time recreating things I've already made.",
   better_outcomes: [
