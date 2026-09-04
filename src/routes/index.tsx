@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { LandingPage } from "@/components/landing/LandingPage";
+import { faqs } from "@/components/landing/FAQSection";
 
 const title = "Creative Workflow Transformation: Rebuild Your Creator Workflow in 14 Days";
 const description =
