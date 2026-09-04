@@ -36,9 +36,7 @@ export default defineTool({
     const summary = {
       ...stats,
       byDiagnosis: Object.fromEntries(
-        Object.entries((stats as { byDiagnosis?: Record<string, number> }).byDiagnosis ?? {}).map(
-          ([key, value]) => [diagnosisLabel(key) || key, value],
-        ),
+        stats.byDiagnosis.map(([key, value]) => [diagnosisLabel(key) || key, value]),
       ),
       window_days: days && days > 0 ? days : null,
     };
