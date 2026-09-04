@@ -81,7 +81,11 @@ export function groupAnswers(rawAnswers: unknown): AnswerSection[] {
     consumed.add(q.id);
     consumed.add(`${q.id}${OTHER_SUFFIX}`);
     const value = formatValue(raw);
+    // Conditional questions are only shown when their branch matched, so an
+    // unmatched branch was never asked — don't list it as "skipped".
+    if (!value && !otherRaw && q.showIf && !q.showIf(answers)) continue;
     if (!value && !otherRaw) {
+
       byKey.get(q.section)?.items.push({
         id: q.id,
         question: q.title,
