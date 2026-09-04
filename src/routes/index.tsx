@@ -20,6 +20,20 @@ export const Route = createFileRoute("/")({
       { name: "twitter:image", content: "https://creator-os.the-control-panel.com/og-image.jpg" },
     ],
     links: [{ rel: "canonical", href: "https://creator-os.the-control-panel.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((item) => ({
+            "@type": "Question",
+            name: item.q,
+            acceptedAnswer: { "@type": "Answer", text: item.a },
+          })),
+        }),
+      },
+    ],
   }),
   component: LandingPage,
 });
