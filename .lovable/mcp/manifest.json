@@ -1,0 +1,132 @@
+{
+  "version": 1,
+  "sdk_version": "2.0.1",
+  "path": "/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://suhznzbhqtyxoljgtths.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "creator-os",
+      "version": "0.1.0",
+      "title": "Creator OS"
+    },
+    "tools": [
+      {
+        "name": "list_submissions",
+        "title": "List diagnostic submissions",
+        "description": "List recent Workflow Diagnostic submissions (name, email, diagnosis, readiness, interest, date). Admin accounts only.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "How many submissions to return (default 25, max 200).",
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            },
+            "search": {
+              "description": "Optional case-insensitive match on name or email.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "submissions": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "count",
+            "submissions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "get_submission",
+        "title": "Get one submission",
+        "description": "Return the full detail of one Workflow Diagnostic submission: every answer grouped by section, category scores, diagnosis summary, and the tools the creator uses. Admin accounts only.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "The submission id returned by list_submissions."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "submission": {}
+          },
+          "required": [
+            "submission"
+          ],
+          "additionalProperties": false
+        }
+      },
+      {
+        "name": "submission_stats",
+        "title": "Submission stats",
+        "description": "Summary of Workflow Diagnostic submissions: totals, submissions in the last 7 days, newsletter opt-ins, and the diagnosis breakdown. Admin accounts only.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "days": {
+              "description": "Only count submissions from the last N days (default: all time).",
+              "type": "integer",
+              "minimum": -9007199254740991,
+              "maximum": 9007199254740991
+            }
+          }
+        },
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "stats": {}
+          },
+          "required": [
+            "stats"
+          ],
+          "additionalProperties": false
+        }
+      }
+    ]
+  }
+}
