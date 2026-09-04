@@ -11,6 +11,7 @@ export default defineTool({
   inputSchema: {
     days: z.number().int().optional().describe("Only count submissions from the last N days (default: all time)."),
   },
+  outputSchema: { stats: z.any() },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ days }, ctx) => {
     if (!ctx.isAuthenticated()) {

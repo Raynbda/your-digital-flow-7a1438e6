@@ -41,7 +41,24 @@
             }
           }
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "number"
+            },
+            "submissions": {
+              "type": "array",
+              "items": {}
+            }
+          },
+          "required": [
+            "count",
+            "submissions"
+          ],
+          "additionalProperties": false
+        }
       },
       {
         "name": "get_submission",
@@ -65,7 +82,17 @@
             "id"
           ]
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "submission": {}
+          },
+          "required": [
+            "submission"
+          ],
+          "additionalProperties": false
+        }
       },
       {
         "name": "submission_stats",
@@ -88,7 +115,17 @@
             }
           }
         },
-        "outputSchema": null
+        "outputSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "stats": {}
+          },
+          "required": [
+            "stats"
+          ],
+          "additionalProperties": false
+        }
       }
     ]
   }

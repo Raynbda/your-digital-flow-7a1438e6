@@ -11,6 +11,7 @@ export default defineTool({
   inputSchema: {
     id: z.string().describe("The submission id returned by list_submissions."),
   },
+  outputSchema: { submission: z.any() },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ id }, ctx) => {
     if (!ctx.isAuthenticated()) {

@@ -12,6 +12,7 @@ export default defineTool({
     limit: z.number().int().optional().describe("How many submissions to return (default 25, max 200)."),
     search: z.string().optional().describe("Optional case-insensitive match on name or email."),
   },
+  outputSchema: { count: z.number(), submissions: z.array(z.any()) },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ limit, search }, ctx) => {
     if (!ctx.isAuthenticated()) {
