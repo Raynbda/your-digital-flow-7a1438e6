@@ -7,6 +7,9 @@ const title = "Admin Sign In - Creator OS";
 const description = "Sign in to review Workflow Diagnostic submissions.";
 
 export const Route = createFileRoute("/auth")({
+  validateSearch: (s: Record<string, unknown>) => ({
+    next: typeof s['next'] === "string" && s['next'].startsWith("/") ? s['next'] : undefined,
+  }),
   // Client-only: the sign-in form depends on the browser Supabase session,
   // so SSR-ing it produced a hydration mismatch.
   ssr: false,
@@ -28,6 +31,8 @@ export const Route = createFileRoute("/auth")({
 
 function AuthPage() {
   const navigate = useNavigate();
+  const { next } = Route.useSearch();
+  const afterSignIn = next ?? "/admin";
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -44,12 +49,12 @@ function AuthPage() {
       if (mode === "signin") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        navigate({ to: "/admin", replace: true });
+        navigate({ href: afterSignIn, replace: true });
       } else {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: `${window.location.origin}/admin` },
+          options: { emailRedirectTo: `${window.location.origin}${afterSignIn}` },
         });
         if (error) throw error;
         setNotice("Check your inbox to confirm your email, then sign in.");
