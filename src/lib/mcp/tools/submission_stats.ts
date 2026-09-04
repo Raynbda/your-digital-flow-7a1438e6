@@ -1,6 +1,6 @@
 import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
-import { supabaseForUser } from "../supabase";
+import { adminClient } from "../supabase";
 import { diagnosisLabel, summarize, type SubmissionRow } from "@/lib/admin-view";
 
 export default defineTool({
@@ -14,10 +14,18 @@ export default defineTool({
   outputSchema: { stats: z.any() },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ days }, ctx) => {
-    if (!ctx.isAuthenticated()) {
-      return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    const supabase = await adminClient(ctx);
+    if (!supabase) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: "Access denied: this MCP server is restricted to the site owner's admin account.",
+          },
+        ],
+        isError: true,
+      };
     }
-    const supabase = supabaseForUser(ctx);
     let query = supabase
       .from("diagnostic_submissions")
       .select(

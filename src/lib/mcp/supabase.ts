@@ -59,3 +59,22 @@ export function supabaseForUser(ctx: ToolContext) {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
+
+/**
+ * Hard gate: the caller must be a signed-in user holding the `admin` role.
+ * Returns a client scoped to that user, or null when the caller is not an admin.
+ */
+export async function adminClient(ctx: ToolContext) {
+  if (!ctx.isAuthenticated()) return null;
+  const userId = ctx.getUserId();
+  if (!userId) return null;
+  const supabase = supabaseForUser(ctx);
+  const { data, error } = await supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", userId)
+    .eq("role", "admin")
+    .maybeSingle();
+  if (error || !data) return null;
+  return supabase;
+}
