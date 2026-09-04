@@ -6,7 +6,7 @@ import {
 } from "@/components/ui/accordion";
 import { Section, SectionHead } from "./primitives";
 
-const faqs = [
+export const faqs = [
   {
     q: "How does the screen recording review work?",
     a: "You record yourself completing a real project from start to finish using OBS, Loom, or another screen recorder. Include the normal friction, such as searching for files, switching apps, getting distracted, or repeating tasks. You can hide or skip anything private. I review the recording to identify exactly where time and attention are being lost.",
