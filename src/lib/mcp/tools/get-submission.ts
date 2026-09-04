@@ -43,7 +43,12 @@ export default defineTool({
       tools: toolsList(data.answers),
       sections: groupAnswers(data.answers).map((section) => ({
         section: section.label,
-        answers: section.items.map((item) => ({ question: item.question, answer: item.answer })),
+        answers: section.items.map((item) => ({
+          question: item.question,
+          answer: item.answered
+            ? [item.value, item.other].filter(Boolean).join(" — ")
+            : "Not answered / skipped",
+        })),
       })),
     };
 
