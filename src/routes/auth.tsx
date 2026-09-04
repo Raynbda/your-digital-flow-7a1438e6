@@ -7,7 +7,9 @@ const title = "Admin Sign In - Creator OS";
 const description = "Sign in to review Workflow Diagnostic submissions.";
 
 export const Route = createFileRoute("/auth")({
-  validateSearch: (s: Record<string, unknown>) => ({
+  validateSearch: (
+    s: Record<string, unknown>,
+  ): { next?: string | undefined } => ({
     next: typeof s['next'] === "string" && s['next'].startsWith("/") ? s['next'] : undefined,
   }),
   // Client-only: the sign-in form depends on the browser Supabase session,
