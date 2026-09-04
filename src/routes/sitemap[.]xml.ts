@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
-const BASE_URL = "https://digital-work-os.lovable.app";
+const BASE_URL = "https://creator-os.the-control-panel.com";
 
 interface SitemapEntry {
   path: string;
