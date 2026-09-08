@@ -19,6 +19,10 @@ interface NewSubmissionEmailProps {
   email?: string
   primary?: string
   secondary?: string | null
+  headline?: string
+  summary?: string
+  scoreLines?: string[]
+  answerLines?: string[]
   seriousness?: string | null
   interest?: string | null
   newsletterOptIn?: boolean
@@ -30,6 +34,10 @@ const Email = ({
   email,
   primary,
   secondary,
+  headline,
+  summary,
+  scoreLines = [],
+  answerLines = [],
   seriousness,
   interest,
   newsletterOptIn,
@@ -49,6 +57,36 @@ const Email = ({
           <strong>Diagnosis:</strong> {primary || '—'}
           {secondary ? ` + ${secondary}` : ''}
         </Text>
+        <Hr style={hr} />
+        <Heading style={h2}>The result they saw</Heading>
+        {headline ? <Text style={strongText}>{headline}</Text> : null}
+        {summary ? <Text style={text}>{summary}</Text> : null}
+        {scoreLines.length ? (
+          <Text style={text}>
+            <strong>Score breakdown:</strong>
+            <br />
+            {scoreLines.map((line) => (
+              <React.Fragment key={line}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </Text>
+        ) : null}
+        {answerLines.length ? (
+          <>
+            <Hr style={hr} />
+            <Heading style={h2}>Their answers</Heading>
+            <Text style={text}>
+              {answerLines.map((line) => (
+                <React.Fragment key={line}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
+            </Text>
+          </>
+        ) : null}
         <Hr style={hr} />
         <Text style={text}>
           <strong>How serious:</strong> {seriousness || '—'}
@@ -102,4 +140,16 @@ const button = {
   borderRadius: '8px',
   padding: '12px 20px',
   textDecoration: 'none',
+}
+const h2 = {
+  fontSize: '16px',
+  fontWeight: 'bold' as const,
+  color: '#000000',
+  margin: '0 0 10px',
+}
+const strongText = {
+  fontSize: '15px',
+  fontWeight: 'bold' as const,
+  color: '#111827',
+  margin: '0 0 10px',
 }

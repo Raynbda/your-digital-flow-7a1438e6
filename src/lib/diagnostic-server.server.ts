@@ -37,12 +37,38 @@ export async function insertSubmission(data: SubmissionInput) {
   // Notify the owner. Never let a mail failure break the submission.
   try {
     const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    const { diagnoses } = await import("@/lib/diagnosis-content");
+    const { questions } = await import("@/lib/diagnostic-questions");
+
+    const label = (key: string) =>
+      (diagnoses as Record<string, { label: string } | undefined>)[key]?.label ?? key;
+    const primaryContent = (
+      diagnoses as Record<string, { headline: string; summary: string } | undefined>
+    )[data.primary];
+
+    const scoreLines = Object.entries(data.scores)
+      .sort((a, b) => b[1] - a[1])
+      .map(([key, value]) => `${label(key)}: ${value}`);
+
+    const answerLines = questions
+      .filter((q) => data.answers[q.id] !== undefined)
+      .map((q) => {
+        const value = data.answers[q.id];
+        const text = Array.isArray(value) ? value.join(", ") : String(value ?? "");
+        return `${q.title} — ${text || "—"}`;
+      })
+      .filter((line) => !line.endsWith("— —"));
+
     await sendTemplateEmail("new-submission", "rayen@the-control-panel.com", {
       templateData: {
         firstName: data.first_name,
         email: data.email,
-        primary: data.primary,
-        secondary: data.secondary,
+        primary: label(data.primary),
+        secondary: data.secondary ? label(data.secondary) : null,
+        headline: primaryContent?.headline ?? null,
+        summary: primaryContent?.summary ?? null,
+        scoreLines,
+        answerLines,
         seriousness: data.seriousness ?? null,
         interest: data.interest ?? null,
         newsletterOptIn: data.newsletter_opt_in,
