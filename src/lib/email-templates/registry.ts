@@ -1,4 +1,5 @@
 import type { ComponentType } from 'react'
+import { template as newSubmissionTemplate } from './new-submission'
 
 export interface TemplateEntry {
   component: ComponentType<any>
