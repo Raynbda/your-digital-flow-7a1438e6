@@ -31,7 +31,28 @@ export async function insertSubmission(data: SubmissionInput) {
     seriousness: data.seriousness ?? null,
     interest: data.interest ?? null,
     newsletter_opt_in: data.newsletter_opt_in,
-  });
+  }).select("id").maybeSingle();
   if (error) throw new Error("Could not save your diagnostic. Please try again.");
+
+  // Notify the owner. Never let a mail failure break the submission.
+  try {
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
+    await sendTemplateEmail("new-submission", "rayen@the-control-panel.com", {
+      templateData: {
+        firstName: data.first_name,
+        email: data.email,
+        primary: data.primary,
+        secondary: data.secondary,
+        seriousness: data.seriousness ?? null,
+        interest: data.interest ?? null,
+        newsletterOptIn: data.newsletter_opt_in,
+      },
+      replyTo: data.email,
+      idempotencyKey: `new-submission-${inserted?.id ?? data.email}`,
+    });
+  } catch (mailError) {
+    console.error("submission notification failed", mailError);
+  }
+
   return { ok: true as const };
 }
