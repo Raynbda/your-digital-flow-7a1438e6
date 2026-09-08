@@ -21,7 +21,7 @@ function publicClient() {
 
 export async function insertSubmission(data: SubmissionInput) {
   const supabase = publicClient();
-  const { error } = await supabase.from("diagnostic_submissions").insert({
+  const { data: inserted, error } = await supabase.from("diagnostic_submissions").insert({
     first_name: data.first_name,
     email: data.email,
     answers: data.answers,
