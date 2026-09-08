@@ -31,7 +31,7 @@ export async function insertSubmission(data: SubmissionInput) {
     seriousness: data.seriousness ?? null,
     interest: data.interest ?? null,
     newsletter_opt_in: data.newsletter_opt_in,
-  }).select("id").maybeSingle();
+  });
   if (error) throw new Error("Could not save your diagnostic. Please try again.");
 
   // Notify the owner. Never let a mail failure break the submission.
@@ -48,7 +48,7 @@ export async function insertSubmission(data: SubmissionInput) {
         newsletterOptIn: data.newsletter_opt_in,
       },
       replyTo: data.email,
-      idempotencyKey: `new-submission-${inserted?.id ?? data.email}`,
+      idempotencyKey: `new-submission-${data.email}-${new Date().toISOString().slice(0, 16)}`,
     });
   } catch (mailError) {
     console.error("submission notification failed", mailError);
