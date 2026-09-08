@@ -141,3 +141,15 @@ const button = {
   padding: '12px 20px',
   textDecoration: 'none',
 }
+const h2 = {
+  fontSize: '16px',
+  fontWeight: 'bold' as const,
+  color: '#000000',
+  margin: '0 0 10px',
+}
+const strongText = {
+  fontSize: '15px',
+  fontWeight: 'bold' as const,
+  color: '#111827',
+  margin: '0 0 10px',
+}
